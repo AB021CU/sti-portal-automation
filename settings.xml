@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <server>
+            <username>svc-iotf</username>
+            <password>APRAiriBMsM6JXcvVdi56nSLxR</password>
+            <id>artifactory</id>
+        </server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <mirrorOf>*</mirrorOf>
+            <name>iotf-maven</name>
+            <url>https://artifacts.bcp.absa.co.za/artifactory/iotf-platforms-maven</url>
+            <id>artifactory</id>
+        </mirror>
+    </mirrors>
+    <profiles>
+        <profile>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <id>artifactory</id>
+                    <name>iotf-maven</name>
+                    <url>https://artifacts.bcp.absa.co.za/artifactory/iotf-platforms-maven</url>
+                </repository>
+                <repository>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <id>artifactory-iotf</id>
+                    <name>iotf-maven</name>
+                    <url>https://artifacts.bcp.absa.co.za/artifactory/iotf-maven</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <id>artifactory</id>
+                    <name>iotf-maven</name>
+                    <url>https://artifacts.bcp.absa.co.za/artifactory/iotf-maven</url>
+                </pluginRepository>
+            </pluginRepositories>
+            <id>artifactory</id>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>artifactory</activeProfile>
+    </activeProfiles>
+</settings>
+
+
+
+
+
+
+
+
+
