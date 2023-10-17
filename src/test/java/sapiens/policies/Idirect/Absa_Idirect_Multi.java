@@ -36,6 +36,7 @@ public class Absa_Idirect_Multi extends WebDr {
     String paymentTerms = getValue("Payment_Terms");
     String preferredDueDay = getValue("Preferred_DueDay");
     String decision = getValue("Decision");
+    String reason= getValue("Reason");
     String policyBankAccount = getValue("Policy_BankAccount");
     String buildingUsedFor = getValue("Building_UsedFor");
     String typeOfBuilding = getValue("Type_Of_Building");
@@ -255,6 +256,8 @@ public class Absa_Idirect_Multi extends WebDr {
                 selectValueFromDropdown("drpDwnPreferredDueDay", "text", preferredDueDay, "Select Preferred Due Day");
                 //Decision
                 selectValueFromDropdown("drpDwnDecision", "text", decision, "Select Decision");
+                //Reason
+                selectValueFromDropdown("drpDwnReason","text",reason,"Select Reason from the dropDwnn");
                 //Screening progress
                 if (exists("",true,"")) {
                 click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
@@ -406,13 +409,13 @@ public class Absa_Idirect_Multi extends WebDr {
                 selectValueFromDropdown("drpBoatFlat","text","1000","The Boat Flat value was selected");
                 selectValueFromDropdown("drpDwnBoatSpeed", "text", boatSpeed, "Select Boat Speed");
                 setText("txtBoxOutboardSumInsured", inboardSumInsured, "Enter OutBoard Sum Insured");
-                if (exists("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
+                if (existsNoReport("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
                     setText("txtBoxHullSumInsured", insuranceAmount, "Enter Hull Sum Insured");
                 }
-                if (exists("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
+                if (existsNoReport("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
                     setText("txtBoxInboardSumInsured", inboardSumInsured, "Enter InBoard Sum Insured");
                 }
-                if (exists("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
+                if (existsNoReport("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
                     setText("txtBoxOutboardSumInsured", inboardSumInsured, "Enter OutBoard Sum Insured");
                 }
 
@@ -1089,10 +1092,10 @@ public class Absa_Idirect_Multi extends WebDr {
                     }
                     Thread.sleep(1000);
                     selectValueFromDropdown("drpDwnExternalDoorMainDwelling", "text", externalDoorMainDwelling, "Select Burglar Bars Outbuilding1");
-                    if (exists("drpDwnBurglarBarsOutbuilding", true, "The value should be present")) {
+                    if (existsNoReport("drpDwnBurglarBarsOutbuilding", true, "The value should be present")) {
                         selectValueFromDropdown("drpDwnBurglarBarsOutbuilding", "text", burglarBarsOutbuilding, "Select Burglar Bars Outbuilding2");
                     }
-                    if (exists("drpDwnExternalDoorOutbuilding", true, "The value should be present")) {
+                    if (existsNoReport("drpDwnExternalDoorOutbuilding", true, "The value should be present")) {
                         selectValueFromDropdown("drpDwnExternalDoorOutbuilding", "text", externalDoorOutbuilding, "Select External Door Outbuilding");
                     }
 

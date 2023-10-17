@@ -3,6 +3,7 @@ package testCases;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.slf4j.Logger;
+import sapiens.claims.IdirectClaims;
 import sapiens.contact.Contact;
 import sapiens.login.Login;
 import sapiens.policies.Idirect.Absa_Idirect;
@@ -26,7 +27,10 @@ public class testFlow extends WebDr {
     public void executeTC(String flowName,String preferBrowser) throws Exception
     {
         try {
+            System.err.print(flowName);
             switch (flowName) {
+
+
                 case "flow_NewContactCreation":
                     logger.info("The current scenario is: " + flowName);
                     sapiens_NewContactCreation(preferBrowser);
@@ -47,6 +51,12 @@ public class testFlow extends WebDr {
                     logger.info("The current scenario is: "+ flowName);
                     absa_Idirect_Endorsement(preferBrowser);
                     System.err.println("The General Endorsement has Finished");
+                    break;
+
+                case "flow_PersonalLines_IdirectClaimsCreation":
+                    logger.info("The current scenario is: " + flowName);
+                    personalLines_IdirectClaimsCreation(preferBrowser);
+                    break;
 
             }
         } catch (Exception e) {
@@ -104,12 +114,14 @@ public class testFlow extends WebDr {
             new Absa_Idirect_Multi(wdriver, test).generalDetails();
             new Absa_Idirect_Multi(wdriver, test).multiCovers();
             String policyNumber = new Absa_Idirect_Multi(wdriver, test).paymentsDetails();
-            new Searches(wdriver, test).searchPolicy(policyNumber);
+            new Login(wdriver, test).applicationLogOut();
+            new Searches(wdriver, test).searchPolicy1();
+            //new Login(wdriver, test).applicationLogOut();
 //            new Claims(wdriver, test).claimThroughPolicy(policyNumber);
-//            new Login(wdriver, test).applicationLogOut();
+//
 
         } catch (Exception e) {
-            logger.info("Exception in sapiens_Absa Idirect Flow is : " + e);
+            logger.info("Exception in sapiens_Absa Idirect Flow in Multiple Covers : " + e);
         }
     }
     /*
@@ -126,12 +138,13 @@ public class testFlow extends WebDr {
             new Absa_Idirect(wdriver, test).generalDetails();
             new Absa_Idirect(wdriver, test).linesOfBusiness();
             String policyNumber = new Absa_Idirect(wdriver, test).paymentsDetails();
-            new Searches(wdriver, test).searchPolicy(policyNumber);
+            new Searches(wdriver, test).searchPolicy1();
+            new Login(wdriver, test).applicationLogOut();
 //            new Claims(wdriver, test).claimThroughPolicy(policyNumber);
 //            new Login(wdriver, test).applicationLogOut();
 
         }catch (Exception e){
-            logger.info("Exception in sapiens_Absa Idirect Flow is : "+e);
+            logger.info("Exception in sapiens_Absa Idirect Flow in MultiVerse : "+e);
         }
 
     }
@@ -144,14 +157,38 @@ public class testFlow extends WebDr {
             new Endorse(wdriver,test).searchPolicy();
             new Endorse(wdriver,test).generalEndorsement();
             new Endorse(wdriver,test).endorse();
+            String policyNumber = new Endorse(wdriver, test).paymentsDetails();
+            new Login(wdriver, test).applicationLogOut();
 
 //            new Claims(wdriver, test).claimThroughPolicy(policyNumber);
 //            new Login(wdriver, test).applicationLogOut();
 
         }catch (Exception e){
-            logger.info("Exception in sapiens_Absa Idirect Flow is : "+e);
+            logger.info("Exception in sapiens_Absa Idirect Flow in Endorsement : "+e);
         }
 
+    }
+
+    public void personalLines_IdirectClaimsCreation(String preferBrowser) {
+        try {
+            setup(preferBrowser);
+            new Login(wdriver, test).applicationLogin();
+            //  new PersonalLines(wdriver, test).selectRecentContact();
+            //   new PersonalLines(wdriver, test).generalDetails();
+            //   new PersonalLines(wdriver, test).linesOfBusiness();
+            //   String policyNumber = new PersonalLines(wdriver, test).paymentsDetails();
+            new Searches(wdriver, test).searchPolicy1();
+            String claimNumber = new IdirectClaims(wdriver, test).idirectclaimThroughPolicy();
+            new Login(wdriver, test).applicationLogOut();
+            setup(preferBrowser);
+            new Login(wdriver, test).applicationLogin2();
+            new Searches(wdriver, test).searchLossEvent(claimNumber);
+            new IdirectClaims(wdriver, test).idirectClaimsClosure();
+            new Login(wdriver, test).applicationLogOut();
+
+        }catch (Exception e){
+            logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);
+        }
     }
 
     

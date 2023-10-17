@@ -4,10 +4,8 @@ import org.apache.poi.common.usermodel.Hyperlink;
 import org.apache.poi.xssf.usermodel.*;
 import testCases.Driver;
 
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
+import java.io.*;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -310,6 +308,7 @@ public class ExcelUtils {
 
     public void writeExcel(String regNo,String testdata){
         String filePath="data.txt";
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
 
            writer.newLine();  // Start on a new line

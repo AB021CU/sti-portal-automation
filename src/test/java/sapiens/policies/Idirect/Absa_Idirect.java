@@ -722,7 +722,7 @@ public class Absa_Idirect extends WebDr {
                         click("elmntLogOff", "Click LogOff Element");
                         if (exists("dialogLogOff", true, "Confirm Logoff Dialog Box")) {
                             click("btnOKUw", "Click OK Button");
-                            Thread.sleep(5000);
+                            Thread.sleep(4000);
                             if (exists("linkChangePassword", true, "Login Page")) {
                                 logger.info("User LogOut Successful");
                                 wdriver.quit();
@@ -1425,7 +1425,7 @@ public class Absa_Idirect extends WebDr {
                         click("elmntLogOff", "Click LogOff Element");
                         if (exists("dialogLogOff", true, "Confirm Logoff Dialog Box")) {
                             click("btnOKUw", "Click OK Button");
-                            Thread.sleep(5000);
+                            Thread.sleep(4000);
                             if (exists("linkChangePassword", true, "Login Page")) {
                                 logger.info("User LogOut Successful");
                                 wdriver.quit();

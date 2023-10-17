@@ -142,11 +142,13 @@ public class Endorse_POM {
         Endorse_POM.put("drpDwnUWValidation", "XPATH|(//select[@class='idit-combobox nextStatusSelectClass select2-offscreen'])[1]");//UW 1 selection
         Endorse_POM.put("drpDwnUWValidation2", "XPATH|(//select[@class='idit-combobox nextStatusSelectClass select2-offscreen'])[2]");//UW 2 selection
         Endorse_POM.put("drpDwnUWValidation3", "XPATH|(//select[@class='idit-combobox nextStatusSelectClass select2-offscreen'])[3]");//UW 2 selection
+        Endorse_POM.put("drpDwnUWValidation4", "XPATH|(//select[@class='idit-combobox nextStatusSelectClass select2-offscreen'])[4]");//UW 2 selection
         Endorse_POM.put("labelUWContains", "XPATH|//div[contains(text(),'Underwriting Alerts')]");//Under writing Heading
         Endorse_POM.put("btnUWNext", "XPATH|//button[@id='Next']");//Under writing Next Button
         Endorse_POM.put("labelUWNumberOfDropdown1", "XPATH|(//div[@class='select2-container idit-combobox nextStatusSelectClass'])[1]");//Under writing Heading
         Endorse_POM.put("labelUWNumberOfDropdown2", "XPATH|(//div[@class='select2-container idit-combobox nextStatusSelectClass'])[2]");//Under writing Heading
         Endorse_POM.put("labelUWNumberOfDropdown3", "XPATH|(//div[@class='select2-container idit-combobox nextStatusSelectClass'])[3]");//Under writing Heading
+        Endorse_POM.put("labelUWNumberOfDropdown4", "XPATH|(//div[@class='select2-container idit-combobox nextStatusSelectClass'])[4]");//Under writing Heading
         Endorse_POM.put("txtBoxUserName", "XPATH|//input[@id='UserName']");//TextBox of User Name
         Endorse_POM.put("txtBoxPassword", "XPATH|//input[@id='Password']");//TextBox of Password
         Endorse_POM.put("btnLogin", "XPATH|//button[@class='login-button idit-btn']");//Login Button
@@ -257,7 +259,7 @@ public class Endorse_POM {
         Endorse_POM.put("chkBoxWaiveBurglarBars", "XPATH|//label[normalize-space()='Waive Burglar Bars?']");
         Endorse_POM.put("chkBoxWaiveSecurityGates", "XPATH|//label[normalize-space()='waive security gates ?']");
         Endorse_POM.put("chkBoxInventoryRequired", "XPATH|//label[normalize-space()='Inventory required?']");
-        Endorse_POM.put("chkBoxBusinessContents", "XPATH|//label[normalize-space()='Business contents']");
+        Endorse_POM.put("chkBoxBusinessContents", "XPATH|//label[@id='businessContentsLabel']");
         Endorse_POM.put("txtBoxBusinessContentsFlatExcess", "XPATH|//input[@id='businessContentsFlatExcess']");
         Endorse_POM.put("txtBoxCompulsoryExcessContents", "XPATH|//input[@id='compulsoryExcessContents']");
         Endorse_POM.put("txtBoxContentHaveYouHadUnInterruptedBuildingInsuranceFor", "XPATH|//label[contains(text(),'Have you had uninterrupted household insurance for')]");
@@ -476,45 +478,182 @@ public class Endorse_POM {
         Endorse_POM.put("verifydrpDwnImmobiliserMake", "XPATH|//select[@id='immobiliserMake'][@value='-1']");//Immobiliser Make Dropdown
         //Endorse_POM.put("txtBoxInsuranceValue", "XPATH|//input[@id='insuranceValue']");//Insurance Value TextBox
         Endorse_POM.put("verifychBoxTrackingDevice","XPATH|//label[@id='doYouHaveTrackingdeviceLabel'][@title='false']");
-        Endorse_POM.put("txtBoxTrackingDeviceModel","XPATH|//input[@id='trackingDeviceModel']");
+
         Endorse_POM.put("verifydrpDwnTrackingDeviceMake","XPATH|//select[@id='trackingDeviceMake'][@value='-1'] ");
 
-        Endorse_POM.put("drpMotorcycleFlat","XPATH|//select[@id='motorcycleFlat'][@value='-1']");
-        Endorse_POM.put("drpFlat","XPATH|//select[@id='flatIdirect'][@value='-1']");
-        Endorse_POM.put("drpCaravanFlat","XPATH|//select[@id='caravanFlat'][@value='-1']");
-        Endorse_POM.put("drpBoatFlat","XPATH|//select[@id='boatFlat'][@value='-1']");
-        Endorse_POM.put("drpElectronicFlat","XPATH|//select[@id='assetCompFlat'][@value='-1']");
+        Endorse_POM.put("verifydrpMotorcycleFlat","XPATH|//select[@id='motorcycleFlat'][@value='-1']");
+        Endorse_POM.put("verifydrpFlat","XPATH|//select[@id='flatIdirect'][@value='-1']");
+        Endorse_POM.put("verifydrpCaravanFlat","XPATH|//select[@id='caravanFlat'][@value='-1']");
+        Endorse_POM.put("verifydrpBoatFlat","XPATH|//select[@id='boatFlat'][@value='-1']");
+        Endorse_POM.put("verifydrpElectronicFlat","XPATH|//select[@id='assetCompFlat'][@value='-1']");
 
         //Finance
-        Endorse_POM.put("chBoxFinance","XPATH|//label[@id='isVehicleFinancedLabel'][@title='false']");
-        Endorse_POM.put("drpDwnFinance","XPATH|//select[@id='financeCompanyName'][@value='-1']");
+        Endorse_POM.put("verifychBoxFinance","XPATH|//label[@id='isVehicleFinancedLabel'][@title='false']");
+        Endorse_POM.put("verifydrpDwnFinance","XPATH|//select[@id='financeCompanyName'][@value='-1']");
         //Registered Owner Details
-        Endorse_POM.put("drpDwnRegisteredOwner", "XPATH|//select[@id='IDITForm@regOwner@id'][@value='-1']");//Registered Owner Dropdown
+        Endorse_POM.put("verifydrpDwnRegisteredOwner", "XPATH|//select[@id='IDITForm@regOwner@id'][@value='-1']");//Registered Owner Dropdown
         //Driver Details
-        Endorse_POM.put("drpDwnRegularDriver", "XPATH|//select[@id='IDITForm@regDriverABSAVO@id'][@value='-1']");//Who is the regular driver? Dropdown
-        Endorse_POM.put("drpDwnDriverLicenseType", "XPATH|//select[@id='motorLicense'][@value='-1']");//Regular Driver License Type Dropdown
-        Endorse_POM.put("drpDwnDrivingCertificate", "XPATH|//select[@id='IDITForm@driveCert@id'][@value='-1']");//Defensive driving certificate Dropdown
+        Endorse_POM.put("verifydrpDwnRegularDriver", "XPATH|//select[@id='IDITForm@regDriverABSAVO@id'][@value='-1']");//Who is the regular driver? Dropdown
+        Endorse_POM.put("verifydrpDwnDriverLicenseType", "XPATH|//select[@id='motorLicense'][@value='-1']");//Regular Driver License Type Dropdown
+        Endorse_POM.put("verifydrpDwnDrivingCertificate", "XPATH|//select[@id='IDITForm@driveCert@id'][@value='-1']");//Defensive driving certificate Dropdown
         //Additional Details
-        Endorse_POM.put("chkBoxIsVehicleRegInSouthAfrica", "XPATH|//label[@id='IDITForm@isVehicleRegInSouthAfricaLabel']");//Is the vehicle registered in South Africa? Checkbox
+        Endorse_POM.put("verifychkBoxIsVehicleRegInSouthAfrica", "XPATH|//label[@id='IDITForm@isVehicleRegInSouthAfricaLabel'][@title='false']");//Is the vehicle registered in South Africa? Checkbox
 
         //Caravan/Trailer General Details
-        Endorse_POM.put("drpDwnItemType", "XPATH|//select[@id='itemType']");//Item Type Dropdown
-        Endorse_POM.put("chkBoxIsCarvanParkUnderNet", "XPATH|//label[@id='isCarvanParkUnderNetLabel']");//Is the caravan/trailer parked under a hail net or roof when not in use? Checkbox
-        Endorse_POM.put("txtBoxMakeModelCaravan", "XPATH|//input[@id='makeModelCaravan']");//Make/Model TextBox
-        Endorse_POM.put("txtBoxCaravanInsuredValue", "XPATH|//input[@id='caravanInsuredValue']");//Caravan Insured Value TextBox
-        Endorse_POM.put("drpDwnYearOfManufactureCaravan", "XPATH|//select[@id='yearOfManufactureCarvan']");//Caravan Year of Manufacture Dropdown
-        Endorse_POM.put("chkBoxRequireCreditShortFall", "XPATH|//label[@id='requireCreditShortFallLabel']");// Do you Require Credit shortfall? Checkbox
+        Endorse_POM.put("verifyDrpDwnItemType", "XPATH|//select[@id='itemType'][@value='-1']");//Item Type Dropdown
+        Endorse_POM.put("verifyChkBoxIsCarvanParkUnderNet", "XPATH|//label[@id='isCarvanParkUnderNetLabel'][@title='false']");//Is the caravan/trailer parked under a hail net or roof when not in use? Checkbox
+        Endorse_POM.put("verifyDrpDwnYearOfManufactureCaravan", "XPATH|//select[@id='yearOfManufactureCarvan'][@value='-1']");//Caravan Year of Manufacture Dropdown
+        Endorse_POM.put("verifyChkBoxRequireCreditShortFall", "XPATH|//label[@id='requireCreditShortFallLabel'][@title='false']");// Do you Require Credit shortfall? Checkbox
 
         Endorse_POM.put("","");
         Endorse_POM.put("","");
 
 
+        //*** ALL RISK  LOB  *****For verification of All Risk
+
+        Endorse_POM.put("verifyLabelAllRiskDetails", "XPATH|//div[@title='All Risk']");//All Risk Details Heading
+        Endorse_POM.put("verifyDrpDwnAddressList", "XPATH|//select[@id='addressList'][@value='-1']");//Address Dropdown
+        Endorse_POM.put("verifyDrpDwnRiskToInsure", "XPATH|//select[@id='allRiskType'][@value='-1']");//Which Risk do you want to Insure? Dropdown
+        Endorse_POM.put("verifyDrpDwnSpecifiedAllRiskCover", "XPATH|//select[@id='specAllRiskType'][@value='-1']");//Specified All Risk Cover Dropdown
 
         //
+        //***   Electronic Equipments for verification****
+
+        Endorse_POM.put("verifyDrpDwnAddress","XPATH|//select[@id='addressList'][@value='-1']");
+        Endorse_POM.put("verifyDrpDwnFlat","XPATH|//select[@id='assetCompFlat'][@value='-1']");
+        Endorse_POM.put("verifyDrpDwnType","XPATH|//select[@id='compTypeABSAVO'][@value='-1']");
+
+
+        //***   BOATS  LOB for VERIFICATION *****
+
+        //BoatDetails
+
+        Endorse_POM.put("verifyDrpDwnBoatType", "XPATH|//select[@id='IDITForm@boatTypeVO@id'][@value='-1']");//Item Type Dropdown
+        Endorse_POM.put("verifyDrpDwnBoatStoredWhenNotInUse", "XPATH|//select[@id='IDITForm@boatStoredABSAVO@id'][@value='-1']");//Where is the watercraft stored when not in use? Dropdown
+        Endorse_POM.put("verifyDrpDwnBoatUsedFor", "XPATH|//select[@id='IDITForm@boatStoredUseVO@id'][@value='-1']");//What will the watercraft be used for? Dropdown
+        Endorse_POM.put("verifyDrpDwnBoatYearOfManufacture", "XPATH|//select[@id='IDITForm@yearCarvanVO@id'][@value='-1']");//Year of Manufacture Dropdown
+        Endorse_POM.put("verifyDrpDwnBoatHullCode", "XPATH|//select[@id='IDITForm@hullCodeVO@id'][@value='-1']");//Hull Code Dropdown
+        Endorse_POM.put("verifyDrpDwnBoatSpeed", "XPATH|//select[@id='IDITForm@boatSpeedVO@id'][@value='-1']");//Watercraft speed (km/h) Dropdown
+        Endorse_POM.put("verifyDrpBoatFlat","XPATH|//select[@id='boatFlat'][@value='-1']");
+        Endorse_POM.put("verifyChkBoxTerritorialLetterProvided", "XPATH|//label[@id='territorialLetterProvidedLabel'][@title='false']");//Outboard Sum Insured TextBox
+        Endorse_POM.put("verifyDrpDwnTerritorialCountries", "XPATH|//select[@id='territorialCountries'][@value='-1']");//Outboard Sum Insured TextBox
+        Endorse_POM.put("verifyChkBoxIsTheWatercraftFinanced", "XPATH|//label[@id='isTheWatercraftFinancedLabel'][@title='false']");//Outboard Sum Insured TextBox
+        Endorse_POM.put("verifyDrpDwnFinanceCompany", "XPATH|//select[@id='finCompanyVO'][@value='-1']");//Outboard Sum Insured TextBox
+
+
+        //*** PROPERTY  LOB  for verification*****
+
+        //Property Address
+        Endorse_POM.put("verifyChkBoxRiskAddressSame", "XPATH|//label[@id='IDITForm@riskAddressSameAsContactLabel']");//Is the Risk Address Same as the Contact Physical Address? Checkbox
+        //Property General Details
+        Endorse_POM.put("verifyChkBoxBuilding", "XPATH|//label[@id='buildingLabel'][@title='true']");//Building Checkbox
+        Endorse_POM.put("verifyChkBoxContents", "XPATH|//label[@id='contentsLabel'][@title='true']");//Contents Checkbox
+        Endorse_POM.put("verifyDrpDwnBuildingUsedFor", "XPATH|//select[@id='buildingUseVO'][@value='-1']");//What will the building be used for? Dropdown
+        Endorse_POM.put("verifyDrpDwnTypeOfBuilding", "XPATH|//select[@id='buildingTypeVO'][@value='-1']");//What type of building is it? Dropdown
+        Endorse_POM.put("verifyDrpDwnTypeOfArea", "XPATH|//select[@id='areaABSAVO'][@value='-1']");//What type of area is the building located in? Dropdown
+        Endorse_POM.put("verifyChkBoxIsBuildingOccupied", "XPATH|//label[@id='isBuildingOccupiedLabel'][@title='false']");//Is the building occupied? Checkbox
+        Endorse_POM.put("verifyChkBoxIsPropOccupiedDuringDay", "XPATH|//label[normalize-space()='Is the property occupied during the day?'][@title='false']");
+        Endorse_POM.put("verifyDrpDwnWallConstruction", "XPATH|//select[@id='constructionTypeVO'][@value='-1']");//Wall construction Dropdown
+        Endorse_POM.put("verifyDrpDwnRoofConstruction", "XPATH|//select[@id='roofMaterialVO'][@value='-1']");//Roof construction Dropdown
+        Endorse_POM.put("verifyChkBoxDoes_the_property_border_aXn_residential_property", "XPATH|//label[contains(text(),'Does the property border a non residential propert')][@title='false']");
+        Endorse_POM.put("verifyDrpDwnSpecifyNonResidential", "XPATH|//select[@id='propertyTypeVO'][@value='-1']");
+        Endorse_POM.put("verifyChkBoxIsThereThatched", "XPATH|//label[contains(text(),'Is there a thatched Lapa within 3 meters of the ma')][@title='false']");//Is there a thatched lapa within 3 meters of main dwelling ?
+        Endorse_POM.put("verifyDrpDwnThatchedHutFloor", "XPATH|//select[@id='thatcLapaIDirectFloorArea'][@value='-1']"); // Thatched Lapa hut floor area
+        Endorse_POM.put("verifyChkBoxDoesSizeOfLapa", "XPATH|//label[contains(text(),'Does the Size of Lapa exceed 25% of total surface ')][@title='false']"); // Does the Size of Lapa exceed 25% of total surface area?
+        Endorse_POM.put("verifyChkDoesYouHaveASabsaApprovedLightingConductor", "XPATH|//label[normalize-space()='Do you have a SABS approved lightning conductor?'][@title='false']"); // Does the Size of Lapa exceed 25% of total surface area?
+        Endorse_POM.put("verifyChkWaive_Lightning_Conductor", "XPATH|//label[normalize-space()='Waive Lightning Conductor?'][@title='false']");
+        Endorse_POM.put("verifyChkIs_the_building_completed", "XPATH|//label[normalize-space()='Is the building completed'][@title='false']");
+        Endorse_POM.put("verifyChkHave_you_had_any_burglaries_at_the_property", "XPATH|//label[normalize-space()='Have you had any burglaries at the property?'][@title='false']");
+        Endorse_POM.put("verifyChkIs_the_property_in_a_high_security_complex", "XPATH|//label[normalize-space()='Is the property in a high security complex?'][@title='false']");
+        Endorse_POM.put("verifyChkAreThereHighWalls", "XPATH|//label[normalize-space()='Are there 1.8m high walls'][@title='false']");
+        Endorse_POM.put("verifyChkAreThereRazorWireAlongThePerimeterWall", "XPATH|//label[normalize-space()='Are there Razor wire along the perimeter wall'][@title='false']");
+        Endorse_POM.put("verifyChkIsThereAnElectronicGate", "XPATH|//label[normalize-space()='Is there an electronic gate?'][@title='false']");
+        Endorse_POM.put("verifyChkIsThere24hrsSecurityOrAccessControlOnGates", "XPATH|//label[normalize-space()='Is there 24hr security or access control on gates?'][@title='false']");
+        Endorse_POM.put("verifyChkIsThereElectricFencing", "XPATH|//label[normalize-space()='Is there electric fencing?'][@title='false']");
+        Endorse_POM.put("verifyChkIsThereA24HrsSecurityGuardPatrol", "XPATH|//label[normalize-space()='Is there a 24-hour security guard patrol?'][@title='false']");
+        Endorse_POM.put("verifyChkPropertySurveyRequired", "XPATH|//label[normalize-space()='Property Survey required?'][@title='false']");
+        Endorse_POM.put("verifyChkAreThereAnyGasAppliancesOrEquipment", "XPATH|//label[normalize-space()='Are there any Gas appliances or equipment?'][@title='false']");
+        Endorse_POM.put("verifyChkAreThereAnyGasPipeConnections", "XPATH|//label[normalize-space()='Are there any Gas Pipe Connections?'][@title='false']");
+        Endorse_POM.put("verifyChkIsThereAnyBusinessConductedOnTheProperty", "XPATH|//label[normalize-space()='Is there any business conducted on the property?'][@title='false']");
+        Endorse_POM.put("verifyChkTypeOfBusinessDescription", "XPATH|//textarea[@id='typeOfBusinessDescription'][@title='false']");
 
 
 
 
+        //Building Details for Verification
+        Endorse_POM.put("verifyDrpDwnBondApplicable", "XPATH|//select[@id='bondApplied'][@value='-1']");//Is or was there a bond applicable to this house? Dropdown
+        Endorse_POM.put("verifyDrpDwnFlatBuilding", "XPATH|//select[@id='flatBuildingIdirect'][@value='-1']");//Flat Building
+        Endorse_POM.put("verifyDrpDwnFlatContent","XPATH|//select[@id='flatContentsIDirect'][@value='-1']");//Flat Content
+        Endorse_POM.put("verifyDrpDwnRegisteredOwnerBuilding", "XPATH|//select[@id='regOwner'][@value='-1']");//Registered Owner Dropdown
+        Endorse_POM.put("verifyChkAreYouOffTheEskom/CityPowerGrid", "XPATH|//label[normalize-space()='Are you off the Eskom/City Power Grid'][@title='false']");
+        Endorse_POM.put("verifyChkDoYouHaveAGenerator", "XPATH|//label[normalize-space()='Do you have a generator'][@title='false']");
+        Endorse_POM.put("verifyChkIsGeneratorConnectedToPowerBackup", "XPATH|//label[normalize-space()='Is a generator connected to the Power Box?'][@title='false']");
+        Endorse_POM.put("verifyDrpDwnCoverType", "XPATH|//select[@id='coverageTypeAbSAVO'][@value='-1']");
+        Endorse_POM.put("verifyChBoxHaveYouHadUnInterruptedBuildingInsuranceFor", "XPATH|//label[contains(text(),'Have you had uninterrupted building insurance for ')][@title='false']");
+
+
+        //House Content Details for Verification
+        Endorse_POM.put("verifyDrpDwnAlarmInstalled", "XPATH|//select[@id='alarmInstalledVO'][@value='-1']");//Do you have an alarm installed? Dropdown
+        Endorse_POM.put("verifyChkBoxAlarmProfessionallyInstalled", "XPATH|//label[@id='alarmProfessionallyInstalledLabel'][@title='false']");//Was the alarm professionally installed? Checkbox
+        Endorse_POM.put("verifyChkBoxAlarmInfraRedDetectors", "XPATH|//label[@id='alarmInfraRedDetectorsLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxAlarmWorkingOrder", "XPATH|//label[@id='alarmWorkingOrderLabel'][@title='false']");//Is the alarm in working order? Checkbox
+        Endorse_POM.put("verifyDrpDwnBurglarBarsMainDwelling", "XPATH|//select[@id='burglarBarsVO'][@value='-1']");//Are there burglar bars installed to the main dwelling? Dropdown
+        Endorse_POM.put("verifyDrpDwnExternalDoorMainDwelling", "XPATH|//select[@id='externalDoorSecurityMainDwellingVO'][@value='-1']");//Are there external door security gates to the main dwelling? Dropdown
+        Endorse_POM.put("verifyDrpDwnBurglarBarsOutbuilding", "XPATH|//select[@id='IDITForm@burglarbarsOutbuildingCon'][@value='-1']");//Are there burglar bars installed to outbuilding ? Dropdown
+        Endorse_POM.put("verifyDrpDwnExternalDoorOutbuilding", "XPATH|//select[@id='IDITForm@externaldoorsecurOutbuilding'][@value='-1']");//Are there external door security gates to the outbuilding ? Dropdown
+        Endorse_POM.put("verifyDrpDwnFlatContents", "XPATH|//select[@id='flatContent'][@value='-1']");//Flat Dropdown
+        Endorse_POM.put("verifyDrpDwnRegisteredOwnerContents", "XPATH|//select[@id='registeredOwnerContent'][@value='-1']");//Registered Owner Dropdown
+        Endorse_POM.put("verifyChkBoxWaiveAlarm", "XPATH|//label[normalize-space()='Waive Alarm?'][@title='false']");
+        Endorse_POM.put("verifyChkBoxWaiveBurglarBars", "XPATH|//label[normalize-space()='Waive Burglar Bars?'][@title='false']");
+        Endorse_POM.put("verifyChkBoxWaiveSecurityGates", "XPATH|//label[normalize-space()='waive security gates ?'][@title='false']");
+        Endorse_POM.put("verifyChkBoxInventoryRequired", "XPATH|//label[normalize-space()='Inventory required?'][@title='false']");
+        Endorse_POM.put("verifyChkBoxBusinessContents", "XPATH|//label[@id='businessContentsLabel'][@title='false']");
+        Endorse_POM.put("verifyChkBoxIsPropertyInHighSecurity", "XPATH|//label[@id='isPropertyInHighSecurityLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxAreThereHighWalls", "XPATH|//label[@id='areThereHighWallsLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxRazorWirePerimeterWall", "XPATH|//label[@id='razorWirePerimeterWallLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxOpenFieldsAroundProperty", "XPATH|//label[@id='openFieldsAroundPropertyLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxElectronicFencing", "XPATH|//label[@id='electronicFencingLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxElectronicGate", "XPATH|//label[@id='electronicGateLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxSecurityOnGate", "XPATH|//label[@id='securityOnGateLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChkBoxSecurityGuardPatrol", "XPATH|//label[@id='securityGuardPatrolLabel'][@title='false']");//Does the alarm have infra-red detectors? Checkbox
+        Endorse_POM.put("verifyChBoxAdditionalTheft","XPATH|//label[@id='additionalTheftPremiumLabel'][@title='false']");
+
+        Endorse_POM.put("verifyChBoxContentHaveYouHadUnInterruptedBuildingInsuranceFor", "XPATH|//label[contains(text(),'Have you had uninterrupted household insurance for')][@title='false']");
+
+        //***********   PAYMENTS DETAILS   ***********
+
+        Endorse_POM.put("verifyDrpDwnCollectionMethod", "XPATH|//select[@id='CollectionMethodId'][@value='-1']");//Collection Method Dropdown
+        Endorse_POM.put("valueDrpDwnCollectionMethod", "XPATH|//div[@id='s2id_CollectionMethodId']/a/span[@id='select2-chosen-2']");//Collection Method Dropdown Value
+
+        Endorse_POM.put("verifyDrpDwnPaymentTerms", "XPATH|//select[@id='paymentTermId'][@value='-1']");//Payment Terms Dropdown
+        Endorse_POM.put("valueDrpDwnPaymentTerms", "XPATH|//div[@id='s2id_paymentTermId']/a/span[@id='select2-chosen-3']");//Payment Terms Dropdown Value
+
+        Endorse_POM.put("verifyDrpDwnPreferredDueDay", "XPATH|//select[@id='installmentDueDay'][@value='-1']");//Preferred Due Day Dropdown
+        Endorse_POM.put("verifyDrpDwnDecision", "XPATH|//select[@id='Decision'][@value='-1']");//Decision Dropdown
+        Endorse_POM.put("chkBoxSanctionScreen", "XPATH|//label[@id='isSanctionScreenCompletedLabel']");//Sanction Screen Checkbox
+        Endorse_POM.put("chkBoxRiskProfiling", "XPATH|//label[@id='isRiskProfilingCompletedLabel']");//Risk Profiling Checkbox
+        Endorse_POM.put("chkBoxDueDiligence", "XPATH|//label[@id='isDueDiligenceCompletedLabel']");//Due Diligence Checkbox
+        Endorse_POM.put("drpDwnPolicyBankAccount", "XPATH|//select[@id='selectedBankAccount']");//Policy Bank Account Dropdown
+        Endorse_POM.put("labelMaintainEvent", "XPATH|//div[contains(text(),'Maintain Event')]");//Maintain Event Heading
+        Endorse_POM.put("labelUnknownAddressee", "XPATH|//table[@id='idit-grid-table-flattendListdocumentsTreeList_pipe_']//span[contains(text(),'Unknown Addressee')]");//Maintain Event Heading
+        Endorse_POM.put("btnDelete", "XPATH|//a[@id='flattendListdocumentsTreeList|Delete']/i");//Delete Button
+        Endorse_POM.put("dialogBasicNotification", "XPATH|//div[@id='BasicNotificationDialog']");//Basic Notification Dialog
+        Endorse_POM.put("btnDialogOK", "XPATH|//button[@id='DialogOK']");//DialogOK Button
+        Endorse_POM.put("dialogPolicyCreation", "XPATH|//div[@class='ConfirmationPageMessageDiv']");//Policy Creation Dialog
+        Endorse_POM.put("txtPolicyNumber", "XPATH|//div[@class='ConfirmationPageMessageDiv']/span/h2");//Policy Creation Dialog Text
+        Endorse_POM.put("btnViewDocuments", "XPATH|//button[@title='View documents']");//View Documents Button
+        Endorse_POM.put("btnOK", "XPATH|//button[@id='Ok']");//OK Button
+        Endorse_POM.put("dialogGD1000079", "XPATH|//div[@id='BasicNotificationDialog']");//GD1000079 dialog box
+
+        Endorse_POM.put("labelWelcomeLetterPLSMS", "XPATH|//span[normalize-space()='Welcome Letter PL SMS']");//Maintain Event Heading
+
+        Endorse_POM.put("verifyChBoxBank","XPATH|//label[@id='consentToDebitBankAccountLabel'][@title='false']");
+
+        Endorse_POM.put("btnNext", "XPATH|//button[@id='Next']");//Next Button
+        Endorse_POM.put("btnFinish", "XPATH|//button[@id='Finish' and @title='Finish']");//Finish Button
+        Endorse_POM.put("dBox","XPATH|//div[@class='ConfirmationPageMessageDiv']");
+        Endorse_POM.put("PolicyNum","XPATH|//div[@class='ConfirmationPageMessageDiv']/span/h2");
+        Endorse_POM.put("btnOk","XPATH|//button[@id='Ok']");
 
 
 

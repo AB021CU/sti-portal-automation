@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="HOC Claim Regression"  parallel="tests" thread-count="3" verbose="1">
+<suite name="Sapiens IDIT IDirect"  parallel="tests" thread-count="3">
 
 	<!-- <test name="HOC_CLAIM_Chrome_Firefox">
 		<parameter name="Browser" value="Firefox_HeadLess">
@@ -11,7 +11,7 @@
 		</parameter>
 	</test>  -->
 
-	<test name="HOC_CLAIM_Chrome">
+	<test name="Sapiens IDIT IDirect Regression">
 		<parameter name="Browser" value="Chrome">
 			<classes>
 				<class name="testCases.Driver">

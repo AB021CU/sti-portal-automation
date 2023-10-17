@@ -63,6 +63,49 @@ public class Login extends WebDr {
             }
     }
 
+
+    public void applicationLogin2() throws Exception {
+
+        Login_Mappings.Login_Factory();
+
+        try {
+
+            String userName2 = ConfigManager.getConfigManagerInstance().getKeyValue("username2");
+            String password2 = ConfigManager.getConfigManagerInstance().getKeyValue("password2");
+
+            if (exists("btnLogin", true, "Login Page")) {
+                setText("txtBoxUserName", userName2, "Enter User Name");
+                setText("txtBoxPassword", password2, "Enter User Password");
+                click("btnLogin", "Click Login button");
+                if (exists("imgHome",true,"Home Image Exists")) {
+                    String expectedUser = getText("expectedUserName", "Get the Logged in User Name");
+                    validateString(expectedUser,userName2,"Logged In With Correct User");
+                    String oldSessionCount = getText("labelSessionCount", "Old Session Count");
+                    if (Integer.parseInt(oldSessionCount) > 5){
+                        click("linkSessionMainMenu", "Click Session Menu");
+                        click("labelCloseAll", "Click Close All");
+                        if (exists("dialogBasicNotification", true, "Basic Notification Dialog")) {
+                            Thread.sleep(3000);
+                            click("btnDialogOK","Click OK Button");
+                            String newSessionCount = getText("labelSessionCount", "Old Session Count");
+                            if (Integer.parseInt(newSessionCount) == 1){
+                                logger.info("All Active Sessions Closed Successfully");
+                                logger.info("User Login Successful");
+                            }
+                        }
+                    }
+                } else if (exists("txtLoginError",true,"Login Error")){
+                    String errorText = getText("txtLoginError", "Login Error Text");
+                    validateString("The username/password provided is invalid.",errorText,"Unable to Login");
+                    logger.info("User Login NOT Successful");
+                } else {
+                    logger.info("Application down. Please try again later...");
+                }
+            }} catch(Exception e){
+            logger.info("Login Failed " + e);
+        }
+    }
+
     /**
      * Method to Log Out from Sapiens application
      */

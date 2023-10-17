@@ -20,6 +20,7 @@ public class Driver extends Thread{
     public static String userDir, file_TestData;
     public static Map<String, String> dictionary = new HashMap<>();
     Launcher objLauncher = new Launcher();
+    
 
     public static void main (String[] args) {
         Driver ob=new Driver();
@@ -32,11 +33,15 @@ public class Driver extends Thread{
     public void mainDriver(String testngBrowser) {
         try{
             userDir = System.getProperty("user.dir");
-            //FOR MULTIVERSE POLICY
+            //FOR MULTIVERSE POLICY && FOR ENDORSEMENT
             file_TestData="SAPIENS_Idirect - Copy.xlsx";
             //________________________________________________________________________________________//
             //FOR SINGLE COVER POLICY
             //file_TestData= "SAPIENS_Idirect.xlsx";
+
+            //________________________________________________________________________________________//
+            //FOR CLAIMS
+            //file_TestData="SAPIENS_MasterDataHOC.xlsx";
 
             objLauncher.InvokeLauncher(testngBrowser);
         }

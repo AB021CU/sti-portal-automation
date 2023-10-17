@@ -83,7 +83,10 @@ public class WebDr extends HtmlReporter {
             switch (preferBrowser)
             {
                 case "Chrome":
-//                    System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
+                    /*
+//If the webDriver manager is working you can use that one orElse you can UnCommand the below system.setProperty commands
+
+//                  System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
                     System.setProperty("webdriver.chrome.driver", Constant.Chrome_Driver);
                     HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
                     chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -95,6 +98,9 @@ public class WebDr extends HtmlReporter {
                     cap.setCapability(ChromeOptions.CAPABILITY, options);
                     wdriver = new ChromeDriver(cap);
                     wdriver.manage().deleteAllCookies();
+                    break;
+
+                     */
 //
 //                        System.setProperty("webdriver.chrome.driver", Constant.Chrome_Driver);
 //                    HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -108,9 +114,9 @@ public class WebDr extends HtmlReporter {
 //                    options.addArguments("start-maximized");
 //                    wdriver = new ChromeDriver(options);
 //                    wdriver.manage().deleteAllCookies();
-                    break;
 
-                   /* HashMap<String, Object> chromePrefs = new HashMap<>();
+// Chromedriver with webdriver manager
+                    HashMap<String, Object> chromePrefs = new HashMap<>();
                     chromePrefs.put("profile.default_content_settings.popups", 0);
                     chromePrefs.put("download.default_directory", Constant.Download);
                     options.setExperimentalOption("prefs", chromePrefs);
@@ -121,7 +127,7 @@ public class WebDr extends HtmlReporter {
                     WebDriverManager.chromedriver().setup();
                     wdriver = new ChromeDriver(options);
                     wdriver.manage().deleteAllCookies();
-                    break;*/
+                    break;
 
                 //Run script in headless mode
 ////                HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -346,7 +352,7 @@ public class WebDr extends HtmlReporter {
         boolean state = false;
         try {
             WebElement elmn = getElement(elementName);
-            WebDriverWait wait = new WebDriverWait(wdriver, 10);
+            WebDriverWait wait = new WebDriverWait(wdriver, 5);
             wait.until(ExpectedConditions.visibilityOf(elmn));
 
             if (elmn.isDisplayed() && expected) {
@@ -727,6 +733,7 @@ public class WebDr extends HtmlReporter {
             System.out.println("Exception in WebDr.getROPropertyValue - " + e);
             throw e;
         }
+
         return textValue;
     }
 

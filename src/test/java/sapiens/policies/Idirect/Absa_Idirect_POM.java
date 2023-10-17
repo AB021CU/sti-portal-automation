@@ -210,11 +210,11 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("txtBoxOutbuildingSumInsured", "XPATH|//input[@id='outBuildSumInsuredContentId']");//Outbuilding sum insured TextBox
         Idirect_POM.put("drpDwnFlatContents", "XPATH|//select[@id='flatContent']");//Flat Dropdown
         Idirect_POM.put("drpDwnRegisteredOwnerContents", "XPATH|//select[@id='registeredOwnerContent']");//Registered Owner Dropdown
-        Idirect_POM.put("chkBoxWaiveAlarm", "XPATH|//label[normalize-space()='Waive Alarm?']");
-        Idirect_POM.put("chkBoxWaiveBurglarBars", "XPATH|//label[normalize-space()='Waive Burglar Bars?']");
-        Idirect_POM.put("chkBoxWaiveSecurityGates", "XPATH|//label[normalize-space()='waive security gates ?']");
-        Idirect_POM.put("chkBoxInventoryRequired", "XPATH|//label[normalize-space()='Inventory required?']");
-        Idirect_POM.put("chkBoxBusinessContents", "XPATH|//label[normalize-space()='Business contents']");
+        Idirect_POM.put("chkBoxWaiveAlarm", "XPATH|//label[@id='waiveAlarmLabel']");
+        Idirect_POM.put("chkBoxWaiveBurglarBars", "XPATH|//label[@id='waiveBurglarBarsLabel']");
+        Idirect_POM.put("chkBoxWaiveSecurityGates", "XPATH|//label[@id='waiveSecurityGateLabel']");
+        Idirect_POM.put("chkBoxInventoryRequired", "XPATH|//label[@id='inventoryRequiredLabel']");
+        Idirect_POM.put("chkBoxBusinessContents", "XPATH|//label[@id='businessContentsLabel']");
         Idirect_POM.put("txtBoxBusinessContentsFlatExcess", "XPATH|//input[@id='businessContentsFlatExcess']");
         Idirect_POM.put("txtBoxCompulsoryExcessContents", "XPATH|//input[@id='compulsoryExcessContents']");
         Idirect_POM.put("txtBoxContentHaveYouHadUnInterruptedBuildingInsuranceFor", "XPATH|//label[contains(text(),'Have you had uninterrupted household insurance for')]");
@@ -386,6 +386,7 @@ public class Absa_Idirect_POM {
 
         Idirect_POM.put("drpDwnPreferredDueDay", "XPATH|//select[@id='installmentDueDay']");//Preferred Due Day Dropdown
         Idirect_POM.put("drpDwnDecision", "XPATH|//select[@id='Decision']");//Decision Dropdown
+        Idirect_POM.put("drpDwnReason","XPATH|//select[@id='Reason']");//Reason DropDown
         Idirect_POM.put("chkBoxSanctionScreen", "XPATH|//label[@id='isSanctionScreenCompletedLabel']");//Sanction Screen Checkbox
         Idirect_POM.put("chkBoxRiskProfiling", "XPATH|//label[@id='isRiskProfilingCompletedLabel']");//Risk Profiling Checkbox
         Idirect_POM.put("chkBoxDueDiligence", "XPATH|//label[@id='isDueDiligenceCompletedLabel']");//Due Diligence Checkbox

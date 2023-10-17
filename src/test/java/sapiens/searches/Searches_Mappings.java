@@ -19,7 +19,8 @@ public class Searches_Mappings {
         Searches_Objects.put("txtBoxPolicyNumber", "XPATH|//input[@id='IDITForm@policyNumber']");//Policy Number TextBox
         Searches_Objects.put("btnFind", "XPATH|//button[@id='homepageButtonsB_Search']");//Find Button
 
-
+        Searches_Objects.put("txtBoxClaimNumber", "XPATH|//input[@id='IDITForm@claimNr']");//Policy Number TextBox
+        Searches_Objects.put("headerSearchByLossEventDetails", "XPATH|//header[@title='Search by Loss Event Details']");//Search by Loss Event Details Button
 
 
         WebDr.page_Objects = Searches_Objects ;

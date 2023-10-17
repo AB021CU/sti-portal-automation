@@ -25,3 +25,50 @@ Policy PL-IDI6529636623/00
 Saved Successfully   null
 Policy PL-IDI6529636673/00
 Saved Successfully   null
+Policy PL-IDI6529644519/00
+Saved Successfully   null
+   null
+Policy linking failed due to below error : Message:failure The policy record already exists on host MUID796163771957701911 null
+Saved Successfully   null
+Policy PL-IDI6529644381/00
+Saved Successfully   null
+Policy PL-IDI6529644404/00
+Saved Successfully   null
+Policy PL-IDI6529644412/00
+Saved Successfully   null
+Policy linking failed due to below error : Message:failure The policy record already exists on host MUID2181639976638571246 null
+Saved Successfully   null
+   null
+   null
+   null
+   null
+Policy PL-IDI6529545246/00
+Saved Successfully   null
+Policy PL-IDI6529545254/00
+Saved Successfully   null
+Policy PL-IDI6529548634/00
+Saved Successfully   null
+
+
+___________________________________________________________________________________________________________
+Policy PL-IDI6529748010/00
+Saved Successfully   null
+Policy PL-IDI6529748036/00
+Saved Successfully   null
+Policy PL-IDI6529748337/00
+Saved Successfully   null
+Policy PL-IDI6529748337/01
+Saved Successfully   null
+
+
+____________________________________________________________________________________________________________
+Policy PL-IDI6529749139/00
+Saved Successfully   null
+Policy PL-IDI6529785242/00
+Saved Successfully   null
+Policy PL-IDI6529789741/00
+Saved Successfully   null
+Policy PL-IDI6529790122/00
+Saved Successfully   null
+Policy PL-IDI6529790180/00
+Saved Successfully   null
