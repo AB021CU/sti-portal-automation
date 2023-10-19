@@ -46,6 +46,7 @@ public class Launcher extends HtmlReporter {
                             setExcelFile(Constant.Path_TestData + Driver.file_TestData, "Driver");
                             String sTestIterationName = Driver.dictionary.get("TestCase_Name");
                             String sTestCaseName = tc_name + " :- "+ Driver.dictionary.get("TestCase_Name");
+                            System.err.print("Done"+sTestCaseName);
                             startTestCase(sTestCaseName, "TC_Description: " + tc_name + " executed in " + preferBrowser, preferBrowser);
                             setExcelFile(Constant.Path_TestData + Driver.file_TestData, "Configuration");
                             new testFlow(test, extent).executeTC(fn_name, preferBrowser);

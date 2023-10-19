@@ -53,6 +53,7 @@ public class Endorse_POM {
         //Endorse_POM.put("btnUpdate1","XPATH|//a[@id='flattendListflattenedPolicyItems|Update']//i");
         Endorse_POM.put("basicNotification","XPATH|//div[@id='BasicNotificationDialog']");
         Endorse_POM.put("btnOkay","XPATH|//button[@id='DialogOK']");
+        Endorse_POM.put("btnDelete","XPATH|//a[@id='flattendListflattenedPolicyItems|Delete']//i[@class='fa fa-times']");
         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
@@ -440,7 +441,7 @@ public class Endorse_POM {
         Endorse_POM.put("drpDwnPolicyBankAccount", "XPATH|//select[@id='selectedBankAccount']");//Policy Bank Account Dropdown
         Endorse_POM.put("labelMaintainEvent", "XPATH|//div[contains(text(),'Maintain Event')]");//Maintain Event Heading
         Endorse_POM.put("labelUnknownAddressee", "XPATH|//table[@id='idit-grid-table-flattendListdocumentsTreeList_pipe_']//span[contains(text(),'Unknown Addressee')]");//Maintain Event Heading
-        Endorse_POM.put("btnDelete", "XPATH|//a[@id='flattendListdocumentsTreeList|Delete']/i");//Delete Button
+       // Endorse_POM.put("btnDelete", "XPATH|//a[@id='flattendListdocumentsTreeList|Delete']/i");//Delete Button
         Endorse_POM.put("dialogBasicNotification", "XPATH|//div[@id='BasicNotificationDialog']");//Basic Notification Dialog
         Endorse_POM.put("btnDialogOK", "XPATH|//button[@id='DialogOK']");//DialogOK Button
         Endorse_POM.put("dialogPolicyCreation", "XPATH|//div[@class='ConfirmationPageMessageDiv']");//Policy Creation Dialog
@@ -636,7 +637,7 @@ public class Endorse_POM {
         Endorse_POM.put("drpDwnPolicyBankAccount", "XPATH|//select[@id='selectedBankAccount']");//Policy Bank Account Dropdown
         Endorse_POM.put("labelMaintainEvent", "XPATH|//div[contains(text(),'Maintain Event')]");//Maintain Event Heading
         Endorse_POM.put("labelUnknownAddressee", "XPATH|//table[@id='idit-grid-table-flattendListdocumentsTreeList_pipe_']//span[contains(text(),'Unknown Addressee')]");//Maintain Event Heading
-        Endorse_POM.put("btnDelete", "XPATH|//a[@id='flattendListdocumentsTreeList|Delete']/i");//Delete Button
+        //Endorse_POM.put("btnDelete", "XPATH|//a[@id='flattendListdocumentsTreeList|Delete']/i");//Delete Button
         Endorse_POM.put("dialogBasicNotification", "XPATH|//div[@id='BasicNotificationDialog']");//Basic Notification Dialog
         Endorse_POM.put("btnDialogOK", "XPATH|//button[@id='DialogOK']");//DialogOK Button
         Endorse_POM.put("dialogPolicyCreation", "XPATH|//div[@class='ConfirmationPageMessageDiv']");//Policy Creation Dialog

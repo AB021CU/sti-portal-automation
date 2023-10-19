@@ -352,7 +352,7 @@ public class WebDr extends HtmlReporter {
         boolean state = false;
         try {
             WebElement elmn = getElement(elementName);
-            WebDriverWait wait = new WebDriverWait(wdriver, 5);
+            WebDriverWait wait = new WebDriverWait(wdriver, 4);
             wait.until(ExpectedConditions.visibilityOf(elmn));
 
             if (elmn.isDisplayed() && expected) {

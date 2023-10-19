@@ -139,17 +139,17 @@ public class Endorse extends WebDr {
     String sUpContents=getValue("UpContents");
     String sUpBuilding=getValue("UpBuilding");
     String sUpAllRisk=getValue("UpAllRisk");
-    String sUpElectronic="Yes";//getValue("UpElectronics");
-    String sUpBoats="No";//getValue("UpBoats");
+    String sUpElectronic=getValue("UpElectronics");
+    String sUpBoats=getValue("UpBoats");
 
-    String delVehicle = "No";//getValue("DelVehicle");
-    String delMotorCycle = "No";//getValue("DelMotorCycle");
-    String delCaravan = "No";//getValue("DelCaravan");
-    String delContents="No";//getValue("DelContents");
-    String delBuilding="No";//getValue("DelBuilding");
-    String delAllrisk="No";//getValue("DelAllRisk");
-    String delBoats="No";//getValue("DelBoats");
-    String delElectronics="No";//getValue("DelElectronics");
+    String delVehicle = getValue("DelVehicle");
+    String delMotorCycle = getValue("DelMotorCycle");
+    String delCaravan = getValue("DelCaravan");
+    String delContents=getValue("DelContents");
+    String delBuilding=getValue("DelBuilding");
+    String delAllrisk=getValue("DelAllRisk");
+    String delBoats=getValue("DelBoats");
+    String delElectronics=getValue("DelElectronics");
 
 
 
@@ -216,7 +216,7 @@ public class Endorse extends WebDr {
         String lblElectronics ="";
 
         // GET VALUES FROM THE EXCEL SHEET
-
+//MADE CHANGES FOR THE THIRD COMMIT ON THIS METHOD
 
         try{
             ArrayList<String> covers = new ArrayList<String>();
@@ -274,39 +274,41 @@ public class Endorse extends WebDr {
                                 //For Deleting Vehicle
                                 wdriver.findElement(By.xpath("//span[text()='Vehicle Comprehensive']/preceding::span[1]")).click();
                                 delete();
-                            }else if (sAddVehicle.equalsIgnoreCase("Yes")){
+                            }if (sAddVehicle.equalsIgnoreCase("Yes")){
                                 //For Adding New Vehicle
                                 System.out.println("its working Vehicle Adding");
                                 lobList("Motorcar");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).motorCarLog("Vehicle");
                                 closeBusiness();
-                            }else if (sUpVehicle.equalsIgnoreCase("Yes")){
+                            }if (sUpVehicle.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Vehicle Comprehensive']/preceding::span[1]")).click();
                                 //For updating Vehicle
                                 business();
                                 motorCarLog("Vehicle");
                                 closeBusiness();
                             }
+                            closeBusiness();
                         }
                         break;
                     case"Motorcycle":
-                        if (exists("verifyMotorcycle",true,"The Vehicle is verifed")){
+                        if (existsNoReport("verifyMotorcycle",true,"The Motorcycle is verifed")){
                             wdriver.findElement(By.xpath("//span[text()='Motorcycle Comprehensive']/preceding::span[1]")).click();
                             if(delMotorCycle.equalsIgnoreCase("Yes")){
                                 delete();
-                            }else if (sAddMotorcycle.equalsIgnoreCase("Yes")){
+                            }if (sAddMotorcycle.equalsIgnoreCase("Yes")){
                                 //want to add the motorcycle for vehicle
                                 System.out.println("its working Motorcycle");
                                 lobList("Motorcar");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).motorCarLog("Motorcycle");
                                 closeBusiness();
-                            }else if (sUpMotorCycle.equalsIgnoreCase("Yes")){
+                            }if (sUpMotorCycle.equalsIgnoreCase("Yes")){
                                 business();
                                 motorCarLog("Motorcycle");
                                 closeBusiness();
                             }
+                            closeBusiness();
                         }
                         break;
                     case"Caravan/Trailer":
@@ -314,129 +316,136 @@ public class Endorse extends WebDr {
 
                             if(delCaravan.equalsIgnoreCase("Yes")){
                                 delete();
-                            }else if (sAddCaravan.equalsIgnoreCase("Yes")){
+                            }if (sAddCaravan.equalsIgnoreCase("Yes")){
                                 //want to add the caravan for vehicle
                                 System.out.println("its working Caravan");
                                 lobList("Motorcar");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).motorCarLog("Caravan / Trailer");
                                 closeBusiness();
-                            }else if (sUpCaravan.equalsIgnoreCase("Yes")){
+                            }if (sUpCaravan.equalsIgnoreCase("Yes")){
                                 business();
                                 motorCarLog("Caravan / Trailer");
                                 closeBusiness();
                             }
+                            closeBusiness();
                         }
                         break;
                     case"Contents":
-                        if (exists("verifyContents",true,"The Contents is verifed")){
+                        if (existsNoReport("verifyContents",true,"The Contents is verifed")){
                             if(delContents.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Contents']/preceding::span[1]")).click();
                                 delete();
-                            }else if (sAddContents.equalsIgnoreCase("Yes")){
+                            }if (sAddContents.equalsIgnoreCase("Yes")){
                                 //want to add the contents for vehicle
                                 System.out.println("its working Contents");
                                 lobList("Property");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).propertyLog("Contents");
                                 closeBusiness();
-                            }else if (sUpContents.equalsIgnoreCase("Yes")){
+                            }if (sUpContents.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Contents']/preceding::span[1]")).click();
                                 business();
                                 propertyLog("Contents");
                                 closeBusiness();
 
                             }
+                            closeBusiness();
                         }
                         break;
                     case"Building":
-                        if (exists("verifyBuilding",true,"The Vehicle is verifed")){
+                        if (existsNoReport("verifyBuilding",true,"The Vehicle is verifed")){
 
                             if(delBuilding.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Building']/preceding::span[1]")).click();
                                 delete();
-                            }else if (sAddBuilding.equalsIgnoreCase("Yes")){
+                            }if (sAddBuilding.equalsIgnoreCase("Yes")){
                                 //want to add the Building for vehicle
                                 System.out.println("its working Building");
                                 lobList("Property");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).propertyLog("Building");
                                 closeBusiness();
-                            }else if (sUpBuilding.equalsIgnoreCase("Yes")){
+                            }if (sUpBuilding.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Building']/preceding::span[1]")).click();
                                 business();
                                 propertyLog("Building");
                                 closeBusiness();
                             }
+                            closeBusiness();
                         }
                         break;
                     case"All":
-                        if (existsNoReport("verifyLOBAllrisk",true,"The Vehicle is verifed")){
+                        if (existsNoReport("verifyLOBAllrisk",true,"The AllRisk is verifed")){
 
                             if(delAllrisk.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='All Risk Cover']/preceding::span[1]")).click();
                                 delete();
-                            }else if (sAddAllRisk.equalsIgnoreCase("Yes")){
+                            }if (sAddAllRisk.equalsIgnoreCase("Yes")){
                                 //want to add the AllRisk for vehicle
                                 System.out.println("its working All risk");
                                 lobList("");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).allRisk();
                                 closeBusiness();
-                            }else if (sUpAllRisk.equalsIgnoreCase("Yes")){
+                            }if (sUpAllRisk.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='All Risk Cover']/preceding::span[1]")).click();
                                 //For updating Vehicle
                                 business();
                                 allRisk();
                                 closeBusiness();
                             }
+                            closeBusiness();
                         }
                         break;
                     case"Boats":
-                        if (exists("verifyLOBBoats",true,"The Vehicle is verifed")){
+                        if (existsNoReport("verifyLOBBoats",true,"The Boats is verifed")){
 
                             if(delBoats.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("///span[text()='Boats Comprehensive']/preceding::span[1]")).click();
                                 delete();
-                            }else if (sAddBoats.equalsIgnoreCase("Yes")){
+                            }if (sAddBoats.equalsIgnoreCase("Yes")){
                                 //want to add the Boats for vehicle
                                 System.out.println("its working Boats");
                                 lobList("");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).boats();
                                 closeBusiness();
-                            }else if (sUpBoats.equalsIgnoreCase("Yes")){
+                            }if (sUpBoats.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("///span[text()='Boats Comprehensive']/preceding::span[1]")).click();
                                 business();
                                 boats();
                                 closeBusiness();
                             }
+                            closeBusiness();
                         }
                         break;
                     case"Electronic":
-                        if (exists("verifyLOBEE",true,"The Electronic Equipment is verifed")){
+                        if (existsNoReport("verifyLOBEE",true,"The Electronic Equipment is verifed")){
 
                             if(delElectronics.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Electronic Equipment - Material Damage']/preceding::span[1]")).click();
                                 delete();
-                            }else if (sAddElectronics.equalsIgnoreCase("Yes")){
+                            }if (sAddElectronics.equalsIgnoreCase("Yes")){
                                 //want to add the Electronic for vehicle
                                 System.out.println("its working Electronics");
                                 lobList("");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).electronicEquipment();
                                 closeBusiness();
-                            }else if (sUpElectronic.equalsIgnoreCase("Yes")){
+                            }if (sUpElectronic.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Electronic Equipment - Material Damage']/preceding::span[1]")).click();
                                 business();
                                 electronicEquipment();
                                 closeBusiness();
                             }
+                            closeBusiness();
                         }
                         break;
 
 
                 }
+
             }
 
 
@@ -448,9 +457,10 @@ public class Endorse extends WebDr {
     //To delete the covers
     public void delete(){
         try{
-            click("btnDelete","The Delete Button is clicked");
-            if (exists("basicNotification",true,"the Dialoguue Box is present")){
-                click("btnOkay","The Okay Button is clicked");
+            Thread.sleep(2000);
+            jsClick("btnDelete","The Delete Button is clicked");
+            if (existsNoReport("basicNotification",true,"the Dialoguue Box is present")){
+                jsClick("btnOkay","The Okay Button is clicked");
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -498,7 +508,9 @@ public class Endorse extends WebDr {
                 //click("btnFinish&Next","Click Next Button");
             }
             Thread.sleep(3000);
-            click("btnEndRiskDetails", "Click End Risk Details Button");
+            if (existsNoReport("btnEndRiskDetails",true,"The end risk details are present")) {
+                click("btnEndRiskDetails", "Click End Risk Details Button");
+            }
 //method to approve UNDERWRITING
 
             if (existsNoReport("labelUWContains", true, "Underwriting Screen Exists")) {
@@ -527,6 +539,8 @@ public class Endorse extends WebDr {
                     click("btnUWNext", "Select Next button");
                 }
             }
+
+            //click("btnEndRiskDetails", "Click End Risk Details Button");
             if (getElements("locationsRiskObjectsCount").size() > 2) {
                 click("btnNextCustomerRiskObjectNumber", "Click Next Button");
 

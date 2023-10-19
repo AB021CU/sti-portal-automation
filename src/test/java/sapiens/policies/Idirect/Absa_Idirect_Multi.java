@@ -194,9 +194,9 @@ public class Absa_Idirect_Multi extends WebDr {
         Absa_Idirect_POM.Idirect_Factory();
 
         try {
-            if (exists("linkNewProposal", true, "New Proposal Link")) {
+            if (existsNoReport("linkNewProposal", true, "New Proposal Link")) {
                 click("linkNewProposal", "Click New Proposal Link");
-                if (exists("labelGeneralDetails", true, "General Details ")) {
+                if (existsNoReport("labelGeneralDetails", true, "General Details ")) {
                     //General Details
                     selectValueFromDropdown("drpDwnProductName", "text", productType, "Select Product Name");
                     selectValueFromDropdown("drpDwnAffinity", "text", affinity, "Select Affinity");
@@ -259,7 +259,7 @@ public class Absa_Idirect_Multi extends WebDr {
                 //Reason
                 selectValueFromDropdown("drpDwnReason","text",reason,"Select Reason from the dropDwnn");
                 //Screening progress
-                if (exists("",true,"")) {
+                if (existsNoReport("",true,"")) {
                 click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
                 }
 //                click("chkBoxRiskProfiling", "Click Risk Profiling Completed CheckBox");
@@ -271,22 +271,22 @@ public class Absa_Idirect_Multi extends WebDr {
 //                }
                 click("chBoxBank","The value must be check to proceed with the bank");
                 Thread.sleep(2000);
-                if (exists("drpDwnPolicyBankAccount", true, "Bank Account Details Exists")) {
+                if (existsNoReport("drpDwnPolicyBankAccount", true, "Bank Account Details Exists")) {
                     //Bank Account Details for <Contact>
                     selectValueFromDropdown("drpDwnPolicyBankAccount", "text", policyBankAccount, "Select Bank Account Number");
                     click("btnFinish", "Click Finish Button");
                     click("btnFinish", "Click Finish Button");
 
                     String Policy = "";
-                    if (exists("dBox", true, "The Value is selected")) {
+                    if (existsNoReport("dBox", true, "The Value is selected")) {
                         Policy = getText("PolicyNum", "The Element should be visible");
                         click("btnOk", "The Value is selected");
                     }
                     writeExcel(Policy,testcaseName);
 
-                    if (exists("labelMaintainEvent", true, "Maintains Event Exists")) {
+                    if (existsNoReport("labelMaintainEvent", true, "Maintains Event Exists")) {
                         logger.info("Policy Payments Details Captured Successfully");
-                        if (exists("labelUnknownAddressee", true, "The Label is visible")) {
+                        if (existsNoReport("labelUnknownAddressee", true, "The Label is visible")) {
                             click("labelUnknownAddressee", "Click Unknown Addressee");
                             click("btnDelete", "Click Delete Button");
                         }
@@ -296,14 +296,14 @@ public class Absa_Idirect_Multi extends WebDr {
                             click("labelWelcomeLetterPLSMS", "Click Welcome Letter PL SMS");
                             click("btnDelete", "Click Delete Button");
                         }
-                        if (exists("dialogBasicNotification", true, "Basic Notification Dialog")) {
+                        if (existsNoReport("dialogBasicNotification", true, "Basic Notification Dialog")) {
                             click("btnDialogOK", "Click OK Button");
                         }
                         click("btnFinish", "Click Finish Button");
                         if (existsNoReport("dialogGD1000079", true, "Policy Creation Dialog")) {
                             click("btnDialogOK", "Click OK Button");
                         }
-                        if (exists("dialogPolicyCreation", true, "Policy Creation Dialog")) {
+                        if (existsNoReport("dialogPolicyCreation", true, "Policy Creation Dialog")) {
                             String str = getText("txtPolicyNumber", "Get Policy Number");
                             policyNumber = str.split("\\s+");
                             logger.info("Policy " + policyNumber[1] + " Created Successfully");
