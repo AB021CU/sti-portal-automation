@@ -3,11 +3,8 @@ package sapiens.contact;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
-import utility.ConfigManager;
 import utility.WebDr;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -302,7 +299,7 @@ public class Contact extends WebDr {
 
         try {
             String contactName = getText("labelContactName", "Contact Name").trim();
-            if (contactName.contains(firstName + " " + initials + " " + surName)) {
+            if (contactName.contains( initials +" "+firstName+" " +surName)) {
                 String oldContactNumber = getText("labelContactNumber", "Contact Number").trim();
                 click("btnUpdateContact", "Click Update Contact");
                 if (exists("tabPrimaryDetails", true, "Primary Details Tab Exists")) {

@@ -1,13 +1,8 @@
 package sapiens.policies.Idirect;
 
 import com.relevantcodes.extentreports.ExtentTest;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
-import org.testng.annotations.BeforeMethod;
-
-import testCases.Driver;
-import utility.Constant;
 import utility.WebDr;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -75,6 +70,7 @@ public class Absa_Idirect extends WebDr {
     String driverLicenseType = getValue("DriverLicenseType");
     String drivingCertificate = getValue("Driving_Certificate");
     String itemType = getValue("Item_Type");
+
 
 
 
@@ -158,7 +154,7 @@ public class Absa_Idirect extends WebDr {
         Absa_Idirect_POM.Idirect_Factory();
 
         try {
-            if (exists("imgHome", true, "Home Image Exists")) {
+            if (existsNoReport("imgHome", true, "Home Image Exists")) {
                 click("linkRecentContacts", "Select Contact");
                 if (exists("tabContactDashboard", true, "Contact Dashboard Exists")) {
                     logger.info("Contact Selected Successfully");
@@ -182,19 +178,18 @@ public class Absa_Idirect extends WebDr {
                 if (exists("labelGeneralDetails", true, "General Details ")) {
                     //General Details
                     selectValueFromDropdown("drpDwnProductName", "text", productType, "Select Product Name");
-                    selectValueFromDropdown("drpDwnAffinity", "text", affinity, "Select Affinity");
+                    //selectValueFromDropdown("drpDwnAffinity", "text", affinity, "Select Affinity");
                     selectValueFromDropdown("drpDwnPolicyType", "text", policyType, "Select Policy Type");
-                    if (productType.equalsIgnoreCase("Absa Plus") && policyType.equalsIgnoreCase("Yearly")) {
-                        selectValueFromDropdown("drpDwnPolicyRenewal", "text", policy_renewal_period, "Select Policy Type");
-                    }
 
                     click("chkBoxClientContext", "Click Client Context Completed CheckBox");
-                    setText("txtBoxOldPolicyNumber", oldPolicyNumber, "Enter old policy number");
+                    //setText("txtBoxOldPolicyNumber", oldPolicyNumber, "Enter old policy number");
                     setText("txtBoxExternalReferenceNumber", externalRNumber, "Enter External Reference Number");
                     selectValueFromDropdown("drpDwnBranchCode", "text", branchCode, "Select Branch Code/Region");
                     selectValueFromDropdown("drpDwnSource", "text", source, "Select Source");
                     setText("txtBoxExternalReferenceName", externalRName, "Enter External Reference Name");
                     setText("txtBoxCaseNbr", caseNbr, "Enter Case Nbr ");
+
+                    selectValueFromDropdown("drpDwnIntermediary","text","FOURIE INSURANCE BROKERS","The Intermediary was selected");
                     //Current Sales Channel
                     selectValueFromDropdown("drpDwnCurrentSalesChannel", "text", currentSalesChannel, "Select Current Sales Channel");
                     selectValueFromDropdown("drpDwnStaffIndicator", "text", staffIndicator, "Select Staff Indicator ");
@@ -279,9 +274,6 @@ public class Absa_Idirect extends WebDr {
                         case "Motorcar":
                             motorcar();
                             break;
-//                        case "Personal Accident":
-//                            personalAccident();
-//                            break;
                         case "All Risk":
                             allRisk();
                             break;
@@ -440,6 +432,15 @@ public class Absa_Idirect extends WebDr {
                 selectValueFromDropdown("drpDwnPreferredDueDay", "text", preferredDueDay, "Select Preferred Due Day");
                 //Decision
                 selectValueFromDropdown("drpDwnDecision", "text", decision, "Select Decision");
+
+                //Reason
+                if (decision.equalsIgnoreCase("Confirm Policy")) {
+                    selectValueFromDropdown("drpDwnReason", "text", "Final", "Select Reason from the dropDwnn");
+                }
+                if (decision.equalsIgnoreCase("Save Proposal")){
+                    selectValueFromDropdown("drpDwnReason", "text", "Pre-agreement", "Select Reason from the dropDwnn");
+                }
+
                 //Screening progress
 //                click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
 //                click("chkBoxRiskProfiling", "Click Risk Profiling Completed CheckBox");
@@ -449,7 +450,9 @@ public class Absa_Idirect extends WebDr {
 //                    click("btnDialogOK", "Click OK Button");
 //                    click("btnNext", "Click Next");
 //                }
-                if (exists("drpDwnPolicyBankAccount", true, "Bank Account Details Exists")) {
+                click("chBoxBank","The value must be check to proceed with the bank");
+                Thread.sleep(2000);
+                if (existsNoReport("drpDwnPolicyBankAccount", true, "Bank Account Details Exists")) {
                     //Bank Account Details for <Contact>
                     selectValueFromDropdown("drpDwnPolicyBankAccount", "text", policyBankAccount, "Select Bank Account Number");
                     click("btnFinish", "Click Finish Button");
@@ -564,7 +567,7 @@ public class Absa_Idirect extends WebDr {
                         if (PerimeterWall.equalsIgnoreCase("Y")) {
                             click("chkAreThereRazorWireAlongThePerimeterWall", "Clicked Are there Razor wire along the perimeter wall");
                             if (isThereAnElectronicGate.equalsIgnoreCase("Y")) {
-                                click("chkIsThereAnElectronicGate", "Clicked Is there an electronic gate?");
+                               // click("chkIsThereAnElectronicGate", "Clicked Is there an electronic gate?");
                                 if (is_24hrsSecurityOnGates.equalsIgnoreCase("Y")) {
                                     click("chkIsThere24hrsSecurityOrAccessControlOnGates", "Clicked Is there 24hr security or access control on gates?");
                                     if (isThereElectricFencing.equalsIgnoreCase("Y")) {
@@ -671,22 +674,22 @@ public class Absa_Idirect extends WebDr {
                     }
                     Thread.sleep(1000);
                     selectValueFromDropdown("drpDwnExternalDoorMainDwelling", "text", externalDoorMainDwelling, "Select Burglar Bars Outbuilding1");
-                    if (exists("drpDwnBurglarBarsOutbuilding", true, "The value should be present")) {
+                    if (existsNoReport("drpDwnBurglarBarsOutbuilding", true, "The value should be present")) {
                         selectValueFromDropdown("drpDwnBurglarBarsOutbuilding", "text", burglarBarsOutbuilding, "Select Burglar Bars Outbuilding2");
                     }
-                    if (exists("drpDwnExternalDoorOutbuilding", true, "The value should be present")) {
+                    if (existsNoReport("drpDwnExternalDoorOutbuilding", true, "The value should be present")) {
                         selectValueFromDropdown("drpDwnExternalDoorOutbuilding", "text", externalDoorOutbuilding, "Select External Door Outbuilding");
                     }
 
                     if (waiveSecurityGates.equalsIgnoreCase("Y")) {
                         click("chkBoxWaiveSecurityGates", "Click Waive Security Gates");
                     }
-                    if (inventoryRequired.equalsIgnoreCase("Y")) {
+                    /*if (inventoryRequired.equalsIgnoreCase("Y")) {
                         click("chkBoxInventoryRequired", "Click Inventory Required");
                         setText("txtBoxInventoryRequestedDate", getCurrentDate(), "Enter Inventory Requested Date");
                         setText("txtBoxInventoryReceivedDate", getCurrentDate(), "Enter Inventory Received Date");
 
-                    }
+                    }*/
                     if (businessContext.equalsIgnoreCase("Y")) {
                         click("chkBoxBusinessContents", "Click Business Contents");
                         setText("txtBoxBusinessContentsFlatExcess", BusinessContentsFlatExcess, "Enter Main Dwelling Sum Insured");
@@ -792,17 +795,26 @@ public class Absa_Idirect extends WebDr {
                     selectValueFromDropdown("drpDwnModelVariant", "text", modelVariant, "Select Model Variant Dropdown");
                     //  selectValueFromDropdown("drpDwnYearOfManufacture", "text", yearOfManufacture, "Select Year Of Manufacture Dropdown");
                     selectValueFromDropdown("drpDwnInsuredForRetailOrCustom", "text", insuredForRetailOrCustom, "Select Insured For Retail Or Custom ? Dropdown");
-
+                    setText("txtVehicleMileage", "20", "The Vehicle mileage was added");
                     //Finance
                     if (motorFinance.equalsIgnoreCase("Y")) {
                         click("chBoxFinance", "The Check Box should be clicked");
                         selectValueFromDropdown("drpDwnFinance", "text", financeCompany, "The Finance Company name should be clicked");
                     }
-                    selectValueFromDropdown("drpFlat", "text", BusinessContentsFlatExcess, "The Flat value is selected");
+                    if(insure.equalsIgnoreCase("Vehicle")) {
+                        selectValueFromDropdown("drpFlat", "text", BusinessContentsFlatExcess, "The Flat value is selected");
+                    }if(insure.equalsIgnoreCase("Motorcycle")){
+                        selectValueFromDropdown("drpMotorcycleFlat", "text", BusinessContentsFlatExcess, "The Flat value is selected");
+                    }if (insure.equalsIgnoreCase(" Caravan/Trailer")){
+                        selectValueFromDropdown("drpCaravanFlat", "text", BusinessContentsFlatExcess, "The Flat value is selected");
+                    }
                     click("chkBoxImmobiliser", "Click Immobiliser CheckBox");
                     selectValueFromDropdown("drpDwnImmobiliserMake", "text", immobiliserMake, "Select Immobiliser Make Dropdown");
 //                    setText("txtBoxInsuranceValue", insuranceAmount, "Enter Insurance Value");
-
+                    //Tracking Device
+                    click("chBoxTrackingDevice","The Tracking Device is checked");
+                    selectValueFromDropdown("drpDwnTrackingDeviceMake","text","Tracking Device","The Tracking Device is selected");
+                    setText("txtBoxTrackingDeviceModel","tracetek","The TrackingDevice is given");
                     //Registered Owner Details
                     selectValueFromDropdown("drpDwnRegisteredOwner", "text", registeredOwner, "Select Registered Owner");
                     //Driver Details
@@ -812,6 +824,9 @@ public class Absa_Idirect extends WebDr {
                         selectValueFromDropdown("drpDwnDrivingCertificate", "text", drivingCertificate, "Select Defensive Driving Certificate Dropdown");
                     }
                     click("chkBoxIsVehicleRegInSouthAfrica", "Click Is Vehicle Registered In South Africa ? CheckBox");
+                    click("chBoxPreInspectionReport","The Pre Inspection report is checked");
+                    click("chBoxPreInspectionReportReceived","The Inspection report is received");
+                    setText("txtPreInspectionDate","","The Inspection report was dated ON");
                 } else if (insure.equalsIgnoreCase("Caravan / Trailer")) {
                     //Caravan/Trailer General Details
                     selectValueFromDropdown("drpDwnItemType", "text", itemType, "Select Item Type Dropdown");
@@ -1030,164 +1045,7 @@ public class Absa_Idirect extends WebDr {
 
     }
 
-    public void multiCovers() {
-        Absa_Idirect_POM.Idirect_Factory();
-        try {
-            setExcelFile(Constant.Path_TestData + Driver.file_TestData,"TestData");
-            String testcaseName = getValue("TestCase_Name");
-            System.out.println(testcaseName);
 
-
-
-
-                System.err.println(testcaseName);
-                //selectValueFromList("listLineOfBusiness", lineOfBusiness, "Select Line of Business/Locations/Risk Object");
-
-                        switch (testcaseName) {
-                            case "ABSA IDIRECT_SEC001":
-
-                                business("Property");
-                                propertyLog("");
-                                closeBusiness();
-                                business("Motorcar");
-                                motorCarLog("");
-                                closeBusiness();
-                                business("Boats");
-                                boats();
-                                closeBusiness();
-                                business("All Risk");
-                                allRisk();
-                                closeBusiness();
-                                business("Electronic Equipment");
-                                electronicEquipment();
-                                closeBusiness();
-                                break;
-
-                        }
-                        if (testcaseName.equalsIgnoreCase("Motorcar")) {
-                            click("chBoxCovers", "The Covers Details Should be visible");
-                            if (vehicleCover.equalsIgnoreCase("VehicleFire")) {
-                                click("chBoxAccidentalDamagePartialLoss", "The Accidental Damage Partial Loss");
-                                if (exists("chBoxAccidentalDamageTotalLoss", true, "The Element should be visible")) {
-                                    click("chBoxAccidentalDamageTotalLoss", "The Accidental Damage Total Loss");
-                                }
-                                if (exists("chBoxTheftPartialLoss", true, "The Element should be visible")) {
-                                    click("chBoxTheftPartialLoss", "The Theft Partial Loss");
-                                }
-                                if (exists("chBoxTheftTotalLoss", true, "The Element should be visible")) {
-                                    click("chBoxTheftTotalLoss", "The Theft Total Loss");
-                                }
-                                if (exists("chBoxWindScreenRepair", true, "The Element should be visible")) {
-                                    click("chBoxWindScreenRepair", "The Wind Screen Repair");
-                                }
-                                if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                    click("chBoxWindScreenReplace", "The Wind Screen Replace");
-                                }
-                                if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                    click("chBoxHail", "The Hail");
-                                }
-                                if (exists("chBoxThirdParty", true, "The Element should be visible")) {
-                                    click("chBoxThirdParty", "The Third Party");
-                                }
-                                if (exists("chBoxForOther", true, "The Element should be visible")) {
-                                    click("chBoxForOther", "The Check Box for Others");
-                                }
-                            }
-                            if (vehicleCover.equalsIgnoreCase("ThirdParty")) {
-                                click("chBoxAccidentalDamagePartialLoss", "The Accidental Damage Partial Loss");
-
-                                if (exists("chBoxAccidentalDamageTotalLoss", true, "The Element should be visible")) {
-                                    click("chBoxAccidentalDamageTotalLoss", "The Accidental Damage Total Loss");
-                                }
-                                if (exists("chBoxTheftPartialLoss", true, "The Element should be visible")) {
-                                    click("chBoxTheftPartialLoss", "The Theft Partial Loss");
-                                }
-                                if (exists("chBoxTheftTotalLoss", true, "The Element should be visible")) {
-                                    click("chBoxTheftTotalLoss", "The Theft Total Loss");
-                                }
-                                if (exists("chBoxWindScreenRepair", true, "The Element should be visible")) {
-                                    click("chBoxWindScreenRepair", "The Wind Screen Repair");
-                                }
-                                if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                    click("chBoxWindScreenReplace", "The Wind Screen Replace");
-                                }
-                                if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                    click("chBoxHail", "The Hail");
-                                }
-                                if (exists("chBoxVehicleFire", true, "The Element should be visible")) {
-                                    click("chBoxVehicleFire", "The Vehicle Fire");
-                                }
-                                if (exists("chBoxForOther", true, "The Element should be visible")) {
-                                    click("chBoxForOther", "The Check Box for Others");
-                                }
-
-
-                        if (existsNoReport("btnEndCoversSelection", true, "Underwriting Screen Exists")) {
-                            click("btnEndCoversSelection", "Click End Covers Selection");
-
-//method to approve uW
-                            if (existsNoReport("labelUWContains", true, "Underwriting Screen Exists")) {
-                                logger.info("Under writing alert is present");
-                                if (existsNoReport("labelUWNumberOfDropdown1", true, "Underwriting Dropdown Exists") && existsNoReport("labelUWNumberOfDropdown2", true, "Underwriting Dropdown Exists")) {
-                                    logger.info("Under writing two dropdown is present");
-                                    selectValueFromDropdown("drpDwnUWValidation", "text", underwriting1, "Select UW alert");
-                                    selectValueFromDropdown("drpDwnUWValidation2", "text", underwriting1, "Select UW alert");
-                                    click("btnUWNext", "Select Next button");
-                                } else if (existsNoReport("labelUWNumberOfDropdown1", true, "Underwriting Dropdown Exists")) {
-                                    logger.info("Under writing one dropdown is present");
-                                    selectValueFromDropdown("drpDwnUWValidation", "text", underwriting1, "Select UW alert");
-                                    click("btnUWNext", "Select Next button");
-                                } else if (existsNoReport("labelUWNumberOfDropdown1", true, "Underwriting Dropdown Exists") && existsNoReport("labelUWNumberOfDropdown3", true, "Underwriting Dropdown Exists") && existsNoReport("labelUWNumberOfDropdown2", true, "Underwriting Dropdown Exists")) {
-                                    logger.info("Under writing three dropdown is present");
-                                    selectValueFromDropdown("drpDwnUWValidation", "text", underwriting1, "Select UW alert dropdown 1");
-                                    selectValueFromDropdown("drpDwnUWValidation2", "text", underwriting1, "Select UW alert dropdown 2");
-                                    selectValueFromDropdown("drpDwnUWValidation3", "text", underwriting1, "Select UW alert dropdown 3");
-                                    click("btnUWNext", "Select Next button");
-                                }
-                            }
-                            if (getElements("locationsRiskObjectsCount").size() > 2) {
-                                click("btnNextCustomerRiskObjectNumber", "Click Next Button");
-                                //Compherensive Third Party Fire and Theft
-//                            if (exists(,,)){
-//
-//                            }
-                                click("btnEndRiskDetails", "Click End Risk Details Button");
-                                if (existsNoReport("labelUWContains", true, "Underwriting Screen Exists")) {
-                                    logger.info("Under writing alert is present");
-                                    if (existsNoReport("labelUWNumberOfDropdown1", true, "Underwriting Dropdown Exists") && existsNoReport("labelUWNumberOfDropdown2", true, "Underwriting Dropdown Exists")) {
-                                        logger.info("Under writing two dropdown is present");
-                                        selectValueFromDropdown("drpDwnUWValidation", "text", underwriting1, "Select UW alert");
-                                        selectValueFromDropdown("drpDwnUWValidation2", "text", underwriting1, "Select UW alert");
-                                        click("btnUWNext", "Select Next button");
-                                    } else if (existsNoReport("labelUWNumberOfDropdown1", true, "Underwriting Dropdown Exists")) {
-                                        logger.info("Under writing one dropdown is present");
-                                        selectValueFromDropdown("drpDwnUWValidation", "text", underwriting1, "Select UW alert");
-                                        click("btnUWNext", "Select Next button");
-
-                                    } else if (existsNoReport("labelUWNumberOfDropdown1", true, "Underwriting Dropdown Exists") && existsNoReport("labelUWNumberOfDropdown3", true, "Underwriting Dropdown Exists") && existsNoReport("labelUWNumberOfDropdown2", true, "Underwriting Dropdown Exists")) {
-                                        logger.info("Under writing three dropdown is present");
-                                        selectValueFromDropdown("drpDwnUWValidation", "text", underwriting1, "Select UW alert dropdown 1");
-                                        selectValueFromDropdown("drpDwnUWValidation2", "text", underwriting1, "Select UW alert dropdown 2");
-                                        selectValueFromDropdown("drpDwnUWValidation3", "text", underwriting1, "Select UW alert dropdown 3");
-                                        click("btnUWNext", "Select Next button");
-                                    }
-
-
-                                }
-                                if (existsNoReport("labelPayments", true, "Payments Screen Exists")) {
-                                    logger.info("Policy Lines Of Business Details Captured Successfully");
-                                }
-                            }
-                        }
-                    }
-
-                }
-
-
-            } catch (Exception e) {
-                logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
-            }
-        }
 
         public void business(String value){
 
@@ -1218,316 +1076,7 @@ public class Absa_Idirect extends WebDr {
         }
 
     }
-    public void propertyLog(String cover) {
 
-        try {
-            //Property Address
-            if (exists("labelPropertyAddress", true, "Property Address Exists")) {
-                click("chkBoxRiskAddressSame", "Click Risk Address Same CheckBox");
-                //Property General Details
-                if (cover.equalsIgnoreCase("Building")) {
-                    click("chkBoxBuilding", "Click Building CheckBox");
-                } else if (cover.equalsIgnoreCase("Contents")){
-                    click("chkBoxContents", "Click Contents CheckBox");
-                }
-                //click("chkBoxBuilding", "Click Building CheckBox");
-                selectValueFromDropdown("drpDwnBuildingUsedFor", "text", buildingUsedFor, "Select Building Be Used For");
-                selectValueFromDropdown("drpDwnTypeOfBuilding", "text", typeOfBuilding, "Select Type Of Building");
-                selectValueFromDropdown("drpDwnTypeOfArea", "text", typeOfArea, "Select Type Of Area");
-                click("chkBoxIsBuildingOccupied", "Click Is Building Occupied CheckBox");
-                setText("txtBoxOccupiedSinceDate", getCurrentDate(), "Enter Occupied Since Date");
-                if (PropertyOccupiedDay.equalsIgnoreCase("Y")) {
-                    click("chkBoxIsPropOccupiedDuringDay", "Click is Prop Occupied DuringDay Label");
-                }
-                setText("txtBoxUnoccupiedDays", unOccupiedDays, "Enter Number of Consecutive Unoccupied Days");
-                if (ResidentialProperty.equalsIgnoreCase("Y")) {
-                    click("chkBoxDoes_the_property_border_aXn_residential_property", "Click is Prop border checkbox Label");
-                    selectValueFromDropdown("drpDwnSpecifyNonResidential", "text", xn_residental_property, "Selectedpecify xn residental property");
-                }
-                selectValueFromDropdown("drpDwnWallConstruction", "text", wallConstruction, "Select Wall Construction");
-                selectValueFromDropdown("drpDwnRoofConstruction", "text", roofConstruction, "Select Roof Construction");
-                if (isThereThatched.equalsIgnoreCase("Y")) {
-                    click("chkBoxIsThereThatched", "Clicked Is there a thatched lapa within 3 meters of main dwelling");
-                    selectValueFromDropdown("drpDwnThatchedHutFloor", "text", thatchedfloor_area, "Selected Thatched Lapa hut floor area");
-                    if (SizeOfLapaExceed.equalsIgnoreCase("Y")) {
-                        click("chkBoxDoesSizeOfLapa", "Clicked Is there a thatched lapa within 3 meters of main dwelling");
-                        if (SabsaApproved.equalsIgnoreCase("Y")) {
-                            click("chkDoesYouHaveASabsaApprovedLightingConductor", "Clicked Is there a thatched lapa within 3 meters of main dwelling");
-                        }
-                    }
-                }
-                if (conductor.equalsIgnoreCase("Y")) {
-                    click("chkWaive_Lightning_Conductor", "Clicked Waive lighting Conductor");
-                }
-                if (building_completed.equalsIgnoreCase("Y")) {
-                    click("chkIs_the_building_completed", "Clicked Is the building completed");
-                }
-                if (burglaries_atproperty.equalsIgnoreCase("Y")) {
-                    click("chkHave_you_had_any_burglaries_at_the_property", "Clicked have you had any burglaries at the property");
-                }
-
-                if (high_security_complex.equalsIgnoreCase("Y")) {
-                    click("chkIs_the_property_in_a_high_security_complex", "Clicked Is the property in a high security complex");
-                    if (areThereHighWalls.equalsIgnoreCase("Y")) {
-                        click("chkAreThereHighWalls", "Clicked Are there 1.8m high walls");
-                        if (PerimeterWall.equalsIgnoreCase("Y")) {
-                            click("chkAreThereRazorWireAlongThePerimeterWall", "Clicked Are there Razor wire along the perimeter wall");
-                            if (isThereAnElectronicGate.equalsIgnoreCase("Y")) {
-                                click("chkIsThereAnElectronicGate", "Clicked Is there an electronic gate?");
-                                if (is_24hrsSecurityOnGates.equalsIgnoreCase("Y")) {
-                                    click("chkIsThere24hrsSecurityOrAccessControlOnGates", "Clicked Is there 24hr security or access control on gates?");
-                                    if (isThereElectricFencing.equalsIgnoreCase("Y")) {
-                                        click("chkIsThereElectricFencing", "Clicked Is there electric fencing? ");
-                                        if (is_24HrsSecurityGuardPatrol.equalsIgnoreCase("Y")) {
-                                            click("chkIsThereA24HrsSecurityGuardPatrol", "Clicked Is there 24 hrs Security Guard patrol");
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                setText("txtBoxNumberOfOutBuildings", numberOfOutBuildings, "Enter How Many Out Buildings are there");
-                if (propertysurveyTcuried.equalsIgnoreCase("Y")) {
-                    click("chkPropertySurveyRequired", "Clicked Property Survey Required");
-                    setText("txtBoxDateRiskSurveyRequested", getCurrentDate(), "Enter Date Risk Survey Requested");
-                    setText("txtBoxDateRiskSurveyReceived", getCurrentDate(), "Enter Date Risk Survey Received");
-                }
-                if (gasappliances.equalsIgnoreCase("Y")) {
-
-                    click("chkAreThereAnyGasAppliancesOrEquipment", "Click Are There Any Gas Appliances Or Equipment");
-                }
-//                if (GasPipeConnections.equalsIgnoreCase("Y")) {
-//
-//                    click("chkAreThereAnyGasPipeConnections", "Click Are There Any Gas Pipe Connections");
-//                }
-                if (BusinessConducted.equalsIgnoreCase("Y")) {
-                    click("chkIsThereAnyBusinessConductedOnTheProperty", "Click is There Any Business Conducted On The Property");
-                    setText("chkTypeOfBusinessDescription", BusinessFullDescription, "Enter Number of Consecutive Unoccupied Days");
-                }
-                setText("txtBoxPlotQuestionnarieRequested", getCurrentDate(), "Enter Survey Requested");
-                setText("txtBoxplotQuestionnarieRecevied", getCurrentDate(), "Enter Survey Received");
-
-                if (cover.equalsIgnoreCase("Building")) {
-                    //Building Details
-                    setText("txtBoxNoOfGeysers", geysers, "Enter Number of Geysers");
-                    setText("txtBoxNoOfSolarGeysers", solarGeysers, "Enter Number of Solar Geysers");
-                    if (AreYouOffTheEskom.equalsIgnoreCase("Y")) {
-
-                        click("chkAreYouOffTheEskom/CityPowerGrid", "Click Are you off the Eskom/City Power Grid");
-                    }
-                    if (DoYouHaveAGenerator.equalsIgnoreCase("Y")) {
-
-                        click("chkDoYouHaveAGenerator", "Click Do you have a generator");
-                        if (IsGeneratorConnected.equalsIgnoreCase("Y")) {
-
-                            click("chkIsGeneratorConnectedToPowerBackup", "Click Is Generator Connected to power backup");
-
-                        }
-                        setText("txtBoxDateCertificateRequested", getCurrentDate(), "Enter Date certificate Requested");
-                        setText("txtBoxDateCertificateReceived", getCurrentDate(), "Enter Date certificate Received");
-
-
-                    }
-
-                    // selectValueFromDropdown("drpDwnCoverType", "text", CoverType, "Select Cover type");
-                    selectValueFromDropdown("drpDwnBondApplicable", "text", bondApplicable, "Select Bond Applicable");
-                    Thread.sleep(2000);
-                    setText("txtBoxSumInsuredMainBuilding", sumInsuredMainBuilding, "Enter Sum Insured of Main Building");
-                    setText("txtBoxSumInsuredOutBuilding", sumInsuredOutBuilding, "Enter Sum Insured Out Buildings");
-                    selectValueFromDropdown("drpDwnFlatBuilding", "text", flat, "Select Flat");
-                    setText("txtBoxCompulsoryExcess", CompulsoryExcess, "Enter Compulsory excess");
-                    if (BuildingInsuranceFor.equalsIgnoreCase("Y")) {
-                        click("txtBoxHaveYouHadUnInterruptedBuildingInsuranceFor", "Click Is Generator Connected to power backup");
-                    }
-                    setText("txtBoxNoOfClaimPast12Months", NoOfClaim12Months, "Enter Number of claims or losses in the past 12 months");
-                    setText("txtBoxNoOfClaimPast13To24Months", Is13To24Months, "Enter Number of claims or losses in the past 13 to 24 months");
-                    setText("txtBoxNoOfClaimPast25To36Months", NoOfClaimPast25To36Months, "Enter Number of claims or losses in the past 25 to 36 months");
-                    // setText("txtBoxnoOfClaimPast37To48Months", NoOfClaimPast37To48Months, "Enter Number of claims or losses in the past 37 to 48 months");
-                    //  setText("txtBoxnoOfClaimPast49To60Months", NoOfClaimPast49To60Months, "Enter Number of claims or losses in the past 49 to 60 months");
-                    setText("txtBoxNotesBuilding", NotesBuilding, "Enter Notes Building");
-                    selectValueFromDropdown("drpDwnRegisteredOwnerBuilding", "text", registeredOwner, "Select Registered Owner");
-                } else if (cover.equalsIgnoreCase("Contents")){
-//                        || lineOfBusiness.equalsIgnoreCase("Personal Accident")) {
-//                    if (productType.equalsIgnoreCase("Private Insure")) {
-//                        click("chkBoxIsPropertyInHighSecurity", "Click Is Property In High Security CheckBox");
-//                        click("chkBoxAreThereHighWalls", "Click Are There High Walls CheckBox");
-//                        click("chkBoxRazorWirePerimeterWall", "Click Razor Wire Perimeter Wall CheckBox");
-//                        click("chkBoxOpenFieldsAroundProperty", "Click Open Fields Around Property CheckBox");
-//                        click("chkBoxElectronicFencing", "Click Electronic Fencing CheckBox");
-//                        click("chkBoxElectronicGate", "Click Electronic Gate CheckBox");
-//                        click("chkBoxSecurityOnGate", "Click Security On Gate CheckBox");
-//                        click("chkBoxSecurityGuardPatrol", "Click Security Guard Patrol CheckBox");
-//                    }
-                    //House Content Details
-                    selectValueFromDropdown("drpDwnAlarmInstalled", "text", alarmInstalled, "Select Alarm Installed");
-                    if (waveAlarm.equalsIgnoreCase("Y")) {
-                        click("chkBoxWaiveAlarm", "Click Waive Alarm");
-                    }
-
-                    click("chkBoxAlarmProfessionallyInstalled", "Click Alarm Professionally Installed CheckBox");
-                    click("chkBoxAlarmInfraRedDetectors", "Click Alarm InfraRed Detectors CheckBox");
-                    click("chkBoxAlarmWorkingOrder", "Click Alarm Working Order CheckBox");
-                    selectValueFromDropdown("drpDwnBurglarBarsMainDwelling", "text", burglarBarsMainDwelling, "Select Burglar Bars Main Dwelling");
-                    if (waiveBurglarBars.equalsIgnoreCase("Y")) {
-                        click("chkBoxWaiveBurglarBars", "Click Waive Burglar Bars");
-                    }
-                    Thread.sleep(1000);
-                    selectValueFromDropdown("drpDwnExternalDoorMainDwelling", "text", externalDoorMainDwelling, "Select Burglar Bars Outbuilding1");
-                    if (exists("drpDwnBurglarBarsOutbuilding", true, "The value should be present")) {
-                        selectValueFromDropdown("drpDwnBurglarBarsOutbuilding", "text", burglarBarsOutbuilding, "Select Burglar Bars Outbuilding2");
-                    }
-                    if (exists("drpDwnExternalDoorOutbuilding", true, "The value should be present")) {
-                        selectValueFromDropdown("drpDwnExternalDoorOutbuilding", "text", externalDoorOutbuilding, "Select External Door Outbuilding");
-                    }
-
-                    if (waiveSecurityGates.equalsIgnoreCase("Y")) {
-                        click("chkBoxWaiveSecurityGates", "Click Waive Security Gates");
-                    }
-                    if (inventoryRequired.equalsIgnoreCase("Y")) {
-                        click("chkBoxInventoryRequired", "Click Inventory Required");
-                        setText("txtBoxInventoryRequestedDate", getCurrentDate(), "Enter Inventory Requested Date");
-                        setText("txtBoxInventoryReceivedDate", getCurrentDate(), "Enter Inventory Received Date");
-
-                    }
-                    if (businessContext.equalsIgnoreCase("Y")) {
-                        click("chkBoxBusinessContents", "Click Business Contents");
-                        setText("txtBoxBusinessContentsFlatExcess", BusinessContentsFlatExcess, "Enter Main Dwelling Sum Insured");
-
-                    }
-                    click("chBoxAdditionalTheft", "The Theft is clicked additionally");
-                    setText("txtBoxCompulsoryExcessContents", CompulsoryExcess, "Enter Main Dwelling Sum Insured");
-
-
-                    //                    if (!productType.equalsIgnoreCase("Private Insure")){
-//                        setText("txtBoxInventoryRequestedDate", getCurrentDate(), "Enter Inventory Requested Date");
-//                        setText("txtBoxInventoryReceivedDate", getCurrentDate(), "Enter Inventory Received Date");
-//                    }
-                    setText("txtBoxMainDwellingSumInsured", sumInsuredMainBuilding, "Enter Main Dwelling Sum Insured");
-                    setText("txtBoxOutbuildingSumInsured", sumInsuredOutBuilding, "Enter Outbuilding Sum Insured");
-                    selectValueFromDropdown("drpDwnFlatContents", "text", flat, "Select Flat");
-                    if (BuildingInsuranceFor.equalsIgnoreCase("Y")) {
-                        click("txtBoxContentHaveYouHadUnInterruptedBuildingInsuranceFor", "Click Content Have You Had UnInterrupted Building Insurance For");
-                    }
-                    setText("txtBoxContentNoOfClaimPast12Months", NoOfClaim12Months, "Enter Number of claims or losses in the past 12 months");
-                    setText("txtBoxContentNoOfClaimPast13", Is13To24Months, "Enter Number of claims or losses in the past 13 to 24 months");
-                    setText("txtBoxContentNoOfClaimPast25", NoOfClaimPast25To36Months, "Enter Number of claims or losses in the past 25 to 36 months");
-                    setText("txtBoxContentNotesBuilding", NotesBuilding, "Enter Notes Building");
-                    selectValueFromDropdown("drpDwnRegisteredOwnerContents", "text", registeredOwner, "Select Registered Owner");
-                }
-                click("btnNext", "Click Next Button");
-
-
-                if (existsNoReport("labelUWContains", true, "Blocking Screen Exists")) {
-                    logger.info("Under writing blocking alert is present");
-                    if (exists("imgHome1", true, "Home Image Exists")) {
-                        click("btnUserMenu", "Click on User Menu Dropdown");
-                        click("elmntLogOff", "Click LogOff Element");
-                        if (exists("dialogLogOff", true, "Confirm Logoff Dialog Box")) {
-                            click("btnOKUw", "Click OK Button");
-                            Thread.sleep(4000);
-                            if (exists("linkChangePassword", true, "Login Page")) {
-                                logger.info("User LogOut Successful");
-                                wdriver.quit();
-                            }
-                        }
-                    }
-
-                }
-
-
-                if (existsNoReport("labelCoverSelection", true, "Cover Selection Exists")) {
-                    logger.info("Property " + insure + " Details Captured Successfully");
-                }
-//                    }
-//                }
-//                }
-            }
-        } catch (Exception e) {
-            logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
-        }
-
-    }
-    public void motorCarLog(String value){
-
-        try{
-
-            if (exists("labelMotorRiskObjectDetails", true, "Insured General Details Exists")) {
-                //Identifiers
-                Thread.sleep(1000);
-                click("labelEngine", "Click Vehicle ID No/Chassis No");
-                setText("txtBoxVehicleID", vehicleID, "Enter Vehicle ID No/Chassis No");
-                click("btnIdentifierUpdate", "Click Update Button");
-                //Risk Address
-                click("chkBoxIsRiskAddSameAsPhysical", "Click Is Risk Address Same As Physical Address? CheckBox");
-                click("chkBoxIsWorkAddSameAsRisk", "Click Is Work Address Same As Risk Address? CheckBox");
-                selectValueFromDropdown("drpDwnWhatToInsure", "text", insure, "Select What Do You Want To Insure Dropdown");
-                if (value.equalsIgnoreCase("Vehicle") || value.equalsIgnoreCase("Motorcycle")) {
-                    //Vehicle General Details
-                    selectValueFromDropdown("drpDwnVehicleParkDuringDay", "text", vehicleParkDuringDay, "Select Vehicle Park During Day ? Dropdown");
-                    selectValueFromDropdown("drpDwnDayTimeParkingCovered", "text", dayTimeParkingCovered, "Select Day Time Parking Covered ? Dropdown");
-                    selectValueFromDropdown("drpDwnDayTimeParkingLocked", "text", dayTimeParkingLocked, "Select Day Time Parking Locked ? Dropdown");
-                    selectValueFromDropdown("drpDwnVehicleParkDuringNight", "text", vehicleParkDuringNight, "Select Vehicle Park During Night ? Dropdown");
-                    selectValueFromDropdown("drpDwnNightTimeParkingCovered", "text", nightTimeParkingCovered, "Select Night Time Parking Covered ? Dropdown");
-                    selectValueFromDropdown("drpDwnNightTimeParkingLocked", "text", nightTimeParkingLocked, "Select Night Time Parking Locked ? Dropdown");
-                    selectValueFromDropdown("drpDwnVehicleUsedFor", "text", vehicleUsedFor, "Select Vehicle Be Used For ? Dropdown");
-                    if (value.equalsIgnoreCase("Vehicle")) {
-                        selectValueFromDropdown("drpDwnYearOfManufacture", "text", yearOfManufacture, "Select Year Of Manufacture Dropdown");
-                        selectValueFromDropdown("drpDwnMake", "text", make, "Select Make Dropdown");
-                        selectValueFromDropdown("drpDwnModelVariant", "text", modelVariant, "Select Model Variant Dropdown");
-                        //  selectValueFromDropdown("drpDwnYearOfManufacture", "text", yearOfManufacture, "Select Year Of Manufacture Dropdown");
-                        selectValueFromDropdown("drpDwnInsuredForRetailOrCustom", "text", insuredForRetailOrCustom, "Select Insured For Retail Or Custom ? Dropdown");
-
-                    }else if (value.equalsIgnoreCase("Motorcycle")){
-                        selectValueFromDropdown("drpDwnYearOfManufacture", "text", yearOfManufacture, "Select Year Of Manufacture Dropdown");
-                        selectValueFromDropdown("drpDwnMake", "text", make, "Select Make Dropdown");
-                        selectValueFromDropdown("drpDwnModelVariant", "text", modelVariant, "Select Model Variant Dropdown");
-                        //  selectValueFromDropdown("drpDwnYearOfManufacture", "text", yearOfManufacture, "Select Year Of Manufacture Dropdown");
-                        selectValueFromDropdown("drpDwnInsuredForRetailOrCustom", "text", insuredForRetailOrCustom, "Select Insured For Retail Or Custom ? Dropdown");
-
-                    }
-                    //Finance
-                    if (motorFinance.equalsIgnoreCase("Y")) {
-                        click("chBoxFinance", "The Check Box should be clicked");
-                        selectValueFromDropdown("drpDwnFinance", "text", financeCompany, "The Finance Company name should be clicked");
-                    }
-                    selectValueFromDropdown("drpFlat", "text", BusinessContentsFlatExcess, "The Flat value is selected");
-                    click("chkBoxImmobiliser", "Click Immobiliser CheckBox");
-                    selectValueFromDropdown("drpDwnImmobiliserMake", "text", immobiliserMake, "Select Immobiliser Make Dropdown");
-//                    setText("txtBoxInsuranceValue", insuranceAmount, "Enter Insurance Value");
-
-                    //Registered Owner Details
-                    selectValueFromDropdown("drpDwnRegisteredOwner", "text", registeredOwner, "Select Registered Owner");
-                    //Driver Details
-                    selectValueFromDropdown("drpDwnRegularDriver", "text", regularDriver, "Select Regular Driver");
-                    selectValueFromDropdown("drpDwnDriverLicenseType", "text", driverLicenseType, "Select Regular Driver License Type Dropdown");
-                    if (value.equalsIgnoreCase("Motorcycle")) {
-                        selectValueFromDropdown("drpDwnDrivingCertificate", "text", drivingCertificate, "Select Defensive Driving Certificate Dropdown");
-                    }
-                    click("chkBoxIsVehicleRegInSouthAfrica", "Click Is Vehicle Registered In South Africa ? CheckBox");
-                } else if (value.equalsIgnoreCase("Caravan / Trailer")) {
-                    //Caravan/Trailer General Details
-                    selectValueFromDropdown("drpDwnItemType", "text", itemType, "Select Item Type Dropdown");
-                    selectValueFromDropdown("drpDwnVehicleParkDuringNight", "text", vehicleParkDuringNight, "Select Vehicle Park During Night ? Dropdown");
-                    selectValueFromDropdown("drpDwnVehicleUsedFor", "text", vehicleUsedFor, "Select Vehicle Be Used For ? Dropdown");
-                    click("chkBoxIsCarvanParkUnderNet", "Click Is Carvan Parked Under Hail");
-                    setText("txtBoxMakeModelCaravan", make, "Enter Make/Model");
-                    setText("txtBoxCaravanInsuredValue", insuranceAmount, "Enter Caravan Insured Value");
-                    selectValueFromDropdown("drpDwnYearOfManufactureCaravan", "text", yearOfManufacture, "Select Caravan Year Of Manufacture Dropdown");
-//                    click("chkBoxRequireCreditShortFall", "Click Require Credit ShortFall ?");
-                    selectValueFromDropdown("drpCaravanFlat","text","1000","The Caravan Value was selected");
-                }
-                click("btnNext", "Click Next Button");
-                if (exists("labelCoverSelection", true, "Cover Selection Exists")) {
-                    logger.info("Motorcar - " + value + " Details Captured Successfully");
-                }
-            }
-
-        } catch (Exception e) {
-            logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
-        }
-
-    }
 
 
 

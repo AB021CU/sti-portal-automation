@@ -26,7 +26,6 @@ public class IdirectClaims_Mappings {
         IdirectClaims_Objects.put("btnNextCreateClaim", "XPATH|//button[@id='createClaimNext']");//Next Button
         IdirectClaims_Objects.put("btnRenewOK", "XPATH|//button[@id='DialogOK']");//OK Button
 
-
         //Address For AVAF
         IdirectClaims_Objects.put("txtBoxAddressLine1", "XPATH|//input[@id='IDITForm@SO003@streetId']");//AddressLine1 TextBox
         IdirectClaims_Objects.put("txtBoxAddressLine2", "XPATH|//input[@id='IDITForm@SO003@houseNr']");//AddressLine2 TextBox
@@ -59,7 +58,7 @@ public class IdirectClaims_Mappings {
 
         //Property
         IdirectClaims_Objects.put("txtBoxRelationshipOfPersonReportingClaim", "XPATH|//input[@id='1000008@1000463']");//Relationship of the person reporting the claim TextBox
-        IdirectClaims_Objects.put("txtBoxWhyReportingClaim", "XPATH|//input[@id='1000008@1000067']");//Why are they reporting the claim TextBox
+        IdirectClaims_Objects.put("txtBoxWhyReportingClaim", "XPATH|//input[@id='1000057@1001140']");//Why are they reporting the claim TextBox
         IdirectClaims_Objects.put("drpDwnInsuranceBeforeTakingPolicy", "XPATH|//select[@id='1000008@1000480']");//Did you have insurance before taking out this policy? Dropdown
 
         //Contents//Contents - Water damage

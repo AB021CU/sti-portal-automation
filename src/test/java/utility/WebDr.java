@@ -8,9 +8,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,11 +16,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import sapiens.login.Login;
 import testCases.Driver;
 
 import java.awt.*;
@@ -49,7 +42,7 @@ public class WebDr extends HtmlReporter {
     //    public String preferBrowser;
     public static Map<String, String> page_Objects = new HashMap<>();
 
-    public WebDriver wdriver;
+    public  static WebDriver wdriver;
     public String URL;
 
 
@@ -129,6 +122,8 @@ public class WebDr extends HtmlReporter {
                     wdriver.manage().deleteAllCookies();
                     break;
 
+
+
                 //Run script in headless mode
 ////                HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 ////                chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -191,7 +186,7 @@ public class WebDr extends HtmlReporter {
                     options.addArguments("--disable-dev-shm-usage");
                     options.addArguments("--headless");
                     options.addArguments("window-size=1600,900");
-                    wdriver = new ChromeDriver(options);
+                    wdriver = new ChromeDriver();
                     break;
                 case "IE":
                     System.setProperty("webdriver.ie.driver", Constant.IE_Driver);
@@ -204,14 +199,14 @@ public class WebDr extends HtmlReporter {
                     System.setProperty("webdriver.gecko.driver", Constant.Firefox_Driver);
                     oCap = DesiredCapabilities.firefox();
                     oCap.setBrowserName("firefox");
-                    wdriver= new FirefoxDriver(oCap);
+                    wdriver= new FirefoxDriver();
                     break;
-                case "Firefox_HeadLess":
+                /*case "Firefox_HeadLess":
                     System.setProperty("webdriver.gecko.driver", Constant.Firefox_Driver);
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.setHeadless(true);
                     wdriver = new FirefoxDriver(firefoxOptions);
-                    break;
+                    break;*/
                 default:
                     break;
             }

@@ -35,6 +35,10 @@ public class testFlow extends WebDr {
                     logger.info("The current scenario is: " + flowName);
                     sapiens_NewContactCreation(preferBrowser);
                     break;
+                case"flow_UpdateContacts":
+                    logger.info("The current scenario is: "+flowName);
+                    updateContactDetails(preferBrowser);
+                    break;
                 case "absa_Idirect_Flow":
                     System.err.print("It working fine");
                     logger.info("The current scenario is: " + flowName);
@@ -52,7 +56,6 @@ public class testFlow extends WebDr {
                     absa_Idirect_Endorsement(preferBrowser);
                     System.err.println("The General Endorsement has Finished");
                     break;
-
                 case "flow_PersonalLines_IdirectClaimsCreation":
                     logger.info("The current scenario is: " + flowName);
                     personalLines_IdirectClaimsCreation(preferBrowser);
@@ -115,10 +118,7 @@ public class testFlow extends WebDr {
             new Absa_Idirect_Multi(wdriver, test).multiCovers();
             String policyNumber = new Absa_Idirect_Multi(wdriver, test).paymentsDetails();
             new Login(wdriver, test).applicationLogOut();
-            new Searches(wdriver, test).searchPolicy1();
-            //new Login(wdriver, test).applicationLogOut();
-//            new Claims(wdriver, test).claimThroughPolicy(policyNumber);
-//
+
 
         } catch (Exception e) {
             logger.info("Exception in sapiens_Absa Idirect Flow in Multiple Covers : " + e);
@@ -140,8 +140,6 @@ public class testFlow extends WebDr {
             String policyNumber = new Absa_Idirect(wdriver, test).paymentsDetails();
             new Searches(wdriver, test).searchPolicy1();
             new Login(wdriver, test).applicationLogOut();
-//            new Claims(wdriver, test).claimThroughPolicy(policyNumber);
-//            new Login(wdriver, test).applicationLogOut();
 
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in MultiVerse : "+e);
@@ -160,8 +158,7 @@ public class testFlow extends WebDr {
             String policyNumber = new Endorse(wdriver, test).paymentsDetails();
             new Login(wdriver, test).applicationLogOut();
 
-//            new Claims(wdriver, test).claimThroughPolicy(policyNumber);
-//            new Login(wdriver, test).applicationLogOut();
+
 
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in Endorsement : "+e);

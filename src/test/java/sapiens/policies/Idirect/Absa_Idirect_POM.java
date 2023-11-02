@@ -1,9 +1,7 @@
 package sapiens.policies.Idirect;
 
-import org.docx4j.wml.Id;
 import utility.WebDr;
 
-import javax.naming.directory.InitialDirContext;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,6 +42,9 @@ public class Absa_Idirect_POM {
         //Sales Transaction Channel
         Idirect_POM.put("drpDwnCurrentSalesChannel", "XPATH|//select[@id='IDITForm@currentChannelVO@id']");//Current Sales Channel Dropdown
         Idirect_POM.put("drpDwnAffinity", "XPATH|//select[@id='IDITForm@affinityVO@id' and @title ='Affinity']"); // Affinity Dropdown
+
+        Idirect_POM.put("drpDwnIntermediary","XPATH|//select[@title='Intermediary Name']");
+        Idirect_POM.put("drpDwnIntermediaryAccount","XPATH|//select[@title='Account']");
 
         //Proposal Questionnaire
         //Absa Idirect
@@ -158,7 +159,7 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("chkIsThere24hrsSecurityOrAccessControlOnGates", "XPATH|//label[normalize-space()='Is there 24hr security or access control on gates?']");
         Idirect_POM.put("chkIsThereElectricFencing", "XPATH|//label[normalize-space()='Is there electric fencing?']");
         Idirect_POM.put("chkIsThereA24HrsSecurityGuardPatrol", "XPATH|//label[normalize-space()='Is there a 24-hour security guard patrol?']");
-        Idirect_POM.put("chkPropertySurveyRequired", "XPATH|//label[normalize-space()='Property Survey required?']");
+        Idirect_POM.put("chkPropertySurveyRequired", "XPATH|//label[@id='propertySurveyRequiredLabel']");
         Idirect_POM.put("txtBoxDateRiskSurveyRequested", "XPATH|//input[@id='dateRiskSurveyRequested']");
         Idirect_POM.put("txtBoxDateRiskSurveyReceived", "XPATH|//input[@id='dateRiskSurveyReceived']");
         Idirect_POM.put("chkAreThereAnyGasAppliancesOrEquipment", "XPATH|//label[normalize-space()='Are there any Gas appliances or equipment?']");
@@ -208,7 +209,7 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("txtBoxInventoryReceivedDate", "XPATH|//input[@id='inventoryReceivedDate']");//Inventory Received Date TextBox
         Idirect_POM.put("txtBoxMainDwellingSumInsured", "XPATH|//input[@id='mainDwelContentSumInsuredId']");//Main Dwelling Contents sum insured TextBox
         Idirect_POM.put("txtBoxOutbuildingSumInsured", "XPATH|//input[@id='outBuildSumInsuredContentId']");//Outbuilding sum insured TextBox
-        Idirect_POM.put("drpDwnFlatContents", "XPATH|//select[@id='flatContent']");//Flat Dropdown
+        Idirect_POM.put("drpDwnFlatContents", "XPATH|//select[@id='flatContentsIDirect']");//Flat Dropdown
         Idirect_POM.put("drpDwnRegisteredOwnerContents", "XPATH|//select[@id='registeredOwnerContent']");//Registered Owner Dropdown
         Idirect_POM.put("chkBoxWaiveAlarm", "XPATH|//label[@id='waiveAlarmLabel']");
         Idirect_POM.put("chkBoxWaiveBurglarBars", "XPATH|//label[@id='waiveBurglarBarsLabel']");
@@ -278,6 +279,10 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("chBoxTrackingDevice","XPATH|//label[@id='doYouHaveTrackingdeviceLabel']");
         Idirect_POM.put("txtBoxTrackingDeviceModel","XPATH|//input[@id='trackingDeviceModel']");
         Idirect_POM.put("drpDwnTrackingDeviceMake","XPATH|//select[@id='trackingDeviceMake']");
+
+        Idirect_POM.put("chBoxPreInspectionReport","XPATH|//label[contains(@id,'preInspectionReportRequiredLabel')]");
+        Idirect_POM.put("chBoxPreInspectionReportReceived","XPATH|//label[contains(@id,'preInspectionReportReceived')]");
+        Idirect_POM.put("txtPreInspectionDate","XPATH|//input[@title='Pre-inspection report date']");
 
         Idirect_POM.put("drpMotorcycleFlat","XPATH|//select[@id='motorcycleFlat']");
         Idirect_POM.put("drpFlat","XPATH|//select[@id='flatIdirect']");

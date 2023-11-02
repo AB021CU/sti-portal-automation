@@ -3,14 +3,11 @@ package testCases;
 import org.slf4j.Logger;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import utility.Constant;
 import utility.Launcher;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
-import static utility.Constant.*;
 import static org.slf4j.LoggerFactory.getLogger;
 
 public class Driver extends Thread{
@@ -34,14 +31,14 @@ public class Driver extends Thread{
         try{
             userDir = System.getProperty("user.dir");
             //FOR MULTIVERSE POLICY && FOR ENDORSEMENT
-            file_TestData="SAPIENS_Idirect - Copy.xlsx";
+            //file_TestData="SAPIENS_Idirect - Copy.xlsx";
             //________________________________________________________________________________________//
             //FOR SINGLE COVER POLICY
             //file_TestData= "SAPIENS_Idirect.xlsx";
 
             //________________________________________________________________________________________//
             //FOR CLAIMS
-            //file_TestData="SAPIENS_MasterDataHOC.xlsx";
+            file_TestData="SAPIENS_MasterDataHOC.xlsx";
 
             objLauncher.InvokeLauncher(testngBrowser);
         }

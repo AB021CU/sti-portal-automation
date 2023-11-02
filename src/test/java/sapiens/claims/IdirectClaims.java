@@ -67,6 +67,8 @@ public class IdirectClaims extends WebDr {
 
         IdirectClaims_Mappings.IdirectClaims_Factory();
         String[] claimNumber = new String[0];
+        ClaimsQuestionnaire quest = new ClaimsQuestionnaire();
+
 
         try {
 //            if (exists("labelContactDashboard", true, "Contact Dashboard")) {
@@ -143,7 +145,7 @@ public class IdirectClaims extends WebDr {
                     Thread.sleep(3000);
                     click("labelQuestionnaires", "Click Questionnaires Tab");
                     if (existsNoReport("labelDamagedObjectQuestionnaire", true, "Damaged Object Questionnaire")) {
-                        selectValueFromDropdown("drpDwnDamageBeenAttended", "text", damageBeenAttended, "Damage Been Attended");
+                        /*selectValueFromDropdown("drpDwnDamageBeenAttended", "text", damageBeenAttended, "Damage Been Attended");
                         if (lineOfBusiness.equalsIgnoreCase("Property")) {
 //                                            setText("txtBoxRelationshipOfPersonReportingClaim", relationshipOfPersonReportingClaim, "Relationship Of Person Reporting Claim");
                             setText("txtBoxWhyReportingClaim", whyReportingClaim, "Why Reporting Claim");
@@ -152,7 +154,8 @@ public class IdirectClaims extends WebDr {
                         }
                         if (lineOfBusiness.equalsIgnoreCase("Motorcar")) {
                             questionnaireClaimsMotorCar();
-                        }
+                        }*/
+                        quest.questionnaireClaimsHandler(wdriver);
                     }
 //                                }
                     Thread.sleep(3000);
@@ -175,6 +178,7 @@ public class IdirectClaims extends WebDr {
                         r.keyRelease(KeyEvent.VK_DOWN);
                         r.keyPress(KeyEvent.VK_ENTER);
                         r.keyRelease(KeyEvent.VK_ENTER);
+                        Thread.sleep(2000);
                         click("btnLiabilityOk", "Click OK Button");
                         if (exists("labelDependencies", true, "Dependencies")) {
                             rightClick("rightClickDamage", "Performing right click on dependencies tab");

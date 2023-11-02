@@ -4,9 +4,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
-import sapiens.policies.Idirect.Absa_Idirect;
 import sapiens.policies.Idirect.Absa_Idirect_Multi;
-import sapiens.policies.Idirect.Absa_Idirect_POM;
 import utility.WebDr;
 
 import java.util.ArrayList;

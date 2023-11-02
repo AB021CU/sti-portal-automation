@@ -46,15 +46,17 @@ public class Claims extends WebDr {
     String cityTownForeignCountry = getValue("CityTownForeignCountry");
     String postCode = getValue("Post_Code");
     String insure = getValue("Insure");
+    String policyNumber=getValue("PolicyNumber");
 
 
     /**
      * Method to create a new claim by selecting policy first
      *
-     * @param policyNumber Policy Number
+     * @return
      */
-    public void claimThroughPolicy(String policyNumber) {
+    public String claimThroughPolicy() {
 
+        ClaimsQuestionnaire quest = new ClaimsQuestionnaire();
         Claims_Mappings.Claims_Factory();
 
         try {
@@ -122,16 +124,7 @@ public class Claims extends WebDr {
 //                                if (!productType.equalsIgnoreCase("Extended Cover Insurance")) {
                         click("labelQuestionnaires", "Click Questionnaires Tab");
                         if (existsNoReport("labelDamagedObjectQuestionnaire", true, "Damaged Object Questionnaire")) {
-                            selectValueFromDropdown("drpDwnDamageBeenAttended", "text", damageBeenAttended, "Damage Been Attended");
-                            if (lineOfBusiness.equalsIgnoreCase("Property")) {
-//                                            setText("txtBoxRelationshipOfPersonReportingClaim", relationshipOfPersonReportingClaim, "Relationship Of Person Reporting Claim");
-                                setText("txtBoxWhyReportingClaim", whyReportingClaim, "Why Reporting Claim");
-                                selectValueFromDropdown("drpDwnIncidentReportedToPolice", "text", incidentReportedToPolice, "Was the incident reported to the police?");
-                                selectValueFromDropdown("drpDwnInsuranceBeforeTakingPolicy", "text", insuranceBeforeTakingPolicy, "Insurance Before Taking Policy");
-                            }
-                            if (lineOfBusiness.equalsIgnoreCase("Motorcar")){
-                                questionnaireClaimsMotorCar();
-                            }
+                            quest.questionnaireClaimsHandler(wdriver);
                         }
 //                                }
                         Thread.sleep(3000);
@@ -159,6 +152,7 @@ public class Claims extends WebDr {
         } catch (Exception e) {
             logger.info("Exception in Claim Creation is : " + e);
         }
+        return null;
     }
 
     public void questionnaireClaimsMotorCar(){

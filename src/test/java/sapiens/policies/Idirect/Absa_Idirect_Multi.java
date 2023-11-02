@@ -199,19 +199,18 @@ public class Absa_Idirect_Multi extends WebDr {
                 if (existsNoReport("labelGeneralDetails", true, "General Details ")) {
                     //General Details
                     selectValueFromDropdown("drpDwnProductName", "text", productType, "Select Product Name");
-                    selectValueFromDropdown("drpDwnAffinity", "text", affinity, "Select Affinity");
+                    //selectValueFromDropdown("drpDwnAffinity", "text", affinity, "Select Affinity");
                     selectValueFromDropdown("drpDwnPolicyType", "text", policyType, "Select Policy Type");
-                    if (productType.equalsIgnoreCase("Absa Plus") && policyType.equalsIgnoreCase("Yearly")) {
+                    /*if (productType.equalsIgnoreCase("Absa Plus") && policyType.equalsIgnoreCase("Yearly")) {
                         selectValueFromDropdown("drpDwnPolicyRenewal", "text", policy_renewal_period, "Select Policy Type");
-                    }
-
+                    }*/
+///
                     click("chkBoxClientContext", "Click Client Context Completed CheckBox");
                     //setText("txtBoxOldPolicyNumber", oldPolicyNumber, "Enter old policy number");
                     //setText("txtBoxExternalReferenceNumber", externalRNumber, "Enter External Reference Number");
                     selectValueFromDropdown("drpDwnBranchCode", "text", branchCode, "Select Branch Code/Region");
                     selectValueFromDropdown("drpDwnSource", "text", source, "Select Source");
-                    //setText("txtBoxExternalReferenceName", externalRName, "Enter External Reference Name");
-                    //setText("txtBoxCaseNbr", caseNbr, "Enter Case Nbr ");
+                    selectValueFromDropdown("drpDwnIntermediary","text","FOURIE INSURANCE BROKERS","The Intermediary was selected");
                     //Current Sales Channel
                     selectValueFromDropdown("drpDwnCurrentSalesChannel", "text", currentSalesChannel, "Select Current Sales Channel");
                     selectValueFromDropdown("drpDwnStaffIndicator", "text", staffIndicator, "Select Staff Indicator ");
@@ -259,9 +258,9 @@ public class Absa_Idirect_Multi extends WebDr {
                 //Reason
                 selectValueFromDropdown("drpDwnReason","text",reason,"Select Reason from the dropDwnn");
                 //Screening progress
-                if (existsNoReport("",true,"")) {
+               /* if (existsNoReport("",true,"")) {
                 click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
-                }
+                }*/
 //                click("chkBoxRiskProfiling", "Click Risk Profiling Completed CheckBox");
 //                click("chkBoxDueDiligence", "Click Due Diligence Completed CheckBox");
                 click("btnNext", "Click Next");
@@ -1021,6 +1020,7 @@ public class Absa_Idirect_Multi extends WebDr {
                     }
                 }
                 setText("txtBoxNumberOfOutBuildings", numberOfOutBuildings, "Enter How Many Out Buildings are there");
+
                 if (propertysurveyTcuried.equalsIgnoreCase("Y")) {
                     click("chkPropertySurveyRequired", "Clicked Property Survey Required");
                     setText("txtBoxDateRiskSurveyRequested", getCurrentDate(), "Enter Date Risk Survey Requested");
@@ -1133,8 +1133,7 @@ public class Absa_Idirect_Multi extends WebDr {
 
                 if (existsNoReport("labelUWContains", true, "Blocking Screen Exists")) {
                     logger.info("Under writing blocking alert is present");
-                    if (exists("imgHome1", true, "Home Image Exists")) {
-                        click("btnUserMenu", "Click on User Menu Dropdown");
+                    if (exists("imgHome1", true, "Home Image Exists")) {click("btnUserMenu", "Click on User Menu Dropdown");
                         click("elmntLogOff", "Click LogOff Element");
                         if (exists("dialogLogOff", true, "Confirm Logoff Dialog Box")) {
                             click("btnOKUw", "Click OK Button");
