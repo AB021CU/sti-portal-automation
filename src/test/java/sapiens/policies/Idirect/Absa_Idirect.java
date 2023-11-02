@@ -463,7 +463,7 @@ public class Absa_Idirect extends WebDr {
                         Policy = getText("PolicyNum", "The Element should be visible");
                         click("btnOk", "The Value is selected");
                     }
-                    //writeExcel(Policy,);
+                    writeExcel(Policy,"For Single Cover");
 
                     if (exists("labelMaintainEvent", true, "Maintains Event Exists")) {
                         logger.info("Policy Payments Details Captured Successfully");
