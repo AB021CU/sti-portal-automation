@@ -332,8 +332,10 @@ public class Absa_Idirect_Multi extends WebDr {
 
                 //  selectValueFromDropdown("drpDwnAddressList", "text", address, "Select Address");
                 selectValueFromDropdown("drpDwnRiskToInsure", "text", InsureAR, "Select Risk To Insure");
-                if (InsureAR.equalsIgnoreCase("Specified All Risk Cover")) {
-                    selectValueFromDropdown("drpDwnSpecifiedAllRiskCover", "text", specifiedAllRiskCover, "Select Specified All Risk Cover");
+                if (InsureAR.equalsIgnoreCase("Unspecified All Risk Cover")) {
+                    selectValueFromDropdown("drpDwnUnSpecifiedAllRiskCove", "text","Clothing and Personal Effects", "Select Specified All Risk Cover");
+                }else{
+                    selectValueFromDropdown("drpDwnSpecifiedAllRiskCover", "text",specifiedAllRiskCover, "Select Specified All Risk Cover");
                 }
                 setText("txtBoxDescription", description, "Enter Description");
                 setText("txtBoxSumInsured", ARInsureAmount, "Enter Sum Insured");

@@ -189,7 +189,8 @@ public class Absa_Idirect extends WebDr {
                     setText("txtBoxExternalReferenceName", externalRName, "Enter External Reference Name");
                     setText("txtBoxCaseNbr", caseNbr, "Enter Case Nbr ");
 
-                    selectValueFromDropdown("drpDwnIntermediary","text","FOURIE INSURANCE BROKERS","The Intermediary was selected");
+                    Thread.sleep(2000);
+                   // selectValueFromDropdown("drpDwnIntermediary","text","FOURIE INSURANCE BROKERS","The Intermediary was selected");
                     //Current Sales Channel
                     selectValueFromDropdown("drpDwnCurrentSalesChannel", "text", currentSalesChannel, "Select Current Sales Channel");
                     selectValueFromDropdown("drpDwnStaffIndicator", "text", staffIndicator, "Select Staff Indicator ");
@@ -862,8 +863,10 @@ public class Absa_Idirect extends WebDr {
 
                 //  selectValueFromDropdown("drpDwnAddressList", "text", address, "Select Address");
                 selectValueFromDropdown("drpDwnRiskToInsure", "text", insure, "Select Risk To Insure");
-                if (insure.equalsIgnoreCase("Specified All Risk Cover")) {
-                    selectValueFromDropdown("drpDwnSpecifiedAllRiskCover", "text", specifiedAllRiskCover, "Select Specified All Risk Cover");
+                if (insure.equalsIgnoreCase("Unspecified All Risk Cover")) {
+                    selectValueFromDropdown("drpDwnUnSpecifiedAllRiskCover", "text","Clothing and Personal Effects", "Select Specified All Risk Cover");
+                }else{
+                    selectValueFromDropdown("drpDwnSpecifiedAllRiskCover", "text",specifiedAllRiskCover, "Select Specified All Risk Cover");
                 }
                 setText("txtBoxDescription", description, "Enter Description");
                 setText("txtBoxSumInsured", insuranceAmount, "Enter Sum Insured");

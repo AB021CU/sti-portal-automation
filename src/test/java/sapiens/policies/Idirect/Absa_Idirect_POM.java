@@ -319,6 +319,7 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("drpDwnSpecifiedAllRiskCover", "XPATH|//select[@id='specAllRiskType']");//Specified All Risk Cover Dropdown
         Idirect_POM.put("txtBoxDescription", "XPATH|//input[@id='description']");//Description TextBox
         Idirect_POM.put("txtBoxSumInsured", "XPATH|//input[@id='sumInsured']");//Sum Insured TextBox
+        Idirect_POM.put("drpDwnUnSpecifiedAllRiskCover","XPATH|//select[@id='unspecAllRiskType']");
 
 
         //*** PERSONAL COMPUTERS  LOB  *****

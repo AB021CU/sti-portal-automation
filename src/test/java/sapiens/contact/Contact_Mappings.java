@@ -143,6 +143,8 @@ public class Contact_Mappings {
         //***********   UPDATE CONTACT     ***********
 
 
+        Contact_Objects.put("txtTemporaryPermitNo","XPATH|(//label[@title='Temporary Resident Permit Number']//following::input)[1]");
+        Contact_Objects.put("txtTemporaryPermitDate","XPATH|(//label[@title='Permit Expiry Date']//following::input)[1]");
         Contact_Objects.put("labelContactName", "XPATH|//div[@class='idit-dashboard-panels-row']/div[@class='idit-title SectionTitle ']");//Contact Name Label
         Contact_Objects.put("labelContactNumber", "XPATH|//label[@id='IDITForm@primaryTelephone@formattedPhoneNumer']");//Contact Number Label
         Contact_Objects.put("btnUpdateContact", "XPATH|//a[@id='UpdateContactNewGen_Link']");//Update Contact Button

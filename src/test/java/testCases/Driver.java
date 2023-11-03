@@ -34,12 +34,11 @@ public class Driver extends Thread{
             //file_TestData="SAPIENS_Idirect - Copy.xlsx";
             //________________________________________________________________________________________//
             //FOR SINGLE COVER POLICY
-            //file_TestData= "SAPIENS_Idirect.xlsx";
+            file_TestData= "SAPIENS_Idirect.xlsx";
 
             //________________________________________________________________________________________//
             //FOR CLAIMS
-            file_TestData="SAPIENS_MasterDataHOC.xlsx";
-
+            //file_TestData="SAPIENS_MasterDataHOC.xlsx";
             objLauncher.InvokeLauncher(testngBrowser);
         }
         catch (Exception e){
