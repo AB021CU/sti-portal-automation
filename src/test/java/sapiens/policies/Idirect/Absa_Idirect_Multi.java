@@ -1290,6 +1290,14 @@ public class Absa_Idirect_Multi extends WebDr {
             setText("txtBoxCaravanInsuredValue", CaravanInsuranceAmount, "Enter Caravan Insured Value");
             selectValueFromDropdown("drpDwnYearOfManufactureCaravan", "text", yearOfManufacture, "Select Caravan Year Of Manufacture Dropdown");
             selectValueFromDropdown("drpCaravanFlat", "text", "1000", "The Caravan Value was selected");
+            if (motorFinance.equalsIgnoreCase("Y")) {
+                click("chBoxFinance", "The Check Box should be clicked");
+                selectValueFromDropdown("drpDwnFinance", "text", financeCompany, "The Finance Company name should be clicked");
+            }
+
+            setText("txt12Days","1","The 12Days value is passed for caravan");
+            setText("txt13to24Days","1","The 13Days value is passed for caravan");
+            setText("txt25to36Days","1","The 25Days value is passed for caravan");
         }catch  (Exception e) {
             logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
         }

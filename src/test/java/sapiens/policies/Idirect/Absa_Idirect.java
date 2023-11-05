@@ -221,9 +221,9 @@ public class Absa_Idirect extends WebDr {
         try {
             if (insure.equalsIgnoreCase("Motorcycles")
                     || insure.equalsIgnoreCase("Caravan / Trailer")
-                    || productType.equalsIgnoreCase("Private Insure") && insure.equalsIgnoreCase("Vehicle")
+                    || insure.equalsIgnoreCase("Vehicle")
                     || lineOfBusiness.equalsIgnoreCase("All Risk")
-                    || lineOfBusiness.equalsIgnoreCase("electronicEquipment")
+                    || lineOfBusiness.equalsIgnoreCase("Electronic Equipment")
                     || lineOfBusiness.equalsIgnoreCase("Boats")) {
                 selectValueFromList("listLineOfBusiness", "Property", "Select Line of Business/Locations/Risk Object");
                 click("btnUpdate", "Click Update");
@@ -839,6 +839,12 @@ public class Absa_Idirect extends WebDr {
                     selectValueFromDropdown("drpDwnYearOfManufactureCaravan", "text", yearOfManufacture, "Select Caravan Year Of Manufacture Dropdown");
 //                    click("chkBoxRequireCreditShortFall", "Click Require Credit ShortFall ?");
                     selectValueFromDropdown("drpCaravanFlat","text","1000","The Caravan Value was selected");
+                    click("chBoxFinance", "The Check Box should be clicked");
+                    selectValueFromDropdown("drpDwnFinance", "text", financeCompany, "The Finance Company name should be clicked");
+
+                    setText("txt12Days","1","The 12Days value is passed for caravan");
+                    setText("txt13to24Days","1","The 13Days value is passed for caravan");
+                    setText("txt25to36Days","1","The 25Days value is passed for caravan");
                 }
                 click("btnNext", "Click Next Button");
                 if (exists("labelCoverSelection", true, "Cover Selection Exists")) {
@@ -918,12 +924,13 @@ public class Absa_Idirect extends WebDr {
                 }
             }
             selectValueFromDropdown("drpDwnType", "text", computerType, "The Electronic Type was selected");
-            selectValueFromDropdown("drpDwnFlat", "value", "1", "The value is selected");
+            selectValueFromDropdown("drpDwnFlat", "text", "500", "The value is selected");
             setText("txtBoxMake", make, "The Make is selected");
             setText("txtBoxModel", "2019", "The Model is Selected");
             setText("txtBoxElectronicEquipmentSumInsured", insuranceAmount, "The Sum Insured value is clicked");
             setText("txtBoxSerialNumber", "T5639200", "The Serial Number should be selected");
-            setText("txtBoxIMEINumber", "U6778973839089849", "The IMEI Number should be selected");
+            setText("txtBoxIMEINumber", "U677897383", "The IMEI Number should be selected");
+            click("btnFinish", "Click Finish Button");
         } catch (Exception e) {
             logger.info("Excepetion must be thrown on this");
         }

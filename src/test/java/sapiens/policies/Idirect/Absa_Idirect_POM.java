@@ -310,6 +310,9 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("drpDwnYearOfManufactureCaravan", "XPATH|//select[@id='yearOfManufactureCarvan']");//Caravan Year of Manufacture Dropdown
         Idirect_POM.put("chkBoxRequireCreditShortFall", "XPATH|//label[@id='requireCreditShortFallLabel']");// Do you Require Credit shortfall? Checkbox
 
+        Idirect_POM.put("txt12Days","XPATH|(//*[@for='numberOfClaimsPastYear']//following::input)[1]");
+        Idirect_POM.put("txt13to24Days","XPATH|(//*[@for='noOfClaimsPastThirteen']//following::input)[1]");
+        Idirect_POM.put("txt25to36Days","XPATH|(//*[@for='noOfClaimPastTwentyFive']//following::input)[1]");
 
         //*** ALL RISK  LOB  *****
 
