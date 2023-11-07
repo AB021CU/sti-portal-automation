@@ -153,7 +153,7 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("chkIs_the_building_completed", "XPATH|//label[normalize-space()='Is the building completed']");
         Idirect_POM.put("chkHave_you_had_any_burglaries_at_the_property", "XPATH|//label[normalize-space()='Have you had any burglaries at the property?']");
         Idirect_POM.put("chkIs_the_property_in_a_high_security_complex", "XPATH|//label[normalize-space()='Is the property in a high security complex?']");
-        Idirect_POM.put("chkAreThereHighWalls", "XPATH|//label[normalize-space()='Are there 1.8m high walls']");
+        Idirect_POM.put("chkAreThereHighWalls", "XPATH|//label[@id='areThereHighWallsLabel']");
         Idirect_POM.put("chkAreThereRazorWireAlongThePerimeterWall", "XPATH|//label[normalize-space()='Are there Razor wire along the perimeter wall']");
         Idirect_POM.put("chkIsThereAnElectronicGate", "XPATH|//label[normalize-space()='Is there an electronic gate?']");
         Idirect_POM.put("chkIsThere24hrsSecurityOrAccessControlOnGates", "XPATH|//label[normalize-space()='Is there 24hr security or access control on gates?']");

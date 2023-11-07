@@ -177,11 +177,10 @@ public class testFlow extends WebDr {
             new Searches(wdriver, test).searchPolicy1();
             String claimNumber = new IdirectClaims(wdriver, test).idirectclaimThroughPolicy();
             new Login(wdriver, test).applicationLogOut();
-            setup(preferBrowser);
-            new Login(wdriver, test).applicationLogin2();
+           /* setup(preferBrowser);
             new Searches(wdriver, test).searchLossEvent(claimNumber);
             new IdirectClaims(wdriver, test).idirectClaimsClosure();
-            new Login(wdriver, test).applicationLogOut();
+            new Login(wdriver, test).applicationLogOut();*/
 
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);

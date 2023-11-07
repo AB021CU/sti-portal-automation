@@ -265,6 +265,14 @@ public class Contact extends WebDr {
                     //Bank ID Number
                     setText("txtBoxCompanyRegNo", "BCT82683182", "Enter Bank Account Number");
                     click("btnValidate", "Click Validate Button");
+                    if (existsNoReport("Error",true,"The error present")){
+                        click("bankOkay","Click The Okay Button");
+
+                        setText("banknumber","632005","The bank value is given");
+
+                        click("btnValidate", "Click Validate Button");
+                    }
+
                     Thread.sleep(5000);
                     String validationStatus = getText("drpDwnValueVerificationStatus", "Get Validation Status");
                     if (!(validationStatus.equalsIgnoreCase("Verified"))) {

@@ -210,7 +210,7 @@ public class Absa_Idirect_Multi extends WebDr {
                     //setText("txtBoxExternalReferenceNumber", externalRNumber, "Enter External Reference Number");
                     selectValueFromDropdown("drpDwnBranchCode", "text", branchCode, "Select Branch Code/Region");
                     selectValueFromDropdown("drpDwnSource", "text", source, "Select Source");
-                    selectValueFromDropdown("drpDwnIntermediary","text","FOURIE INSURANCE BROKERS","The Intermediary was selected");
+                    //selectValueFromDropdown("drpDwnIntermediary","text","FOURIE INSURANCE BROKERS","The Intermediary was selected");
                     //Current Sales Channel
                     selectValueFromDropdown("drpDwnCurrentSalesChannel", "text", currentSalesChannel, "Select Current Sales Channel");
                     selectValueFromDropdown("drpDwnStaffIndicator", "text", staffIndicator, "Select Staff Indicator ");
@@ -1234,6 +1234,8 @@ public class Absa_Idirect_Multi extends WebDr {
             selectValueFromDropdown("drpDwnDriverLicenseType", "text", driverLicenseType, "Select Regular Driver License Type Dropdown");
 
             click("chkBoxIsVehicleRegInSouthAfrica", "Click Is Vehicle Registered In South Africa ? CheckBox");
+            click("chBoxPreInspectionReport","The Pre Inspection report is checked");
+            click("chBoxPreInspectionReportReceived","The Inspection report is received");
         }  catch  (Exception e) {
             logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
         }
@@ -1275,6 +1277,8 @@ public class Absa_Idirect_Multi extends WebDr {
             selectValueFromDropdown("drpDwnDrivingCertificate", "text", drivingCertificate, "Select Defensive Driving Certificate Dropdown");
 
             click("chkBoxIsVehicleRegInSouthAfrica", "Click Is Vehicle Registered In South Africa ? CheckBox");
+            click("chBoxPreInspectionReport","The Pre Inspection report is checked");
+            click("chBoxPreInspectionReportReceived","The Inspection report is received");
         }catch  (Exception e) {
             logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
         }

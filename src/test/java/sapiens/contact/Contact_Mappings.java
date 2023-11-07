@@ -123,6 +123,9 @@ public class Contact_Mappings {
 
         //***********   PAYMENT MEANS     ***********
 
+        Contact_Objects.put("bankOkay","XPATH|//button[@id='DialogOK']");
+        Contact_Objects.put("banknumber","XPATH|//input[contains(@id,'bankAccountPopUpVO@bankAccount@branchNumberStyleId')]");
+        Contact_Objects.put("Error","XPATH|//div[@id='BasicNotificationDialog']");
         Contact_Objects.put("tabPaymentMeans", "XPATH|//li[@title='Payment Means']");//Payment Means Tab
         Contact_Objects.put("labelPaymentMeansDetails", "XPATH|//div[@title='Payment Means Details']");//Payment Means Details Label
         Contact_Objects.put("btnAddNewPaymentChannel", "XPATH|//a[@id='paymentChannelList|New']//i[@class='fa fa-plus']");//Add New Payment Channel

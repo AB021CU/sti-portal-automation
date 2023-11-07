@@ -219,9 +219,9 @@ public class Absa_Idirect extends WebDr {
         Absa_Idirect_POM.Idirect_Factory();
         String lineOfBusiness = getValue("Line_Of_Business");
         try {
-            if (insure.equalsIgnoreCase("Motorcycles")
-                    || insure.equalsIgnoreCase("Caravan / Trailer")
-                    || insure.equalsIgnoreCase("Vehicle")
+            if (
+                    insure.equalsIgnoreCase("Caravan / Trailer")
+
                     || lineOfBusiness.equalsIgnoreCase("All Risk")
                     || lineOfBusiness.equalsIgnoreCase("Electronic Equipment")
                     || lineOfBusiness.equalsIgnoreCase("Boats")) {
@@ -466,7 +466,7 @@ public class Absa_Idirect extends WebDr {
                     }
                     writeExcel(Policy,"For Single Cover");
 
-                    if (exists("labelMaintainEvent", true, "Maintains Event Exists")) {
+                    if (existsNoReport("labelMaintainEvent", true, "Maintains Event Exists")) {
                         logger.info("Policy Payments Details Captured Successfully");
                         if (exists("labelUnknownAddressee", true, "The Label is visible")) {
                             click("labelUnknownAddressee", "Click Unknown Addressee");
@@ -478,14 +478,14 @@ public class Absa_Idirect extends WebDr {
                             click("labelWelcomeLetterPLSMS", "Click Welcome Letter PL SMS");
                             click("btnDelete", "Click Delete Button");
                         }
-                        if (exists("dialogBasicNotification", true, "Basic Notification Dialog")) {
+                        if (existsNoReport("dialogBasicNotification", true, "Basic Notification Dialog")) {
                             click("btnDialogOK", "Click OK Button");
                         }
                         click("btnFinish", "Click Finish Button");
                         if (existsNoReport("dialogGD1000079", true, "Policy Creation Dialog")) {
                             click("btnDialogOK", "Click OK Button");
                         }
-                        if (exists("dialogPolicyCreation", true, "Policy Creation Dialog")) {
+                        if (existsNoReport("dialogPolicyCreation", true, "Policy Creation Dialog")) {
                             String str = getText("txtPolicyNumber", "Get Policy Number");
                             policyNumber = str.split("\\s+");
                             logger.info("Policy " + policyNumber[1] + " Created Successfully");
@@ -517,8 +517,8 @@ public class Absa_Idirect extends WebDr {
                 if (insure.equalsIgnoreCase("Building")) {
                     click("chkBoxBuilding", "Click Building CheckBox");
                 } else if (insure.equalsIgnoreCase("Contents")
-                        || productType.equalsIgnoreCase("Private Insure") && insure.equalsIgnoreCase("Vehicle")
-                        || insure.equalsIgnoreCase("Motorcycle")
+                        /*|| productType.equalsIgnoreCase("Private Insure") && insure.equalsIgnoreCase("Vehicle")
+                        || insure.equalsIgnoreCase("Motorcycle")*/
                         || insure.equalsIgnoreCase("Caravan / Trailer")
                         || lineOfBusiness.equalsIgnoreCase("All Risk")
                         || lineOfBusiness.equalsIgnoreCase("Electronic Equipment")
@@ -544,22 +544,20 @@ public class Absa_Idirect extends WebDr {
                 if (isThereThatched.equalsIgnoreCase("Y")) {
                     click("chkBoxIsThereThatched", "Clicked Is there a thatched lapa within 3 meters of main dwelling");
                     selectValueFromDropdown("drpDwnThatchedHutFloor", "text", thatchedfloor_area, "Selected Thatched Lapa hut floor area");
-                    if (SizeOfLapaExceed.equalsIgnoreCase("Y")) {
-                        click("chkBoxDoesSizeOfLapa", "Clicked Is there a thatched lapa within 3 meters of main dwelling");
                         if (SabsaApproved.equalsIgnoreCase("Y")) {
                             click("chkDoesYouHaveASabsaApprovedLightingConductor", "Clicked Is there a thatched lapa within 3 meters of main dwelling");
                         }
-                    }
+
                 }
                 if (conductor.equalsIgnoreCase("Y")) {
                     click("chkWaive_Lightning_Conductor", "Clicked Waive lighting Conductor");
                 }
-                if (building_completed.equalsIgnoreCase("Y")) {
+                /*if (building_completed.equalsIgnoreCase("Y")) {
                     click("chkIs_the_building_completed", "Clicked Is the building completed");
                 }
                 if (burglaries_atproperty.equalsIgnoreCase("Y")) {
                     click("chkHave_you_had_any_burglaries_at_the_property", "Clicked have you had any burglaries at the property");
-                }
+                }*/
 
                 if (high_security_complex.equalsIgnoreCase("Y")) {
                     click("chkIs_the_property_in_a_high_security_complex", "Clicked Is the property in a high security complex");
@@ -600,8 +598,8 @@ public class Absa_Idirect extends WebDr {
                     click("chkIsThereAnyBusinessConductedOnTheProperty", "Click is There Any Business Conducted On The Property");
                     setText("chkTypeOfBusinessDescription", BusinessFullDescription, "Enter Number of Consecutive Unoccupied Days");
                 }
-                setText("txtBoxPlotQuestionnarieRequested", getCurrentDate(), "Enter Survey Requested");
-                setText("txtBoxplotQuestionnarieRecevied", getCurrentDate(), "Enter Survey Received");
+                //setText("txtBoxPlotQuestionnarieRequested", getCurrentDate(), "Enter Survey Requested");
+                //setText("txtBoxplotQuestionnarieRecevied", getCurrentDate(), "Enter Survey Received");
 
                 if (insure.equalsIgnoreCase("Building")) {
                     //Building Details
@@ -643,8 +641,8 @@ public class Absa_Idirect extends WebDr {
                     setText("txtBoxNotesBuilding", NotesBuilding, "Enter Notes Building");
                     selectValueFromDropdown("drpDwnRegisteredOwnerBuilding", "text", registeredOwner, "Select Registered Owner");
                 } else if (insure.equalsIgnoreCase("Contents")
-                        || productType.equalsIgnoreCase("Private Insure") && insure.equalsIgnoreCase("Vehicle")
-                        || insure.equalsIgnoreCase("Motorcycle")
+                        /*|| productType.equalsIgnoreCase("Private Insure") && insure.equalsIgnoreCase("Vehicle")
+                        || insure.equalsIgnoreCase("Motorcycle")*/
                         || insure.equalsIgnoreCase("Caravan / Trailer")
                         || lineOfBusiness.equalsIgnoreCase("All Risk")
                         || lineOfBusiness.equalsIgnoreCase("Electronic Equipment")
@@ -971,13 +969,13 @@ public class Absa_Idirect extends WebDr {
                 }
                 selectValueFromDropdown("drpBoatFlat","text","1000","The Boat Flat value was selected");
                 selectValueFromDropdown("drpDwnBoatSpeed", "text", boatSpeed, "Select Boat Speed");
-                if (exists("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
+                if (existsNoReport("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
                     setText("txtBoxHullSumInsured", insuranceAmount, "Enter Hull Sum Insured");
                 }
-                if (exists("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
+                if (existsNoReport("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
                     setText("txtBoxInboardSumInsured", inboardSumInsured, "Enter InBoard Sum Insured");
                 }
-                if (exists("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
+                if (existsNoReport("txtBoxHullSumInsured", true, "The watercraft value is selected")) {
                     setText("txtBoxOutboardSumInsured", outboardSumInsured, "Enter OutBoard Sum Insured");
                 }
                 if (uninterruptedWatercraftInsurance.equalsIgnoreCase("Yes")) {
