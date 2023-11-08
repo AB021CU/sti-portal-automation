@@ -162,9 +162,9 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("chkPropertySurveyRequired", "XPATH|//label[@id='propertySurveyRequiredLabel']");
         Idirect_POM.put("txtBoxDateRiskSurveyRequested", "XPATH|//input[@id='dateRiskSurveyRequested']");
         Idirect_POM.put("txtBoxDateRiskSurveyReceived", "XPATH|//input[@id='dateRiskSurveyReceived']");
-        Idirect_POM.put("chkAreThereAnyGasAppliancesOrEquipment", "XPATH|//label[normalize-space()='Are there any Gas appliances or equipment?']");
-        Idirect_POM.put("chkAreThereAnyGasPipeConnections", "XPATH|//label[normalize-space()='Are there any Gas Pipe Connections?']");
-        Idirect_POM.put("chkIsThereAnyBusinessConductedOnTheProperty", "XPATH|//label[normalize-space()='Is there any business conducted on the property?']");
+        Idirect_POM.put("chkAreThereAnyGasAppliancesOrEquipment", "XPATH|//label[@id='gasAppliancesLabel']");
+        Idirect_POM.put("chkAreThereAnyGasPipeConnections", "XPATH|//label[@id='gasPipeConnectionsLabel']");
+        Idirect_POM.put("chkIsThereAnyBusinessConductedOnTheProperty", "XPATH|//label[@id='businessConductOnPropertyLabel']");
         Idirect_POM.put("chkTypeOfBusinessDescription", "XPATH|//textarea[@id='typeOfBusinessDescription']");
         Idirect_POM.put("txtBoxPlotQuestionnarieRequested", "XPATH|//input[@id='inventoryRequestedDate']");
         Idirect_POM.put("txtBoxplotQuestionnarieRecevied", "XPATH|//input[@id='inventoryReceivedDate']");

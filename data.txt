@@ -39,3 +39,39 @@ Policy PL-IDI6529986129/00
 Saved Successfully   For Single Cover
 Policy PL-IDI6529986195/00
 Saved Successfully   For Single Cover
+Policy PL-IDI6529986682/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529986690/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529986705/00
+Saved Successfully   For Single Cover
+Policy linking failed due to below error : Message:failure The policy record already exists on host MUID6464653535780076220 PR-IDI0000185790/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529986739/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529986747/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529986763/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529816786/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529816794/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529816817/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529816841/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529816859/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529816867/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529816875/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529987044/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529987159/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529987523/00
+Saved Successfully   For Single Cover
+Policy PL-IDI6529987531/00
+Saved Successfully   For Single Cover

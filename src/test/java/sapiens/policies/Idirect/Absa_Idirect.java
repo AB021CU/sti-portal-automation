@@ -285,64 +285,6 @@ public class Absa_Idirect extends WebDr {
                             electronicEquipment();
                             break;
                     }
-                    if (lineOfBusiness.equalsIgnoreCase("Motorcar")) {
-                        click("chBoxCovers", "The Covers Details Should be visible");
-                        if (vehicleCover.equalsIgnoreCase("VehicleFire")) {
-                            click("chBoxAccidentalDamagePartialLoss", "The Accidental Damage Partial Loss");
-                            if (exists("chBoxAccidentalDamageTotalLoss", true, "The Element should be visible")) {
-                                click("chBoxAccidentalDamageTotalLoss", "The Accidental Damage Total Loss");
-                            }
-                            if (exists("chBoxTheftPartialLoss", true, "The Element should be visible")) {
-                                click("chBoxTheftPartialLoss", "The Theft Partial Loss");
-                            }
-                            if (exists("chBoxTheftTotalLoss", true, "The Element should be visible")) {
-                                click("chBoxTheftTotalLoss", "The Theft Total Loss");
-                            }
-                            if (exists("chBoxWindScreenRepair", true, "The Element should be visible")) {
-                                click("chBoxWindScreenRepair", "The Wind Screen Repair");
-                            }
-                            if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                click("chBoxWindScreenReplace", "The Wind Screen Replace");
-                            }
-                            if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                click("chBoxHail", "The Hail");
-                            }
-                            if (exists("chBoxThirdParty", true, "The Element should be visible")) {
-                                click("chBoxThirdParty", "The Third Party");
-                            }
-                            if (exists("chBoxForOther", true, "The Element should be visible")) {
-                                click("chBoxForOther", "The Check Box for Others");
-                            }
-                        }
-                        if (vehicleCover.equalsIgnoreCase("ThirdParty")) {
-                            click("chBoxAccidentalDamagePartialLoss", "The Accidental Damage Partial Loss");
-
-                            if (exists("chBoxAccidentalDamageTotalLoss", true, "The Element should be visible")) {
-                                click("chBoxAccidentalDamageTotalLoss", "The Accidental Damage Total Loss");
-                            }
-                            if (exists("chBoxTheftPartialLoss", true, "The Element should be visible")) {
-                                click("chBoxTheftPartialLoss", "The Theft Partial Loss");
-                            }
-                            if (exists("chBoxTheftTotalLoss", true, "The Element should be visible")) {
-                                click("chBoxTheftTotalLoss", "The Theft Total Loss");
-                            }
-                            if (exists("chBoxWindScreenRepair", true, "The Element should be visible")) {
-                                click("chBoxWindScreenRepair", "The Wind Screen Repair");
-                            }
-                            if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                click("chBoxWindScreenReplace", "The Wind Screen Replace");
-                            }
-                            if (exists("chBoxWindScreenReplace", true, "The Element should be visible")) {
-                                click("chBoxHail", "The Hail");
-                            }
-                            if (exists("chBoxVehicleFire", true, "The Element should be visible")) {
-                                click("chBoxVehicleFire", "The Vehicle Fire");
-                            }
-                            if (exists("chBoxForOther", true, "The Element should be visible")) {
-                                click("chBoxForOther", "The Check Box for Others");
-                            }
-                        }
-                    }
 
                     if (existsNoReport("btnEndCoversSelection", true, "Underwriting Screen Exists")) {
                         click("btnEndCoversSelection", "Click End Covers Selection");
@@ -583,8 +525,8 @@ public class Absa_Idirect extends WebDr {
                 setText("txtBoxNumberOfOutBuildings", numberOfOutBuildings, "Enter How Many Out Buildings are there");
                 if (propertysurveyTcuried.equalsIgnoreCase("Y")) {
                     click("chkPropertySurveyRequired", "Clicked Property Survey Required");
-                    setText("txtBoxDateRiskSurveyRequested", getCurrentDate(), "Enter Date Risk Survey Requested");
-                    setText("txtBoxDateRiskSurveyReceived", getCurrentDate(), "Enter Date Risk Survey Received");
+                   // setText("txtBoxDateRiskSurveyRequested", getCurrentDate(), "Enter Date Risk Survey Requested");
+                    //setText("txtBoxDateRiskSurveyReceived", getCurrentDate(), "Enter Date Risk Survey Received");
                 }
                 if (gasappliances.equalsIgnoreCase("Y")) {
 
