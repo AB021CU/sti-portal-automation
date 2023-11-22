@@ -164,7 +164,7 @@ public class Endorse extends WebDr {
             //selectValueFromDropdown("drpdwnProductType","text","Idirect","The Product Type Should be selected");
             click("btnFind","The Find Button is selected");
             if(exists("linkNewProposal",true,"The Value should be present")) {
-                wdriver.findElement(By.xpath("//li[@id='Policies']//following::li/a[contains(text(),'"+policyno+"/00')]")).click();
+                wdriver.findElement(By.xpath("//li[@id='Policies']//following::li/a[contains(text(),'"+policyno+"')]")).click();
             }
 
         }catch(Exception e){
@@ -286,7 +286,7 @@ public class Endorse extends WebDr {
                                 motorCarLog("Vehicle");
                                 closeBusiness();
                             }
-                            closeBusiness();
+                            //closeBusiness();
                         }
                         break;
                     case"Motorcycle":
@@ -306,7 +306,7 @@ public class Endorse extends WebDr {
                                 motorCarLog("Motorcycle");
                                 closeBusiness();
                             }
-                            closeBusiness();
+                           // closeBusiness();
                         }
                         break;
                     case"Caravan/Trailer":
@@ -326,7 +326,7 @@ public class Endorse extends WebDr {
                                 motorCarLog("Caravan / Trailer");
                                 closeBusiness();
                             }
-                            closeBusiness();
+                            //closeBusiness();
                         }
                         break;
                     case"Contents":
@@ -348,7 +348,7 @@ public class Endorse extends WebDr {
                                 closeBusiness();
 
                             }
-                            closeBusiness();
+                            //closeBusiness();
                         }
                         break;
                     case"Building":
@@ -370,7 +370,7 @@ public class Endorse extends WebDr {
                                 propertyLog("Building");
                                 closeBusiness();
                             }
-                            closeBusiness();
+                            //closeBusiness();
                         }
                         break;
                     case"All":
@@ -382,7 +382,7 @@ public class Endorse extends WebDr {
                             }if (sAddAllRisk.equalsIgnoreCase("Yes")){
                                 //want to add the AllRisk for vehicle
                                 System.out.println("its working All risk");
-                                lobList("");
+                                lobList("All Risk");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).allRisk();
                                 closeBusiness();
@@ -393,29 +393,29 @@ public class Endorse extends WebDr {
                                 allRisk();
                                 closeBusiness();
                             }
-                            closeBusiness();
+                            //closeBusiness();
                         }
                         break;
                     case"Boats":
                         if (existsNoReport("verifyLOBBoats",true,"The Boats is verifed")){
 
                             if(delBoats.equalsIgnoreCase("Yes")){
-                                wdriver.findElement(By.xpath("///span[text()='Boats Comprehensive']/preceding::span[1]")).click();
+                                wdriver.findElement(By.xpath("//span[text()='Boats Comprehensive']/preceding::span[1]")).click();
                                 delete();
                             }if (sAddBoats.equalsIgnoreCase("Yes")){
                                 //want to add the Boats for vehicle
                                 System.out.println("its working Boats");
-                                lobList("");
+                                lobList("Boats");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).boats();
                                 closeBusiness();
                             }if (sUpBoats.equalsIgnoreCase("Yes")){
-                                wdriver.findElement(By.xpath("///span[text()='Boats Comprehensive']/preceding::span[1]")).click();
+                                wdriver.findElement(By.xpath("//span[text()='Boats Comprehensive']/preceding::span[1]")).click();
                                 business();
                                 boats();
                                 closeBusiness();
                             }
-                            closeBusiness();
+                            //closeBusiness();
                         }
                         break;
                     case"Electronic":
@@ -427,7 +427,7 @@ public class Endorse extends WebDr {
                             }if (sAddElectronics.equalsIgnoreCase("Yes")){
                                 //want to add the Electronic for vehicle
                                 System.out.println("its working Electronics");
-                                lobList("");
+                                lobList("Electronic Equipment");
                                 business();
                                 new Absa_Idirect_Multi(wdriver,test).electronicEquipment();
                                 closeBusiness();
@@ -437,7 +437,7 @@ public class Endorse extends WebDr {
                                 electronicEquipment();
                                 closeBusiness();
                             }
-                            closeBusiness();
+                            //closeBusiness();
                         }
                         break;
 
@@ -446,6 +446,7 @@ public class Endorse extends WebDr {
 
             }
 
+            closeBusiness();
 
 
         }catch(Exception e){

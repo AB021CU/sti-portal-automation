@@ -144,7 +144,6 @@ public class testFlow extends WebDr {
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in MultiVerse : "+e);
         }
-
     }
     public void absa_Idirect_Endorsement(String preferBrowser){
 
@@ -157,8 +156,6 @@ public class testFlow extends WebDr {
             new Endorse(wdriver,test).endorse();
             String policyNumber = new Endorse(wdriver, test).paymentsDetails();
             new Login(wdriver, test).applicationLogOut();
-
-
 
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in Endorsement : "+e);

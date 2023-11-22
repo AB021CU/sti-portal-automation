@@ -31,10 +31,10 @@ public class Driver extends Thread{
         try{
             userDir = System.getProperty("user.dir");
             //FOR MULTIVERSE POLICY && FOR ENDORSEMENT
-            //file_TestData="SAPIENS_Idirect - Copy.xlsx";
+            file_TestData="SAPIENS_Idirect - Copy.xlsx";
             //________________________________________________________________________________________//
             //FOR SINGLE COVER POLICY
-            file_TestData= "SAPIENS_Idirect.xlsx";
+            //file_TestData= "SAPIENS_Idirect.xlsx";
 
             //________________________________________________________________________________________//
             //FOR CLAIMS

@@ -31,6 +31,7 @@ public class Absa_Idirect extends WebDr {
     String paymentTerms = getValue("Payment_Terms");
     String preferredDueDay = getValue("Preferred_DueDay");
     String decision = getValue("Decision");
+    String reason = getValue("Reason");
     String policyBankAccount = getValue("Policy_BankAccount");
     String buildingUsedFor = getValue("Building_UsedFor");
     String typeOfBuilding = getValue("Type_Of_Building");
@@ -378,11 +379,19 @@ public class Absa_Idirect extends WebDr {
 
                 //Reason
                 if (decision.equalsIgnoreCase("Confirm Policy")) {
-                    selectValueFromDropdown("drpDwnReason", "text", "Final", "Select Reason from the dropDwnn");
+                    selectValueFromDropdown("drpDwnReason", "text", reason, "Select Reason from the dropDwnn");
                 }
                 if (decision.equalsIgnoreCase("Save Proposal")){
-                    selectValueFromDropdown("drpDwnReason", "text", "Pre-agreement", "Select Reason from the dropDwnn");
+                    selectValueFromDropdown("drpDwnReason", "text", reason, "Select Reason from the dropDwnn");
+                    Thread.sleep(2000);
+                    click("btnFinish", "Click Finish Button");
+                    if (exists("dBox", true, "The Value is selected")) {
+                        //Policy = getText("PolicyNum", "The Element should be visible");
+                        click("btnOk", "The Value is selected");
+                    }
                 }
+
+
 
                 //Screening progress
 //                click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
