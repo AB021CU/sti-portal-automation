@@ -384,11 +384,17 @@ public class Absa_Idirect extends WebDr {
                     selectValueFromDropdown("drpDwnReason", "text", "Pre-agreement", "Select Reason from the dropDwnn");
                 }
 
-                //Screening progress
-//                click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
-//                click("chkBoxRiskProfiling", "Click Risk Profiling Completed CheckBox");
-//                click("chkBoxDueDiligence", "Click Due Diligence Completed CheckBox");
                 click("btnNext", "Click Next");
+
+                //Screening progress
+                if (existsNoReport("noti",true,"The Notification is present")) {
+                    click("notiOk","The Ok button is clicked");
+                    click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
+                    click("chkBoxRiskProfiling", "Click Risk Profiling Completed CheckBox");
+                    click("btnNext", "Click Next");
+                }
+//                click("chkBoxDueDiligence", "Click Due Diligence Completed CheckBox");
+
 //                if (existsNoReport("dialogBasicNotification", true, "GD1000079 Popup")) {
 //                    click("btnDialogOK", "Click OK Button");
 //                    click("btnNext", "Click Next");

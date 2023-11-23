@@ -164,7 +164,7 @@ public class Endorse extends WebDr {
             //selectValueFromDropdown("drpdwnProductType","text","Idirect","The Product Type Should be selected");
             click("btnFind","The Find Button is selected");
             if(exists("linkNewProposal",true,"The Value should be present")) {
-                wdriver.findElement(By.xpath("//li[@id='Policies']//following::li/a[contains(text(),'"+policyno+"/00')]")).click();
+                wdriver.findElement(By.xpath("//li[@id='Policies']//following::li/a[contains(text(),'"+policyno+"')]")).click();
             }
 
         }catch(Exception e){
@@ -286,7 +286,7 @@ public class Endorse extends WebDr {
                                 motorCarLog("Vehicle");
                                 closeBusiness();
                             }
-                            closeBusiness();
+                            
                         }
                         break;
                     case"Motorcycle":
@@ -306,7 +306,7 @@ public class Endorse extends WebDr {
                                 motorCarLog("Motorcycle");
                                 closeBusiness();
                             }
-                            closeBusiness();
+
                         }
                         break;
                     case"Caravan/Trailer":
@@ -326,7 +326,7 @@ public class Endorse extends WebDr {
                                 motorCarLog("Caravan / Trailer");
                                 closeBusiness();
                             }
-                            closeBusiness();
+
                         }
                         break;
                     case"Contents":
@@ -348,7 +348,7 @@ public class Endorse extends WebDr {
                                 closeBusiness();
 
                             }
-                            closeBusiness();
+
                         }
                         break;
                     case"Building":
@@ -370,7 +370,7 @@ public class Endorse extends WebDr {
                                 propertyLog("Building");
                                 closeBusiness();
                             }
-                            closeBusiness();
+
                         }
                         break;
                     case"All":
@@ -393,7 +393,7 @@ public class Endorse extends WebDr {
                                 allRisk();
                                 closeBusiness();
                             }
-                            closeBusiness();
+
                         }
                         break;
                     case"Boats":
@@ -415,7 +415,7 @@ public class Endorse extends WebDr {
                                 boats();
                                 closeBusiness();
                             }
-                            closeBusiness();
+
                         }
                         break;
                     case"Electronic":
@@ -437,7 +437,7 @@ public class Endorse extends WebDr {
                                 electronicEquipment();
                                 closeBusiness();
                             }
-                            closeBusiness();
+
                         }
                         break;
 

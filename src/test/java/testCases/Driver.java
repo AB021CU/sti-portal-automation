@@ -37,7 +37,7 @@ public class Driver extends Thread{
             file_TestData= "SAPIENS_Idirect.xlsx";
 
             //________________________________________________________________________________________//
-            //FOR CLAIMS
+            //FOR CLAIMS && RENEWALS && CANCELLATION
             //file_TestData="SAPIENS_MasterDataHOC.xlsx";
             objLauncher.InvokeLauncher(testngBrowser);
         }

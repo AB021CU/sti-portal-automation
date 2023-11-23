@@ -164,7 +164,7 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("txtBoxDateRiskSurveyReceived", "XPATH|//input[@id='dateRiskSurveyReceived']");
         Idirect_POM.put("chkAreThereAnyGasAppliancesOrEquipment", "XPATH|//label[@id='gasAppliancesLabel']");
         Idirect_POM.put("chkAreThereAnyGasPipeConnections", "XPATH|//label[@id='gasPipeConnectionsLabel']");
-        Idirect_POM.put("chkIsThereAnyBusinessConductedOnTheProperty", "XPATH|//label[@id='businessConductOnPropertyLabel']");
+        Idirect_POM.put("chkIsThereAnyBusinessConductedOnTheProperty","XPATH|//label[@id='businessConductOnPropertyLabel']");
         Idirect_POM.put("chkTypeOfBusinessDescription", "XPATH|//textarea[@id='typeOfBusinessDescription']");
         Idirect_POM.put("txtBoxPlotQuestionnarieRequested", "XPATH|//input[@id='inventoryRequestedDate']");
         Idirect_POM.put("txtBoxplotQuestionnarieRecevied", "XPATH|//input[@id='inventoryReceivedDate']");
@@ -411,6 +411,8 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("btnOK", "XPATH|//button[@id='Ok']");//OK Button
         Idirect_POM.put("dialogGD1000079", "XPATH|//div[@id='BasicNotificationDialog']");//GD1000079 dialog box
 
+        Idirect_POM.put("noti","XPATH|//div[contains(text(),' Sanction Screening/ Risk Profiling is failed or Sanction Screening status may be as Match.')]");
+        Idirect_POM.put("notiOk","XPATH|//button[@id='DialogOK']");
         Idirect_POM.put("labelWelcomeLetterPLSMS", "XPATH|//span[normalize-space()='Welcome Letter PL SMS']");//Maintain Event Heading
 
 

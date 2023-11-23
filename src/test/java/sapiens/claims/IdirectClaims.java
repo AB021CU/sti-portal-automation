@@ -47,7 +47,7 @@ public class IdirectClaims extends WebDr {
     String suburb = getValue("Suburb/Foreign_Town");
     String cityTownForeignCountry = getValue("CityTownForeignCountry");
     String postCode = getValue("Post_Code");
-    String insure = getValue("Insure");
+    //String insure = getValue("Insure");
     String policyNumber = getValue("PolicyNumber");
     String liabilityReason = getValue("Liability_Reason");
     String initiALReserveAmount = getValue("InitiAL_Reserve_Amount");
@@ -71,10 +71,6 @@ public class IdirectClaims extends WebDr {
 
 
         try {
-//            if (exists("labelContactDashboard", true, "Contact Dashboard")) {
-//                selectValueFromList("listPolicies", policyNumber + " (Policyholder)", "Select Policy " + policyNumber);
-//                WebElement headingPolicyNumber = wdriver.findElement(By.xpath("//b[contains(text(),'" + policyNumber + "')]"));
-//                if (headingPolicyNumber.isDisplayed()) {
             WebElement actionsLink = wdriver.findElement(By.xpath("//a[@id='ActionsLink']"));
             Actions action = new Actions(wdriver);
             action.moveToElement(actionsLink).perform();
@@ -86,7 +82,7 @@ public class IdirectClaims extends WebDr {
                 setText("txtBoxEventDate", getCurrentDate(), "Enter Event Date");
 
                 selectValueFromDropdown("drpDwnCauseOfLoss", "text", causeOfLoss, "Primary Cause Of Loss Dropdown");
-                setText("txtBoxEventDescription", claimDescription, "Enter Claim Description");
+                setText("txtBoxEventDescription", insuredObject, "Enter Claim Description");
                 if (lineOfBusiness.equalsIgnoreCase("Property")) {
                     //  Thread.sleep(10000);
 
@@ -103,21 +99,21 @@ public class IdirectClaims extends WebDr {
                     selectValueFromDropdown("drpDwnInsuredObject", "text", insuredObject, "Insured Object Dropdown");
                 }
                 selectValueFromDropdown("drpDwnClaimLocationType", "text", claimLocationType, "Claim Location Type Dropdown");
-                if (lineOfBusiness.equalsIgnoreCase("Motorcar") || productType.equalsIgnoreCase("Extended Cover Insurance")) {
+                /*if (lineOfBusiness.equalsIgnoreCase("Motorcar") || productType.equalsIgnoreCase("Extended Cover Insurance")) {
                     setText("txtBoxAddressLine1", addressLine1, "Enter Address Line 1");
                     setText("txtBoxAddressLine2", addressLine2, "Enter Address Line 2");
                     selectValueFromAutoCompleteClaims("txtSuburbPrimary", suburb, "Enter Suburb");
                     selectValueFromDropdown("drpDwnCityTownForeignCountry", "text", cityTownForeignCountry, "Select City/Town/Foreign Country");
                     selectValueFromDropdown("drpDwnPostCode", "text", postCode, "Select Post Code");
-                }
-                click("btnNextCreateClaim", "Click Next Button");
+                }*/
+                click("btnNextCreateClaim", "Click Next Button for claims");
                 if (existsNoReport("dialogMatchingCatastrophe", true, "Matching Catastrophe Dialog")) {
                     click("btnProceed", "Click Proceed Button");
                 }
                 if (existsNoReport("dialogAssociatedLossEvents", true, "Associated Loss Events Dialog")) {
                     click("btnProceed", "Click Proceed Button");
                 }
-                if (lineOfBusiness.equalsIgnoreCase("Motorcar") || productType.equalsIgnoreCase("Extended Cover Insurance") || productType.equalsIgnoreCase("Absa Value Plus")) {
+                if (lineOfBusiness.equalsIgnoreCase("Motorcar")) {
                     if (exists("labelDriverDetails", true, "Driver Details Screen")) {
                         click("btnNext", "Click Next Button");
                     }
@@ -133,7 +129,7 @@ public class IdirectClaims extends WebDr {
                                 Actions actions = new Actions(wdriver);
                                 actions.moveToElement(checkBox).build().perform();
                                 checkBox.click();
-                                click("btnOK", "Click OK Button");
+                                click("btnOK", "Click OK Button"+" :"+damageNode);
                                 break;
                             }
                         }
@@ -168,6 +164,7 @@ public class IdirectClaims extends WebDr {
                         rightClick("rightClickDamage", "Performing right click on dependencies tab");
                         click("btnLiabilityReserve", "Click Liability Reserve Button");
                         selectValueFromDropdown("drpDwnReasonLiability", "text", liabilityReason, "Liability Reason");
+                        Thread.sleep(2000);
                         setText("txtInitialReserve", initiALReserveAmount, "Enter initial reserve Amount");
                         Thread.sleep(2000);
                         setText("txtThirdParty", LiabilityReserveAmount, "Enter third party reserve Amount");
@@ -226,7 +223,7 @@ public class IdirectClaims extends WebDr {
         IdirectClaims_Mappings.IdirectClaims_Factory();
         try {
             //Accident Circumstances Questionnaires
-            if (!productType.equalsIgnoreCase("Private Insure") && !damageNode.equalsIgnoreCase("Vehicle - Windscreen repaired WSCRRPR")
+            if ( !damageNode.equalsIgnoreCase("Vehicle - Windscreen repaired WSCRRPR")
                     && !damageNode.equalsIgnoreCase("Vehicle - Winscreen replaced")) {
                 //  && !insure.equalsIgnoreCase("Motorcycle")
                 selectValueFromDropdown("drpDwnWhoWasAccidentDriver", "text", whoWasAccidentDriver, "Who was the accident driver");
@@ -254,7 +251,7 @@ public class IdirectClaims extends WebDr {
                 selectValueFromDropdown("drpDwnYouHaveInsuranceBeforeTakingPolicy", "text", insuranceBeforeTakingPolicy, "Did you have insurance before taking out this policy?");
                 selectValueFromDropdown("drpDwnWhereAreDamagesOnVehicle", "text", damagesOnVehicle, "Where are the damages on your vehicle?");
             }*/
-            if (productType.equalsIgnoreCase("Private Insure") && !damageNode.equalsIgnoreCase("Vehicle - Windscreen repaired WSCRRPR")
+            if (!damageNode.equalsIgnoreCase("Vehicle - Windscreen repaired WSCRRPR")
                     && !damageNode.equalsIgnoreCase("Vehicle - Winscreen replaced")) {
                 //&& insure.equalsIgnoreCase("Motorcycle")
                 selectValueFromDropdown("drpDwnWhoWasAccidentDriver", "text", whoWasAccidentDriver, "Who was the accident driver");

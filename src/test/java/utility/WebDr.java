@@ -455,6 +455,7 @@ public class WebDr extends HtmlReporter {
                 action.moveToElement(elmn).click().build().perform();
 //                elmn.click();
                 Thread.sleep (2000);
+
                 WriteStep(wdriver,description, "Click", "Clicked" , "PASS" );
             }
             else
@@ -670,6 +671,7 @@ public class WebDr extends HtmlReporter {
             elmn.clear();
             String EncryptedPwd = Base64.getEncoder().encodeToString(sPassword.getBytes());
             elmn.sendKeys(new String(EncryptedPwd));
+
             WriteStep(wdriver,description, "Enter Password", " Password Entered - " + EncryptedPwd, "PASS");
 
         } catch (Exception e) {

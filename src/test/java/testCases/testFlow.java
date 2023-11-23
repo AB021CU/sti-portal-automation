@@ -3,6 +3,7 @@ package testCases;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.slf4j.Logger;
+import sapiens.claims.IdirectCancel;
 import sapiens.claims.IdirectClaims;
 import sapiens.contact.Contact;
 import sapiens.login.Login;
@@ -56,9 +57,19 @@ public class testFlow extends WebDr {
                     absa_Idirect_Endorsement(preferBrowser);
                     System.err.println("The General Endorsement has Finished");
                     break;
-                case "flow_PersonalLines_IdirectClaimsCreation":
+                case "flow_PersonalLines_IdirectClaimsCreation1":
                     logger.info("The current scenario is: " + flowName);
                     personalLines_IdirectClaimsCreation(preferBrowser);
+                    break;
+
+                case"flow_PersonalLines_IdirectClaimsCreation"://idirect_cancel_flow
+                    logger.info("The current scenario is: " + flowName);
+                    idirectCancel(preferBrowser);
+                    break;
+
+                case"1"://idirect_renewals_flow
+                    logger.info("The current scenario is: " + flowName);
+                    idirectRenewals(preferBrowser);
                     break;
 
             }
@@ -146,6 +157,8 @@ public class testFlow extends WebDr {
         }
 
     }
+    /*Method for doing endorsement*/
+
     public void absa_Idirect_Endorsement(String preferBrowser){
 
         try{
@@ -165,15 +178,11 @@ public class testFlow extends WebDr {
         }
 
     }
-
+/*Method for claims creation in Idirect*/
     public void personalLines_IdirectClaimsCreation(String preferBrowser) {
         try {
             setup(preferBrowser);
             new Login(wdriver, test).applicationLogin();
-            //  new PersonalLines(wdriver, test).selectRecentContact();
-            //   new PersonalLines(wdriver, test).generalDetails();
-            //   new PersonalLines(wdriver, test).linesOfBusiness();
-            //   String policyNumber = new PersonalLines(wdriver, test).paymentsDetails();
             new Searches(wdriver, test).searchPolicy1();
             String claimNumber = new IdirectClaims(wdriver, test).idirectclaimThroughPolicy();
             new Login(wdriver, test).applicationLogOut();
@@ -182,6 +191,34 @@ public class testFlow extends WebDr {
             new IdirectClaims(wdriver, test).idirectClaimsClosure();
             new Login(wdriver, test).applicationLogOut();*/
 
+        }catch (Exception e){
+            logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);
+        }
+    }
+
+    /*Method for Cancelling a Policy in Idirect*/
+
+    public void idirectCancel(String preferBrowser) {
+        try {
+            setup(preferBrowser);
+            new Login(wdriver, test).applicationLogin();
+            new Searches(wdriver, test).searchPolicy1();
+            String Number = new IdirectCancel(wdriver, test).idirectCancelThroughPolicy();
+            new Login(wdriver, test).applicationLogOut();
+        }catch (Exception e){
+            logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);
+        }
+    }
+
+/*Method for Renewal a policy in Idirect*/
+
+    public void idirectRenewals(String preferBrowser) {
+        try {
+            setup(preferBrowser);
+            new Login(wdriver, test).applicationLogin();
+            new Searches(wdriver, test).searchPolicy1();
+            String Number = new IdirectCancel(wdriver, test).idirectRenewalThroughPolicy();
+            new Login(wdriver, test).applicationLogOut();
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);
         }

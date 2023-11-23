@@ -1042,8 +1042,7 @@ public class Absa_Idirect_Multi extends WebDr {
                 }
                 if (cover.equalsIgnoreCase("Building")) {
                     //Building Details
-                    setText("txtBoxNoOfGeysers", geysers, "Enter Number of Geysers");
-                    setText("txtBoxNoOfSolarGeysers", solarGeysers, "Enter Number of Solar Geysers");
+
                     if (AreYouOffTheEskom.equalsIgnoreCase("Y")) {
 
                         click("chkAreYouOffTheEskom/CityPowerGrid", "Click Are you off the Eskom/City Power Grid");
@@ -1063,6 +1062,10 @@ public class Absa_Idirect_Multi extends WebDr {
                     Thread.sleep(2000);
                     setText("txtBoxSumInsuredMainBuilding", sumInsuredMainBuilding, "Enter Sum Insured of Main Building");
                     setText("txtBoxSumInsuredOutBuilding", sumInsuredOutBuilding, "Enter Sum Insured Out Buildings");
+                    Thread.sleep(2000);
+                    setText("txtBoxNoOfGeysers", geysers, "Enter Number of Geysers");
+                    setText("txtBoxNoOfSolarGeysers", solarGeysers, "Enter Number of Solar Geysers");
+
                     if (cover.equalsIgnoreCase("Building")) {
                         selectValueFromDropdown("drpDwnFlatBuilding", "text", flat, "Select Flat Building");
                     }else{
@@ -1080,6 +1083,7 @@ public class Absa_Idirect_Multi extends WebDr {
                     selectValueFromDropdown("drpDwnRegisteredOwnerBuilding", "text", registeredOwner, "Select Registered Owner");
                 } else if (cover.equalsIgnoreCase("Contents")){
                     //House Content Details
+
                     selectValueFromDropdown("drpDwnAlarmInstalled", "text", alarmInstalled, "Select Alarm Installed");
                     if (waveAlarm.equalsIgnoreCase("Y")) {
                         click("chkBoxWaiveAlarm", "Click Waive Alarm");
@@ -1234,8 +1238,9 @@ public class Absa_Idirect_Multi extends WebDr {
             selectValueFromDropdown("drpDwnDriverLicenseType", "text", driverLicenseType, "Select Regular Driver License Type Dropdown");
 
             click("chkBoxIsVehicleRegInSouthAfrica", "Click Is Vehicle Registered In South Africa ? CheckBox");
-            click("chBoxPreInspectionReport","The Pre Inspection report is checked");
-            click("chBoxPreInspectionReportReceived","The Inspection report is received");
+            Thread.sleep(2000);
+            //click("chBoxPreInspectionReport","The Pre Inspection report is checked");
+            //click("chBoxPreInspectionReportReceived","The Inspection report is received");
         }  catch  (Exception e) {
             logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
         }
@@ -1277,8 +1282,9 @@ public class Absa_Idirect_Multi extends WebDr {
             selectValueFromDropdown("drpDwnDrivingCertificate", "text", drivingCertificate, "Select Defensive Driving Certificate Dropdown");
 
             click("chkBoxIsVehicleRegInSouthAfrica", "Click Is Vehicle Registered In South Africa ? CheckBox");
-            click("chBoxPreInspectionReport","The Pre Inspection report is checked");
-            click("chBoxPreInspectionReportReceived","The Inspection report is received");
+            Thread.sleep(2000);
+            //click("chBoxPreInspectionReport","The Pre Inspection report is checked");
+            //click("chBoxPreInspectionReportReceived","The Inspection report is received");
         }catch  (Exception e) {
             logger.info("Exception in ABSA IDirect MutliCovers Functionality is : " + e);
         }
