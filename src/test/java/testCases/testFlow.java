@@ -57,17 +57,17 @@ public class testFlow extends WebDr {
                     absa_Idirect_Endorsement(preferBrowser);
                     System.err.println("The General Endorsement has Finished");
                     break;
-                case "flow_PersonalLines_IdirectClaimsCreation1":
+                case "flow_PersonalLines_IdirectClaimsCreation":
                     logger.info("The current scenario is: " + flowName);
                     personalLines_IdirectClaimsCreation(preferBrowser);
                     break;
 
-                case"flow_PersonalLines_IdirectClaimsCreation"://idirect_cancel_flow
+                case"flow_PersonalLines_IdirectClaimsCreation1"://idirect_cancel_flow
                     logger.info("The current scenario is: " + flowName);
                     idirectCancel(preferBrowser);
                     break;
 
-                case"1"://idirect_renewals_flow
+                case"flow_PersonalLines_IdirectClaimsCreation2"://idirect_renewals_flow
                     logger.info("The current scenario is: " + flowName);
                     idirectRenewals(preferBrowser);
                     break;
@@ -99,7 +99,7 @@ public class testFlow extends WebDr {
     }
 
     /**
-     * Flow for Creating a New AbsaPlus Policy into Sapiens application
+     * Flow for Updating Contact Sapiens application
      * @param preferBrowser : Chrome
      */
     public void updateContactDetails(String preferBrowser) {
