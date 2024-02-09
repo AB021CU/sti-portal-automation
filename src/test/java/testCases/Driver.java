@@ -7,6 +7,7 @@ import utility.Launcher;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -30,16 +31,30 @@ public class Driver extends Thread{
     public void mainDriver(String testngBrowser) {
         try{
             userDir = System.getProperty("user.dir");
-            //FOR MULTIVERSE POLICY && FOR ENDORSEMENT
-            //file_TestData="SAPIENS_Idirect - Copy.xlsx";
-            //________________________________________________________________________________________//
-            //FOR SINGLE COVER POLICY
-            //file_TestData= "SAPIENS_Idirect.xlsx";
+            Scanner scan = new Scanner(System.in);
+            System.out.println("What do you want to run?");
+            String s=scan.nextLine();
 
-            //________________________________________________________________________________________//
-            //FOR CLAIMS && RENEWALS && CANCELLATION
-            file_TestData="SAPIENS_MasterDataHOC.xlsx";
-            objLauncher.InvokeLauncher(testngBrowser);
+            switch (s){
+                case "Single":
+                    //FOR SINGLE COVER POLICY
+                    System.out.println("In Progress");
+                    file_TestData= "SAPIENS_Idirect.xlsx";
+                    objLauncher.InvokeLauncher(testngBrowser);
+                    break;
+                case"Multiverse":
+                    System.out.println("In Progress");
+                    //FOR MULTIVERSE POLICY && FOR ENDORSEMENT
+                    file_TestData="SAPIENS_Idirect - Copy.xlsx";
+                    objLauncher.InvokeLauncher(testngBrowser);
+                    break;
+                case"Claims":
+                    System.out.println("In Progress");
+                    //FOR CLAIMS && RENEWALS && CANCELLATION
+                    file_TestData="SAPIENS_MasterDataHOC.xlsx";
+                    objLauncher.InvokeLauncher(testngBrowser);
+                    break;
+            }
         }
         catch (Exception e){
             logger.info("Exception in Driver.mainDriver" + e.toString());

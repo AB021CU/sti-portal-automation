@@ -1066,7 +1066,7 @@ public class WebDr extends HtmlReporter {
     }
 
     //******************************************************************************************
-
+/*To get the Current Date*/
     public String getCurrentDate() throws Exception {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();

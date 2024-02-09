@@ -265,21 +265,28 @@ public class Contact extends WebDr {
                     //Bank ID Number
                     setText("txtBoxCompanyRegNo", "BCT82683182", "Enter Bank Account Number");
                     click("btnValidate", "Click Validate Button");
+                    click("btnOKBankAccountContainer", "Click OK Button");
                     if (existsNoReport("Error",true,"The error present")){
                         click("bankOkay","Click The Okay Button");
 
-                        setText("banknumber","632005","The bank value is given");
+                        //setText("banknumber","632005","The bank value is given");
+                        //click("btnValidate", "Click Validate Button");
 
-                        click("btnValidate", "Click Validate Button");
+
+                        click("btnOverride","The override button should be checked");
+
+
                     }
 
-                    Thread.sleep(5000);
+
+                    Thread.sleep(3000);
                     String validationStatus = getText("drpDwnValueVerificationStatus", "Get Validation Status");
                     if (!(validationStatus.equalsIgnoreCase("Verified"))) {
                         selectValueFromDropdown("drpDwnVerificationStatus", "text", "Verified", "Select Validation Status");
                     }
-                    getElement("txtAreaRemarks").clear();
                     click("btnOKBankAccountContainer", "Click OK Button");
+                    //getElement("txtAreaRemarks").clear();
+
                     if (getElements("paymentChannelTableCount").size() > 1) {
                         logger.info("Payment Details Captured Successfully");
                         click("btnFinish", "Click Finish Button");

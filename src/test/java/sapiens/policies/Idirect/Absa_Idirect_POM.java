@@ -421,6 +421,19 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("dBox","XPATH|//div[@class='ConfirmationPageMessageDiv']");
         Idirect_POM.put("PolicyNum","XPATH|//div[@class='ConfirmationPageMessageDiv']/span/h2");
         Idirect_POM.put("btnOk","XPATH|//button[@id='Ok']");
+
+        //Preprod For clone proposal
+        Idirect_POM.put("btnCloneProposal","XPATH|//a[contains(text(),'Clone Proposal')]");
+        //Use btnNext to click next
+        //Use btnEndRiskDetails to click next
+        //Underwriting alerts
+        // btnNext
+        //Finsih btnFinish
+
+        //Update Proposal
+        Idirect_POM.put("btnUpdateProposal","XPATH|//a[contains(text(),'Update proposal')]");
+        Idirect_POM.put("","");
+
         Idirect_POM.put("","");
         Idirect_POM.put("","");
 

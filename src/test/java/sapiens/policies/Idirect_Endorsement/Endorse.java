@@ -163,6 +163,7 @@ public class Endorse extends WebDr {
             setText("txtPolicyNumber1",policyno,"The Policy number should be placed");
             //selectValueFromDropdown("drpdwnProductType","text","Idirect","The Product Type Should be selected");
             click("btnFind","The Find Button is selected");
+
             if(exists("linkNewProposal",true,"The Value should be present")) {
                 wdriver.findElement(By.xpath("//li[@id='Policies']//following::li/a[contains(text(),'"+policyno+"')]")).click();
             }

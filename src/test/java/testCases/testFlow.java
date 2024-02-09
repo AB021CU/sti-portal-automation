@@ -9,6 +9,7 @@ import sapiens.contact.Contact;
 import sapiens.login.Login;
 import sapiens.policies.Idirect.Absa_Idirect;
 import sapiens.policies.Idirect.Absa_Idirect_Multi;
+import sapiens.policies.Idirect.PreProd;
 import sapiens.policies.Idirect_Endorsement.Endorse;
 import sapiens.searches.Searches;
 import utility.WebDr;
@@ -62,12 +63,12 @@ public class testFlow extends WebDr {
                     personalLines_IdirectClaimsCreation(preferBrowser);
                     break;
 
-                case"flow_PersonalLines_IdirectClaimsCreation1"://idirect_cancel_flow
+                case"flow_Idirect_Cancel"://idirect_cancel_flow
                     logger.info("The current scenario is: " + flowName);
                     idirectCancel(preferBrowser);
                     break;
 
-                case"flow_PersonalLines_IdirectClaimsCreation2"://idirect_renewals_flow
+                case"flow_Idirect_Renewals"://idirect_renewals_flow
                     logger.info("The current scenario is: " + flowName);
                     idirectRenewals(preferBrowser);
                     break;
@@ -139,7 +140,7 @@ public class testFlow extends WebDr {
      * METHOD FOR COVERING SINGLE COVERS IN A POLICY FOR ABSA_IDIRECT
      */
 
-    public void absa_Idirect_Flow(String preferBrowser){
+    public void absa_Idirect_Flow1(String preferBrowser){
 
         try{
             System.out.print("It working fine ");
@@ -219,6 +220,23 @@ public class testFlow extends WebDr {
             new Searches(wdriver, test).searchPolicy1();
             String Number = new IdirectCancel(wdriver, test).idirectRenewalThroughPolicy();
             new Login(wdriver, test).applicationLogOut();
+        }catch (Exception e){
+            logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);
+        }
+    }
+    /*Method for Create Proposal and Update
+
+     */
+    public void absa_Idirect_Flow(String preferBrowser) {
+        try {
+            setup(preferBrowser);
+            new Login(wdriver, test).applicationLogin();
+            new Absa_Idirect(wdriver, test).selectRecentContact();
+            new Absa_Idirect(wdriver,test).generalDetails();
+            new Absa_Idirect(wdriver,test).linesOfBusiness();
+            new PreProd(wdriver,test).paymentsDetails();
+            new Login(wdriver,test).applicationLogOut();
+            new PreProd(wdriver,test).cloneProposal();
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);
         }
