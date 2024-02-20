@@ -1,12 +1,12 @@
 package utility;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -94,21 +94,22 @@ public class WebDr extends HtmlReporter {
                     break;
 
                      */
-//
-//                        System.setProperty("webdriver.chrome.driver", Constant.Chrome_Driver);
-//                    HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-//                    chromePrefs.put("profile.default_content_settings.popups", 0);
-//                    chromePrefs.put("download.default_directory", Constant.Download);
-//                    options.setExperimentalOption("prefs", chromePrefs);
-//                    options.addArguments("incognito");
-//                    DesiredCapabilities cap = DesiredCapabilities.chrome();
-//                    cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-//                    cap.setCapability(ChromeOptions.CAPABILITY, options);
-//                    options.addArguments("start-maximized");
-//                    wdriver = new ChromeDriver(options);
-//                    wdriver.manage().deleteAllCookies();
+                    System.setProperty("webdriver.chrome.driver", Constant.Chrome_Driver);
+                    HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+                    chromePrefs.put("profile.default_content_settings.popups", 0);
+                    chromePrefs.put("download.default_directory", Constant.Download);
+                    options.setExperimentalOption("prefs", chromePrefs);
+                    options.addArguments("incognito");
+                    DesiredCapabilities cap = DesiredCapabilities.chrome();
+                    cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+                    cap.setCapability(ChromeOptions.CAPABILITY, options);
+                    options.addArguments("start-maximized");
+                    wdriver = new ChromeDriver(options);
+                    //wdriver.manage().deleteAllCookies();
+                    break;
 
 // Chromedriver with webdriver manager
+/*
                     HashMap<String, Object> chromePrefs = new HashMap<>();
                     chromePrefs.put("profile.default_content_settings.popups", 0);
                     chromePrefs.put("download.default_directory", Constant.Download);
@@ -121,8 +122,7 @@ public class WebDr extends HtmlReporter {
                     wdriver = new ChromeDriver(options);
                     wdriver.manage().deleteAllCookies();
                     break;
-
-
+*/
 
                 //Run script in headless mode
 ////                HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -177,17 +177,17 @@ public class WebDr extends HtmlReporter {
 //                    wdriver = new ChromeDriver(options);
 //                    wdriver.manage().deleteAllCookies();
 //                    break;
-                case "HeadLess":
+                /*case "HeadLess":
 //                    System.setProperty("webdriver.chrome.driver", Constant.Chrome_Driver);
-                    System.setProperty("webdriver.chrome.driver", "/opt/google/chromedriver/chromedriver");
+ //                   System.setProperty("webdriver.chrome.driver", "/opt/google/chromedriver/chromedriver");
 //                    ChromeOptions option = new ChromeOptions();
 //                    option = new ChromeOptions();
-                    options.addArguments("--no-sandbox");
-                    options.addArguments("--disable-dev-shm-usage");
+//                    options.addArguments("--no-sandbox");
+//                    options.addArguments("--disable-dev-shm-usage");
                     options.addArguments("--headless");
                     options.addArguments("window-size=1600,900");
                     wdriver = new ChromeDriver();
-                    break;
+                    break;*/
                 case "IE":
                     System.setProperty("webdriver.ie.driver", Constant.IE_Driver);
                     oCap = DesiredCapabilities.internetExplorer();
@@ -200,6 +200,12 @@ public class WebDr extends HtmlReporter {
                     oCap = DesiredCapabilities.firefox();
                     oCap.setBrowserName("firefox");
                     wdriver= new FirefoxDriver();
+                    break;
+                case "Edge":
+                    System.setProperty("webdriver.edge.driver", Constant.Edge_Driver);
+                    oCap = DesiredCapabilities.edge();
+                    oCap.setBrowserName("edge");
+                    wdriver= new EdgeDriver();
                     break;
                 /*case "Firefox_HeadLess":
                     System.setProperty("webdriver.gecko.driver", Constant.Firefox_Driver);

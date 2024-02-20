@@ -36,6 +36,7 @@ public class Absa_Idirect_POM {
         Idirect_POM.put("txtBoxExternalReferenceName", "XPATH|//input[@id='IDITForm@externalReferenceName']");//External Reference Name
         Idirect_POM.put("txtBoxCaseNbr", "XPATH|//input[@id='IDITForm@caseNbr']");//Case NBR
         Idirect_POM.put("drpDwnStaffIndicator", "XPATH|//select[@id='staffIndicator']");//Staff Indicator Dropdown
+        Idirect_POM.put("drpDwnLeadIndicator","XPATH|//select[@id='leadIndicator']");
         Idirect_POM.put("btnBoxOrigin", "XPATH|//i[@class='fa fa-stack-1x fa-ellipsis-h']");//Origin TextBox
         Idirect_POM.put("btnBoxOriginClick", "XPATH|//table[@id='idit-grid-table-flattendListattnQuestVOtreelist_pipe_']/tbody/tr[4]");//Origin click
 

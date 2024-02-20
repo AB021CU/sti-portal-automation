@@ -140,7 +140,7 @@ public class testFlow extends WebDr {
      * METHOD FOR COVERING SINGLE COVERS IN A POLICY FOR ABSA_IDIRECT
      */
 
-    public void absa_Idirect_Flow1(String preferBrowser){
+    public void absa_Idirect_Flow(String preferBrowser){
 
         try{
             System.out.print("It working fine ");
@@ -227,7 +227,7 @@ public class testFlow extends WebDr {
     /*Method for Create Proposal and Update
 
      */
-    public void absa_Idirect_Flow(String preferBrowser) {
+    public void absa_Idirect_Flow1(String preferBrowser) {
         try {
             setup(preferBrowser);
             new Login(wdriver, test).applicationLogin();
@@ -236,6 +236,9 @@ public class testFlow extends WebDr {
             new Absa_Idirect(wdriver,test).linesOfBusiness();
             new PreProd(wdriver,test).paymentsDetails();
             new Login(wdriver,test).applicationLogOut();
+            Thread.sleep(5000);
+            new Login(wdriver, test).applicationLogin();
+            new Endorse(wdriver,test).searchPolicy();
             new PreProd(wdriver,test).cloneProposal();
         }catch (Exception e){
             logger.info("Exception in sapiens_Absa Idirect Flow in Claims creation : "+e);

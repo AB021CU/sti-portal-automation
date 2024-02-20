@@ -24,6 +24,7 @@ public class Driver extends Thread{
         Driver ob=new Driver();
         ob.mainDriver("Chrome");
         //ob.mainDriver("Headless");
+        //ob.mainDriver("Edge");
     }
 
     @Test

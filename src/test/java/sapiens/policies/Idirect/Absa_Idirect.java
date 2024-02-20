@@ -35,7 +35,7 @@ public class Absa_Idirect extends WebDr {
     String buildingUsedFor = getValue("Building_UsedFor");
     String typeOfBuilding = getValue("Type_Of_Building");
     String typeOfArea = getValue("Type_Of_Area");
-    String unOccupiedDays = getValue("Unoccupied_Days");
+    //=String unOccupiedDays = getValue("Unoccupied_Days");
     String wallConstruction = getValue("Wall_Construction");
     String roofConstruction = getValue("Roof_Construction");
     String numberOfOutBuildings = getValue("NumberOfOutBuildings");
@@ -194,6 +194,7 @@ public class Absa_Idirect extends WebDr {
                     //Current Sales Channel
                     selectValueFromDropdown("drpDwnCurrentSalesChannel", "text", currentSalesChannel, "Select Current Sales Channel");
                     selectValueFromDropdown("drpDwnStaffIndicator", "text", staffIndicator, "Select Staff Indicator ");
+                    selectValueFromDropdown("drpDwnLeadIndicator", "text", "3Way Marketing", "Select Staff Indicator ");
 
                     //Proposal Questionnaire
                     System.err.println(productType);
@@ -392,6 +393,7 @@ public class Absa_Idirect extends WebDr {
                     click("chkBoxSanctionScreen", "Click Sanction Screen Completed CheckBox");
                     click("chkBoxRiskProfiling", "Click Risk Profiling Completed CheckBox");
                     click("btnNext", "Click Next");
+                    Highlight("");
                 }
 //                click("chkBoxDueDiligence", "Click Due Diligence Completed CheckBox");
 

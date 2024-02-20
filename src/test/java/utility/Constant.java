@@ -15,6 +15,7 @@ public class Constant {
     public static final String excelReportTemplate = Driver.userDir + "\\resultTemplate\\ResultTemplate.xlsx";
     public static final String Firefox_Driver = Driver.userDir + "\\Plugin\\geckodriver.exe";
     public static final String Download = Driver.userDir + "\\downloads\\";
+    public static final String Edge_Driver = Driver.userDir+"\\Plugin\\msedgedriver.exe";
     public static Boolean AlertCheck = null;
 
 }
