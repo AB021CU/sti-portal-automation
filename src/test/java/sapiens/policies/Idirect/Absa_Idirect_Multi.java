@@ -246,12 +246,15 @@ public class Absa_Idirect_Multi extends WebDr {
                 //Payments
                 String collectionMethodValue = getText("valueDrpDwnCollectionMethod", "Collection Method Default Value");
                 if (!collectionMethodValue.equalsIgnoreCase(collectionMethod)) {
+                    Highlight("drpDwnCollectionMethod");
                     selectValueFromDropdown("drpDwnCollectionMethod", "text", collectionMethod, "Select Collection Method");
                 }
                 String paymentTermsValue = getText("valueDrpDwnPaymentTerms", "Payment Terms Default Value");
                 if (!paymentTermsValue.equalsIgnoreCase(paymentTerms)) {
+                    Highlight("drpDwnPaymentTerms");
                     selectValueFromDropdown("drpDwnPaymentTerms", "text", paymentTerms, "Select Payment Terms");
                 }
+                Highlight("drpDwnPreferredDueDay");
                 selectValueFromDropdown("drpDwnPreferredDueDay", "text", preferredDueDay, "Select Preferred Due Day");
                 //Decision
                 selectValueFromDropdown("drpDwnDecision", "text", decision, "Select Decision");

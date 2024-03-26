@@ -226,37 +226,37 @@ public class Endorse extends WebDr {
                 covers.add(lblVehicle.split("[ ]")[0]);
             }
             //MOTORCYCLE
-            if (existsNoReport("verifyMotorcycle",true,"The Vehicle is present or not")){
+            if (existsNoReport("verifyMotorcycle",true,"The Motorcycle is present or not")){
                 lblMotorcycle = getElement("verifyMotorcycle").getText();
                 covers.add(lblMotorcycle.split("[ ]")[0]);
             }
             //CARAVAN
-            if (existsNoReport("verifyCaravan",true,"The Vehicle is present or not")){
+            if (existsNoReport("verifyCaravan",true,"The Caravan is present or not")){
                 lblCaravan = getElement("verifyCaravan").getText();
                 covers.add(lblCaravan.split("[ ]")[0]);
             }
             //Property/Contents
-            if (existsNoReport("verifyContents",true,"The Vehicle is present or not")){
+            if (existsNoReport("verifyContents",true,"The Contents is present or not")){
                 lblContents = getElement("verifyContents").getText();
                 covers.add(lblContents.split("[ ]")[0]);
             }
             //Property/Buildings
-            if (existsNoReport("verifyBuilding",true,"The Vehicle is present or not")){
+            if (existsNoReport("verifyBuilding",true,"The Building is present or not")){
                 lblBuilding = getElement("verifyBuilding").getText();
                 covers.add(lblBuilding.split("[ ]")[0]);
             }
             //ALLRISK
-            if (existsNoReport("verifyLOBAllrisk",true,"The Vehicle is present or not")){
+            if (existsNoReport("verifyLOBAllrisk",true,"The AllRisk is present or not")){
                 lblAllRisk = getElement("verifyLOBAllrisk").getText();
                 covers.add(lblAllRisk.split("[ ]")[0]);
             }
             //BOATS
-            if (existsNoReport("verifyLOBBoats",true,"The Vehicle is present or not")){
+            if (existsNoReport("verifyLOBBoats",true,"The Boats is present or not")){
                 lblBoats = getElement("verifyLOBBoats").getText();
                 covers.add(lblBoats.split("[ ]")[0]);
             }
             //ELECTRONICS
-            if (existsNoReport("verifyLOBEE",true,"The Vehicle is present or not")){
+            if (existsNoReport("verifyLOBEE",true,"The ElectronicEquipments is present or not")){
                 lblElectronics = getElement("verifyLOBEE").getText();
                 covers.add(lblElectronics.split("[ ]")[0]);
             }
@@ -273,13 +273,6 @@ public class Endorse extends WebDr {
                                 //For Deleting Vehicle
                                 wdriver.findElement(By.xpath("//span[text()='Vehicle Comprehensive']/preceding::span[1]")).click();
                                 delete();
-                            }if (sAddVehicle.equalsIgnoreCase("Yes")){
-                                //For Adding New Vehicle
-                                System.out.println("its working Vehicle Adding");
-                                lobList("Motorcar");
-                                business();
-                                new Absa_Idirect_Multi(wdriver,test).motorCarLog("Vehicle");
-                                closeBusiness();
                             }if (sUpVehicle.equalsIgnoreCase("Yes")){
                                 wdriver.findElement(By.xpath("//span[text()='Vehicle Comprehensive']/preceding::span[1]")).click();
                                 //For updating Vehicle
@@ -287,7 +280,6 @@ public class Endorse extends WebDr {
                                 motorCarLog("Vehicle");
                                 closeBusiness();
                             }
-                            
                         }
                         break;
                     case"Motorcycle":
@@ -445,6 +437,14 @@ public class Endorse extends WebDr {
 
                 }
 
+            }
+            if (sAddVehicle.equalsIgnoreCase("Yes")){
+                //For Adding New Vehicle
+                System.out.println("its working Vehicle Adding");
+                lobList("Motorcar");
+                business();
+                new Absa_Idirect_Multi(wdriver,test).motorCarLog("Vehicle");
+                closeBusiness();
             }
 
 

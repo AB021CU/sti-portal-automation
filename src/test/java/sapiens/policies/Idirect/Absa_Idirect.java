@@ -381,11 +381,15 @@ public class Absa_Idirect extends WebDr {
                 if (decision.equalsIgnoreCase("Confirm Policy")) {
                     selectValueFromDropdown("drpDwnReason", "text", "Final", "Select Reason from the dropDwnn");
                 }
-                if (decision.equalsIgnoreCase("Save Proposal")){
-                    selectValueFromDropdown("drpDwnReason", "text", "Pre-agreement", "Select Reason from the dropDwnn");
+                if (decision.equalsIgnoreCase("Save Proposal")) {
+                    selectValueFromDropdown("drpDwnReason", "text", "Other", "Select Reason from the dropDwnn");
+                    click("btnNext", "Click Next");
+                    Thread.sleep(4000);
+                    click("btnFinish", "Click Finish Button");
+                    //click("btnFinish", "Click Finish Button");
                 }
 
-                click("btnNext", "Click Next");
+                 click("btnNext", "Click Next");
 
                 //Screening progress
                 if (existsNoReport("noti",true,"The Notification is present")) {
@@ -414,38 +418,39 @@ public class Absa_Idirect extends WebDr {
                         Policy = getText("PolicyNum", "The Element should be visible");
                         click("btnOk", "The Value is selected");
                     }
-                    writeExcel(Policy,"For Single Cover");
 
-                    if (existsNoReport("labelMaintainEvent", true, "Maintains Event Exists")) {
-                        logger.info("Policy Payments Details Captured Successfully");
-                        if (exists("labelUnknownAddressee", true, "The Label is visible")) {
-                            click("labelUnknownAddressee", "Click Unknown Addressee");
-                            click("btnDelete", "Click Delete Button");
-                        }
-                        if (!productType.equalsIgnoreCase("Estate Late")) {
-                            click("dialogBasicNotification", "Basic Notification Dialog");
-                            click("btnDialogOK", "Click OK Button");
-                            click("labelWelcomeLetterPLSMS", "Click Welcome Letter PL SMS");
-                            click("btnDelete", "Click Delete Button");
-                        }
-                        if (existsNoReport("dialogBasicNotification", true, "Basic Notification Dialog")) {
-                            click("btnDialogOK", "Click OK Button");
-                        }
-                        click("btnFinish", "Click Finish Button");
-                        if (existsNoReport("dialogGD1000079", true, "Policy Creation Dialog")) {
-                            click("btnDialogOK", "Click OK Button");
-                        }
-                        if (existsNoReport("dialogPolicyCreation", true, "Policy Creation Dialog")) {
-                            String str = getText("txtPolicyNumber", "Get Policy Number");
-                            policyNumber = str.split("\\s+");
-                            logger.info("Policy " + policyNumber[1] + " Created Successfully");
-                            click("btnOK", "Click OK Button");
-                            String PolicyNumber = policyNumber.toString();
+                writeExcel(Policy, "For Single Cover");
 
-                        }
+                if (existsNoReport("labelMaintainEvent", true, "Maintains Event Exists")) {
+                    logger.info("Policy Payments Details Captured Successfully");
+                    if (exists("labelUnknownAddressee", true, "The Label is visible")) {
+                        click("labelUnknownAddressee", "Click Unknown Addressee");
+                        click("btnDelete", "Click Delete Button");
+                    }
+                    if (!productType.equalsIgnoreCase("Estate Late")) {
+                        click("dialogBasicNotification", "Basic Notification Dialog");
+                        click("btnDialogOK", "Click OK Button");
+                        click("labelWelcomeLetterPLSMS", "Click Welcome Letter PL SMS");
+                        click("btnDelete", "Click Delete Button");
+                    }
+                    if (existsNoReport("dialogBasicNotification", true, "Basic Notification Dialog")) {
+                        click("btnDialogOK", "Click OK Button");
+                    }
+                    click("btnFinish", "Click Finish Button");
+                    if (existsNoReport("dialogGD1000079", true, "Policy Creation Dialog")) {
+                        click("btnDialogOK", "Click OK Button");
+                    }
+                    if (existsNoReport("dialogPolicyCreation", true, "Policy Creation Dialog")) {
+                        String str = getText("txtPolicyNumber", "Get Policy Number");
+                        policyNumber = str.split("\\s+");
+                        logger.info("Policy " + policyNumber[1] + " Created Successfully");
+                        click("btnOK", "Click OK Button");
+                        String PolicyNumber = policyNumber.toString();
+
                     }
                 }
             }
+        }
         } catch (Exception e) {
             logger.info("Exception in Policy Payment Details is : " + e);
         }

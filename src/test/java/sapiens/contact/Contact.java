@@ -237,6 +237,8 @@ public class Contact extends WebDr {
                 selectValueFromDropdown("drpDwnRegisteredForTaxInSA", "text", "No", "Select Passport Nationality");
                 if (exists("tabPaymentMeans", true, "Payment Means Tab Exists")) {
                     click("tabPaymentMeans", "Click Payment Means Tab");
+
+                   // click("btnFinish", "Click Finish Button");
                     if (exists("labelPaymentMeansDetails", true, "Payment Means Details Exists"))
                         logger.info("Additional Data Captured Successfully");
                 }
